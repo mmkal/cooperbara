@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.google.copybara.onboard;
+package com.google.cooperbara.onboard;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.base.Predicate;
-import com.google.copybara.onboard.ConfigTemplate.FieldClass;
-import com.google.copybara.onboard.ConfigTemplate.Location;
+import com.google.cooperbara.onboard.ConfigTemplate.FieldClass;
+import com.google.cooperbara.onboard.ConfigTemplate.Location;
 
 /** An object that describes a OptionalField for a {@link ConfigTemplate} */
 @AutoValue
@@ -32,7 +32,7 @@ public abstract class OptionalField {
       String helpText,
       Predicate<String> predicate,
       String defaultValue) {
-    return new com.google.copybara.onboard.AutoValue_OptionalField(
+    return new com.google.cooperbara.onboard.AutoValue_OptionalField(
         name, fieldClass, location, helpText, predicate, defaultValue);
   }
 

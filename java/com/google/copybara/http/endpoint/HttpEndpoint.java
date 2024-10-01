@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.http.endpoint;
+package com.google.cooperbara.http.endpoint;
 
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
@@ -24,13 +24,13 @@ import com.google.api.client.http.HttpTransport;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSetMultimap;
-import com.google.copybara.Endpoint;
-import com.google.copybara.checks.Checker;
-import com.google.copybara.config.SkylarkUtil;
-import com.google.copybara.credentials.CredentialIssuer;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.http.auth.AuthInterceptor;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.Endpoint;
+import com.google.cooperbara.checks.Checker;
+import com.google.cooperbara.config.SkylarkUtil;
+import com.google.cooperbara.credentials.CredentialIssuer;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.http.auth.AuthInterceptor;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.util.Map.Entry;
 import java.util.Optional;

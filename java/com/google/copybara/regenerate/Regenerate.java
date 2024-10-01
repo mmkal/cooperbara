@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,32 +14,32 @@
  * limitations under the License.
  */
 
-package com.google.copybara.regenerate;
+package com.google.cooperbara.regenerate;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.AutoPatchfileConfiguration;
-import com.google.copybara.Destination.PatchRegenerator;
-import com.google.copybara.Destination.Writer;
-import com.google.copybara.DestinationReader;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Origin.Baseline;
-import com.google.copybara.Workflow;
-import com.google.copybara.WorkflowMode;
-import com.google.copybara.WorkflowOptions;
-import com.google.copybara.WorkflowRunHelper;
-import com.google.copybara.WriterContext;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.AutoPatchUtil;
-import com.google.copybara.util.ConsistencyFile;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.InsideGitDirException;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.AutoPatchfileConfiguration;
+import com.google.cooperbara.Destination.PatchRegenerator;
+import com.google.cooperbara.Destination.Writer;
+import com.google.cooperbara.DestinationReader;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Origin.Baseline;
+import com.google.cooperbara.Workflow;
+import com.google.cooperbara.WorkflowMode;
+import com.google.cooperbara.WorkflowOptions;
+import com.google.cooperbara.WorkflowRunHelper;
+import com.google.cooperbara.WriterContext;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.AutoPatchUtil;
+import com.google.cooperbara.util.ConsistencyFile;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.InsideGitDirException;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -254,19 +254,19 @@ public class Regenerate<O extends Revision, D extends Revision> {
     Glob consistencyFileGlob = Glob.createGlob(ImmutableList.of(workflow.getConsistencyFilePath()));
     patchlessDestinationFiles = Glob.difference(patchlessDestinationFiles, consistencyFileGlob);
 
-    // copy the baseline to one directory
+    // cooper the baseline to one directory
     DestinationReader previousDestinationReader =
         destinationWriter.getDestinationReader(console, regenBaseline, workdir);
-    previousDestinationReader.copyDestinationFilesToDirectory(
+    previousDestinationReader.cooperDestinationFilesToDirectory(
         patchlessDestinationFiles, previousPath);
 
-    // copy the target to another directory
+    // cooper the target to another directory
     DestinationReader nextDestinationReader =
         destinationWriter.getDestinationReader(console, regenTarget, workdir);
-    nextDestinationReader.copyDestinationFilesToDirectory(patchlessDestinationFiles, nextPath);
+    nextDestinationReader.cooperDestinationFilesToDirectory(patchlessDestinationFiles, nextPath);
 
-    // copy consistency file to a third directory
-    previousDestinationReader.copyDestinationFilesToDirectory(consistencyFileGlob, patchPath);
+    // cooper consistency file to a third directory
+    previousDestinationReader.cooperDestinationFilesToDirectory(consistencyFileGlob, patchPath);
 
     // reverse patch files on the target directory here to get a pristine import
     Path consistencyFilePath = patchPath.resolve(workflow.getConsistencyFilePath());
@@ -311,7 +311,7 @@ public class Regenerate<O extends Revision, D extends Revision> {
                 + " the import baseline.\n"
                 + "Regenerate will use the latest reference or follow `--same-version`, but this"
                 + " may not match the one used for the initial import\n"
-                + "To pass in a reference, add it to the copybara command, e.g. `copybara"
+                + "To pass in a reference, add it to the cooperbara command, e.g. `cooperbara"
                 + " regenerate [config path] [migration name] [reference]`\n");
         // use workflow logic to determine reference
         importRevision = workflow.getOrigin().resolve(sourceRef);
@@ -345,17 +345,17 @@ public class Regenerate<O extends Revision, D extends Revision> {
       patchlessDestinationFiles = Glob.difference(patchlessDestinationFiles, consistencyFileGlob);
     }
 
-    // copy the baseline to one directory
+    // cooper the baseline to one directory
     DestinationReader previousDestinationReader =
         destinationWriter.getDestinationReader(console, (Baseline<?>) null, workdir);
     Path importPath =
         runHelper.importAndTransformRevision(
             console, null, importRevision, () -> previousDestinationReader);
 
-    // copy the target to another directory
+    // cooper the target to another directory
     DestinationReader nextDestinationReader =
         destinationWriter.getDestinationReader(console, regenTarget, workdir);
-    nextDestinationReader.copyDestinationFilesToDirectory(patchlessDestinationFiles, nextPath);
+    nextDestinationReader.cooperDestinationFilesToDirectory(patchlessDestinationFiles, nextPath);
 
     return importPath;
   }

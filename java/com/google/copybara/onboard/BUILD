@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -27,21 +27,21 @@ java_library(
     srcs = glob(["*.java"]),
     javacopts = JAVACOPTS,
     deps = [
-        "//java/com/google/copybara:base",
-        "//java/com/google/copybara:copybara_lib",
-        "//java/com/google/copybara:general_options",
-        "//java/com/google/copybara/authoring",
-        "//java/com/google/copybara/config:base",
-        "//java/com/google/copybara/config:parser",
-        "//java/com/google/copybara/configgen",
-        "//java/com/google/copybara/exception",
-        "//java/com/google/copybara/format:buildifier_options",
-        "//java/com/google/copybara/git",
-        "//java/com/google/copybara/git:core",
-        "//java/com/google/copybara/jcommander:converters",
-        "//java/com/google/copybara/onboard/core",
-        "//java/com/google/copybara/util",
-        "//java/com/google/copybara/util/console",
+        "//java/com/google/cooperbara:base",
+        "//java/com/google/cooperbara:cooperbara_lib",
+        "//java/com/google/cooperbara:general_options",
+        "//java/com/google/cooperbara/authoring",
+        "//java/com/google/cooperbara/config:base",
+        "//java/com/google/cooperbara/config:parser",
+        "//java/com/google/cooperbara/configgen",
+        "//java/com/google/cooperbara/exception",
+        "//java/com/google/cooperbara/format:buildifier_options",
+        "//java/com/google/cooperbara/git",
+        "//java/com/google/cooperbara/git:core",
+        "//java/com/google/cooperbara/jcommander:converters",
+        "//java/com/google/cooperbara/onboard/core",
+        "//java/com/google/cooperbara/util",
+        "//java/com/google/cooperbara/util/console",
         "//third_party:autovalue",
         "//third_party:flogger",
         "//third_party:guava",
@@ -58,9 +58,9 @@ java_library(
     srcs = glob(["GeneratorOptions.java"]),
     javacopts = JAVACOPTS,
     deps = [
-        "//java/com/google/copybara:base",
-        "//java/com/google/copybara/jcommander:converters",
-        "//java/com/google/copybara/onboard/core",
+        "//java/com/google/cooperbara:base",
+        "//java/com/google/cooperbara/jcommander:converters",
+        "//java/com/google/cooperbara/onboard/core",
         "//third_party:guava",
         "//third_party:jcommander",
     ],

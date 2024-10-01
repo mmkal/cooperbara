@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.google.copybara.http.endpoint;
+package com.google.cooperbara.http.endpoint;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.credentials.CredentialIssuer;
-import com.google.copybara.credentials.CredentialIssuingException;
-import com.google.copybara.credentials.CredentialRetrievalException;
+import com.google.cooperbara.credentials.CredentialIssuer;
+import com.google.cooperbara.credentials.CredentialIssuingException;
+import com.google.cooperbara.credentials.CredentialRetrievalException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.google.copybara.onboard;
+package com.google.cooperbara.onboard;
 
 import com.beust.jcommander.Parameters;
-import com.google.copybara.CommandEnv;
-import com.google.copybara.CopybaraCmd;
-import com.google.copybara.util.ExitCode;
+import com.google.cooperbara.CommandEnv;
+import com.google.cooperbara.CopybaraCmd;
+import com.google.cooperbara.util.ExitCode;
 
 /**
  * CopybaraCmd that assists users in creating a config file. Note that this is still experimental
  * and a work in progress. In the near term, users will be able to generate a simple config by
- * running `copybara onboard` and following onscreen prompts. This functionality will be extended
+ * running `cooperbara onboard` and following onscreen prompts. This functionality will be extended
  * over time.
  */
 @Parameters(

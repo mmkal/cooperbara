@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package com.google.copybara.monitor;
+package com.google.cooperbara.monitor;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
-import com.google.copybara.Info;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.profiler.Task;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.ExitCode;
+import com.google.cooperbara.Info;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.profiler.Task;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.ExitCode;
 import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -121,7 +121,7 @@ public interface EventMonitor {
         ExitCode exitCode, @Nullable List<Task> profileData) {
       this.exitCode = Preconditions.checkNotNull(exitCode);
       this.profileData = Optional.ofNullable(
-          profileData == null ? null : ImmutableList.copyOf(profileData));
+          profileData == null ? null : ImmutableList.cooperOf(profileData));
     }
 
     public ExitCode getExitCode() {

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.google.copybara.http.auth;
+package com.google.cooperbara.http.auth;
 
 import com.google.api.client.http.HttpExecuteInterceptor;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSetMultimap;
-import com.google.copybara.credentials.CredentialIssuingException;
-import com.google.copybara.credentials.CredentialModule.UsernamePasswordIssuer;
-import com.google.copybara.credentials.CredentialRetrievalException;
+import com.google.cooperbara.credentials.CredentialIssuingException;
+import com.google.cooperbara.credentials.CredentialModule.UsernamePasswordIssuer;
+import com.google.cooperbara.credentials.CredentialRetrievalException;
 
 /** Representation for authentication information for an http request. */
 public class UsernamePasswordInterceptor implements AuthInterceptor {

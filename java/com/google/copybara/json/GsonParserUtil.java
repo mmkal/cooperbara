@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.json;
+package com.google.cooperbara.json;
 
 import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.HttpStatusCodes;
@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * {@link MalformedJsonException} is encountered.
  *
  * <p>When a MalformedJsonException occurs, we can't retrieve the response as a
- * string because it has already been consumed. To work around this, we will copy the response
+ * string because it has already been consumed. To work around this, we will cooper the response
  * contents first to a ByteArrayInputStream. This allows us to return the string in an exception.
  */
 public class GsonParserUtil {

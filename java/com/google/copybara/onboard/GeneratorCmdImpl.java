@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package com.google.copybara.onboard;
+package com.google.cooperbara.onboard;
 
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.CommandEnv;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.format.BuildifierOptions;
-import com.google.copybara.onboard.core.CannotConvertException;
-import com.google.copybara.onboard.core.CannotProvideException;
-import com.google.copybara.onboard.core.InputProviderResolver;
-import com.google.copybara.onboard.core.template.ConfigGenerator;
-import com.google.copybara.util.CommandOutputWithStatus;
-import com.google.copybara.util.ExitCode;
-import com.google.copybara.util.console.Console;
-import com.google.copybara.shell.Command;
-import com.google.copybara.shell.CommandException;
+import com.google.cooperbara.CommandEnv;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.format.BuildifierOptions;
+import com.google.cooperbara.onboard.core.CannotConvertException;
+import com.google.cooperbara.onboard.core.CannotProvideException;
+import com.google.cooperbara.onboard.core.InputProviderResolver;
+import com.google.cooperbara.onboard.core.template.ConfigGenerator;
+import com.google.cooperbara.util.CommandOutputWithStatus;
+import com.google.cooperbara.util.ExitCode;
+import com.google.cooperbara.util.console.Console;
+import com.google.cooperbara.shell.Command;
+import com.google.cooperbara.shell.CommandException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -64,7 +64,7 @@ public class GeneratorCmdImpl {
       }
       String config = template.generate(resolver);
 
-      Path configDestination = path.get().resolve("copy.bara.sky");
+      Path configDestination = path.get().resolve("cooper.bara.sky");
       if (!Files.exists(configDestination.getParent())) {
         Files.createDirectories(configDestination.getParent());
       }

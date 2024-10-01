@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -22,7 +22,7 @@ java_library(
     name = "re2",
     srcs = glob(["**/*.java"]),
     deps = [
-        "//java/com/google/copybara/doc:annotations",  # Used for doc generation
+        "//java/com/google/cooperbara/doc:annotations",  # Used for doc generation
         "//third_party:re2j",
         "//third_party:starlark",
     ],

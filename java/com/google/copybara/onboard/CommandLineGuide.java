@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.google.copybara.onboard;
+package com.google.cooperbara.onboard;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import com.google.copybara.CommandEnv;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.CommandEnv;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -33,12 +33,12 @@ final class CommandLineGuide {
   public static void runForCommandLine(CommandEnv commandEnv) {
     Console console = commandEnv.getOptions().get(GeneralOptions.class).console();
     console.info("Welcome to Copybara's Assisted Onboarding Tool!\n");
-    com.google.copybara.onboard.ConfigBuilder configBuilder =
-        new com.google.copybara.onboard.ConfigBuilder(
-            new com.google.copybara.onboard.GitToGitTemplate());
-    Set<com.google.copybara.onboard.RequiredField> requiredFields =
+    com.google.cooperbara.onboard.ConfigBuilder configBuilder =
+        new com.google.cooperbara.onboard.ConfigBuilder(
+            new com.google.cooperbara.onboard.GitToGitTemplate());
+    Set<com.google.cooperbara.onboard.RequiredField> requiredFields =
         configBuilder.getRequiredFields();
-    for (com.google.copybara.onboard.RequiredField field : requiredFields) {
+    for (com.google.cooperbara.onboard.RequiredField field : requiredFields) {
       String response =
           tryAskConsole(
               console,
@@ -61,7 +61,7 @@ final class CommandLineGuide {
       console.info(
           String.format(
               "Config generation successful! Please paste this config text into a new file named"
-                  + " copy.bara.sky:\n\n"
+                  + " cooper.bara.sky:\n\n"
                   + "%s",
               configBuilder.build()));
     }

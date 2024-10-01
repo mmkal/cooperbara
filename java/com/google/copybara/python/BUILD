@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -21,9 +21,9 @@ package(default_visibility = ["//visibility:public"])
 java_library(
     name = "python",
     srcs = glob(["*.java"]),
-    plugins = ["//java/com/google/copybara/doc:document"],
+    plugins = ["//java/com/google/cooperbara/doc:document"],
     deps = [
-        "//java/com/google/copybara:base",
+        "//java/com/google/cooperbara:base",
         "//third_party:guava",
         "//third_party:starlark",
         "//third_party:sun_mail",

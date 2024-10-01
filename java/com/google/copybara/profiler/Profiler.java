@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.profiler;
+package com.google.cooperbara.profiler;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
@@ -33,13 +33,13 @@ import javax.annotation.Nullable;
 public final class Profiler {
 
   @VisibleForTesting
-  public static final String ROOT_NAME = "//copybara";
+  public static final String ROOT_NAME = "//cooperbara";
   public static final String TYPE = "type";
 
   private final ProfilerTask nullProfilerTask;
 
   /**
-   * A stack of tasks to be finished. When a new thread is spawned we create a copy
+   * A stack of tasks to be finished. When a new thread is spawned we create a cooper
    * of the stack with only the top-level element so that we can use it as a parent.
    */
   @VisibleForTesting
@@ -47,14 +47,14 @@ public final class Profiler {
       new InheritableThreadLocal<Deque<Task>>() {
 
     /**
-     * Make a copy of the parent thread stack but only keep the top level one, since a child
+     * Make a cooper of the parent thread stack but only keep the top level one, since a child
      * shouldn't be able to finish a parent job. We only keep the latest one in order to be
      * able to construct child elements.
      */
     @Override
     protected Deque<Task> childValue(Deque<Task> parentValue) {
       // Parent can be empty if the listener creates a thread when it receives the finish
-      // event for the root task ("//copybara").
+      // event for the root task ("//cooperbara").
       if (stopped || parentValue.isEmpty()) {
         return null;
       }

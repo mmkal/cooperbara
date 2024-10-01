@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.profiler;
+package com.google.cooperbara.profiler;
 
 import com.google.common.flogger.FluentLogger;
 import java.time.Duration;
@@ -40,7 +40,7 @@ public class LogProfilerListener implements Listener {
                     .skip(2)
                     .dropWhile(
                         frame ->
-                            frame.getClassName().equals("com.google.copybara.profiler.Profiler")
+                            frame.getClassName().equals("com.google.cooperbara.profiler.Profiler")
                                 || frame.getMethodName().startsWith("$"))
                     .findFirst())
         .ifPresentOrElse(

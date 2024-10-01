@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package com.google.copybara.onboard;
+package com.google.cooperbara.onboard;
 
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.CommandEnv;
-import com.google.copybara.CopybaraCmd;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.ModuleSet;
-import com.google.copybara.onboard.core.CannotProvideException;
-import com.google.copybara.onboard.core.InputProvider;
-import com.google.copybara.onboard.core.InputProviderResolver;
-import com.google.copybara.onboard.core.InputProviderResolverImpl;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.CommandEnv;
+import com.google.cooperbara.CopybaraCmd;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.ModuleSet;
+import com.google.cooperbara.onboard.core.CannotProvideException;
+import com.google.cooperbara.onboard.core.InputProvider;
+import com.google.cooperbara.onboard.core.InputProviderResolver;
+import com.google.cooperbara.onboard.core.InputProviderResolverImpl;
+import com.google.cooperbara.util.console.Console;
 
 /** An interface for onboarding specific commands. */
 public interface OnboardingCmd extends CopybaraCmd {

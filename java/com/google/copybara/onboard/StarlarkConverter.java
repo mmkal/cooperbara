@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package com.google.copybara.onboard;
+package com.google.cooperbara.onboard;
 
-import static com.google.copybara.util.console.StarlarkMode.STRICT;
+import static com.google.cooperbara.util.console.StarlarkMode.STRICT;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.ModuleSet;
-import com.google.copybara.config.MapConfigFile;
-import com.google.copybara.config.SkylarkParser;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.onboard.core.CannotConvertException;
-import com.google.copybara.onboard.core.Converter;
-import com.google.copybara.onboard.core.InputProviderResolver;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.ModuleSet;
+import com.google.cooperbara.config.MapConfigFile;
+import com.google.cooperbara.config.SkylarkParser;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.onboard.core.CannotConvertException;
+import com.google.cooperbara.onboard.core.Converter;
+import com.google.cooperbara.onboard.core.InputProviderResolver;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import net.starlark.java.eval.Module;
 
@@ -50,8 +50,8 @@ public class StarlarkConverter implements Converter<Object> {
       throws CannotConvertException {
     MapConfigFile content =
         new MapConfigFile(
-            ImmutableMap.of("copy.bara.sky", ("CONVERTED_VAR = " + value).getBytes(UTF_8)),
-            "copy.bara.sky");
+            ImmutableMap.of("cooper.bara.sky", ("CONVERTED_VAR = " + value).getBytes(UTF_8)),
+            "cooper.bara.sky");
     try {
       Module module = skylarkParser.executeSkylark(content, moduleSet, console);
       return module.getGlobal("CONVERTED_VAR");

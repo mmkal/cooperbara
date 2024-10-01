@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package com.google.copybara.onboard;
+package com.google.cooperbara.onboard;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.authoring.AuthorParser;
-import com.google.copybara.authoring.InvalidAuthorException;
-import com.google.copybara.configgen.ConfigGenHeuristics.GeneratorTransformations;
-import com.google.copybara.onboard.core.CannotConvertException;
-import com.google.copybara.onboard.core.Converter;
-import com.google.copybara.onboard.core.Input;
-import com.google.copybara.onboard.core.InputProviderResolver;
-import com.google.copybara.onboard.core.template.ConfigGenerator;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.authoring.AuthorParser;
+import com.google.cooperbara.authoring.InvalidAuthorException;
+import com.google.cooperbara.configgen.ConfigGenHeuristics.GeneratorTransformations;
+import com.google.cooperbara.onboard.core.CannotConvertException;
+import com.google.cooperbara.onboard.core.Converter;
+import com.google.cooperbara.onboard.core.Input;
+import com.google.cooperbara.onboard.core.InputProviderResolver;
+import com.google.cooperbara.onboard.core.template.ConfigGenerator;
+import com.google.cooperbara.util.Glob;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;

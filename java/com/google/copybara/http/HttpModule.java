@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,30 +14,30 @@
  * limitations under the License.
  */
 
-package com.google.copybara.http;
+package com.google.cooperbara.http;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.CheckoutPath;
-import com.google.copybara.EndpointProvider;
-import com.google.copybara.Trigger;
-import com.google.copybara.checks.Checker;
-import com.google.copybara.config.SkylarkUtil;
-import com.google.copybara.credentials.CredentialIssuer;
-import com.google.copybara.credentials.CredentialModule.UsernamePasswordIssuer;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.http.auth.AuthInterceptor;
-import com.google.copybara.http.auth.UsernamePasswordInterceptor;
-import com.google.copybara.http.endpoint.HttpEndpoint;
-import com.google.copybara.http.json.HttpEndpointJsonContent;
-import com.google.copybara.http.multipart.FilePart;
-import com.google.copybara.http.multipart.HttpEndpointFormPart;
-import com.google.copybara.http.multipart.HttpEndpointMultipartFormContent;
-import com.google.copybara.http.multipart.HttpEndpointUrlEncodedFormContent;
-import com.google.copybara.http.multipart.TextPart;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.CheckoutPath;
+import com.google.cooperbara.EndpointProvider;
+import com.google.cooperbara.Trigger;
+import com.google.cooperbara.checks.Checker;
+import com.google.cooperbara.config.SkylarkUtil;
+import com.google.cooperbara.credentials.CredentialIssuer;
+import com.google.cooperbara.credentials.CredentialModule.UsernamePasswordIssuer;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.http.auth.AuthInterceptor;
+import com.google.cooperbara.http.auth.UsernamePasswordInterceptor;
+import com.google.cooperbara.http.endpoint.HttpEndpoint;
+import com.google.cooperbara.http.json.HttpEndpointJsonContent;
+import com.google.cooperbara.http.multipart.FilePart;
+import com.google.cooperbara.http.multipart.HttpEndpointFormPart;
+import com.google.cooperbara.http.multipart.HttpEndpointMultipartFormContent;
+import com.google.cooperbara.http.multipart.HttpEndpointUrlEncodedFormContent;
+import com.google.cooperbara.http.multipart.TextPart;
+import com.google.cooperbara.util.console.Console;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Optional;

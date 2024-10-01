@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.onboard;
+package com.google.cooperbara.onboard;
 
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
@@ -26,17 +26,17 @@ import java.util.Map;
 /** A class that makes usable config strings from {@link ConfigTemplate} objects */
 public class ConfigBuilder {
 
-  private final com.google.copybara.onboard.ConfigTemplate configTemplate;
+  private final com.google.cooperbara.onboard.ConfigTemplate configTemplate;
   private String configInProgress;
   private final Map<String, String> keywordParams = new LinkedHashMap<>();
 
-  public ConfigBuilder(com.google.copybara.onboard.ConfigTemplate configTemplate) {
+  public ConfigBuilder(com.google.cooperbara.onboard.ConfigTemplate configTemplate) {
     this.configTemplate = configTemplate;
     this.configInProgress = configTemplate.getTemplateString();
   }
 
-  public ImmutableSet<com.google.copybara.onboard.RequiredField> getRequiredFields() {
-    return ImmutableSet.copyOf(configTemplate.getRequiredFields());
+  public ImmutableSet<com.google.cooperbara.onboard.RequiredField> getRequiredFields() {
+    return ImmutableSet.cooperOf(configTemplate.getRequiredFields());
   }
 
   public void setNamedStringParameter(String name, String value) {
@@ -72,7 +72,7 @@ public class ConfigBuilder {
               "Config is not valid.\n\nConfig: %s\n\nRequired Fields: %s",
               configInProgress,
               configTemplate.getRequiredFields().stream()
-                  .map(com.google.copybara.onboard.RequiredField::name)
+                  .map(com.google.cooperbara.onboard.RequiredField::name)
                   .collect(toList())));
     }
     return configInProgress;

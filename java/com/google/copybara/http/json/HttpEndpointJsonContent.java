@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.copybara.http.json;
+package com.google.cooperbara.http.json;
 
 import com.google.api.client.http.HttpContent;
 import com.google.api.client.http.json.JsonHttpContent;
 import com.google.api.client.json.gson.GsonFactory;
-import com.google.copybara.http.endpoint.HttpEndpointBody;
+import com.google.cooperbara.http.endpoint.HttpEndpointBody;
 import net.starlark.java.eval.StarlarkValue;
 
 /** Constructs data for an HTTP request containing JSON data payload. */

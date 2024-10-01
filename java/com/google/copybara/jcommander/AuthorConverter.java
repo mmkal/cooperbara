@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.google.copybara.jcommander;
+package com.google.cooperbara.jcommander;
 
 import com.beust.jcommander.IStringConverter;
 import com.beust.jcommander.ParameterException;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.authoring.AuthorParser;
-import com.google.copybara.authoring.InvalidAuthorException;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.authoring.AuthorParser;
+import com.google.cooperbara.authoring.InvalidAuthorException;
 
 /**
  * Class converting a JCommander argument into an {@link Author} .
