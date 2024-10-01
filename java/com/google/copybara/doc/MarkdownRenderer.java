@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.doc;
+package com.google.cooperbara.doc;
 
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.joining;
@@ -25,13 +25,13 @@ import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
-import com.google.copybara.doc.DocBase.DocExample;
-import com.google.copybara.doc.DocBase.DocField;
-import com.google.copybara.doc.DocBase.DocFlag;
-import com.google.copybara.doc.DocBase.DocFunction;
-import com.google.copybara.doc.DocBase.DocModule;
-import com.google.copybara.doc.DocBase.DocParam;
-import com.google.copybara.doc.annotations.Example;
+import com.google.cooperbara.doc.DocBase.DocExample;
+import com.google.cooperbara.doc.DocBase.DocField;
+import com.google.cooperbara.doc.DocBase.DocFlag;
+import com.google.cooperbara.doc.DocBase.DocFunction;
+import com.google.cooperbara.doc.DocBase.DocModule;
+import com.google.cooperbara.doc.DocBase.DocParam;
+import com.google.cooperbara.doc.annotations.Example;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -118,7 +118,7 @@ final class MarkdownRenderer {
     TreeSet<DocFlag> flagSet = new TreeSet<>();
     modules.forEach(module -> flagSet.addAll(module.flags));
     DocModule flagModule =
-        new DocModule("copybara_flags", "All flag options available to the Copybara CLI.");
+        new DocModule("cooperbara_flags", "All flag options available to the Copybara CLI.");
     flagModule.flags.addAll(flagSet);
     return flagModule;
   }

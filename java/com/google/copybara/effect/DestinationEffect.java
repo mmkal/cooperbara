@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.google.copybara.effect;
+package com.google.cooperbara.effect;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.revision.OriginRef;
+import com.google.cooperbara.revision.OriginRef;
 import java.util.Objects;
 import javax.annotation.Nullable;
 import net.starlark.java.annot.StarlarkBuiltin;
@@ -57,9 +57,9 @@ public class DestinationEffect implements StarlarkValue {
       Iterable<String> errors) {
     this.type = Preconditions.checkNotNull(type);
     this.summary = Preconditions.checkNotNull(summary);
-    this.originRefs = ImmutableList.copyOf(Preconditions.checkNotNull(originRefs));
+    this.originRefs = ImmutableList.cooperOf(Preconditions.checkNotNull(originRefs));
     this.destinationRef = destinationRef;
-    this.errors = ImmutableList.copyOf(Preconditions.checkNotNull(errors));
+    this.errors = ImmutableList.cooperOf(Preconditions.checkNotNull(errors));
   }
 
   /** Returns the origin references included in this effect. */

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package com.google.copybara.buildozer;
+package com.google.cooperbara.buildozer;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.WorkflowOptions;
-import com.google.copybara.buildozer.BuildozerOptions.BuildozerCommand;
-import com.google.copybara.exception.ValidationException;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.WorkflowOptions;
+import com.google.cooperbara.buildozer.BuildozerOptions.BuildozerCommand;
+import com.google.cooperbara.exception.ValidationException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -93,7 +93,7 @@ public final class BuildozerCreate implements BuildozerTransformation {
     this.target = checkNotNull(target, "target");
     this.ruleType = checkNotNull(ruleType, "ruleType");
     this.relativeTo = checkNotNull(relativeTo, "relativeTo");
-    this.commands = ImmutableList.copyOf(commands);
+    this.commands = ImmutableList.cooperOf(commands);
   }
 
   @Override

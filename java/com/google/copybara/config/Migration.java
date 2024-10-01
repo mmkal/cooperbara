@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.copybara.config;
+package com.google.cooperbara.config;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSetMultimap;
-import com.google.copybara.Info;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.revision.Revision;
+import com.google.cooperbara.Info;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.revision.Revision;
 import java.io.IOException;
 import java.nio.file.Path;
 import javax.annotation.Nullable;

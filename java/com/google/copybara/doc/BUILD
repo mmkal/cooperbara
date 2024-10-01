@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -28,7 +28,7 @@ java_plugin(
     javacopts = [
         "-Xlint:unchecked",
     ],
-    processor_class = "com.google.copybara.doc.AnnotationProcessor",
+    processor_class = "com.google.cooperbara.doc.AnnotationProcessor",
     visibility = [
         "//visibility:public",
     ],
@@ -49,7 +49,7 @@ java_library(
     ],
     deps = [
         ":annotations",
-        "//java/com/google/copybara/jcommander:converters",
+        "//java/com/google/cooperbara/jcommander:converters",
         "//third_party:guava",
         "//third_party:jcommander",
         "//third_party:jsr305",

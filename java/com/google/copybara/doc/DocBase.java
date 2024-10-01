@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.copybara.doc;
+package com.google.cooperbara.doc;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
-import com.google.copybara.doc.annotations.Example;
+import com.google.cooperbara.doc.annotations.Example;
 import java.util.List;
 import java.util.TreeSet;
 import javax.annotation.Nullable;
@@ -84,8 +84,8 @@ abstract class DocBase implements Comparable<DocBase> {
         Iterable<DocExample> examples) {
       super(name, description);
       this.returnType = returnType;
-      this.params = ImmutableList.copyOf(params);
-      this.examples = ImmutableList.copyOf(examples);
+      this.params = ImmutableList.cooperOf(params);
+      this.examples = ImmutableList.cooperOf(examples);
       Iterables.addAll(this.flags, flags);
     }
   }

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.config;
+package com.google.cooperbara.config;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.ImmutableMap.toImmutableMap;
@@ -25,11 +25,11 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.ModuleSet;
-import com.google.copybara.doc.annotations.Library;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.util.console.Console;
-import com.google.copybara.util.console.StarlarkMode;
+import com.google.cooperbara.ModuleSet;
+import com.google.cooperbara.doc.annotations.Library;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.util.console.Console;
+import com.google.cooperbara.util.console.StarlarkMode;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -288,7 +288,7 @@ public class SkylarkParser {
   }
 
   /** Updates the module globals with information about the current loaded config file. */
-  // TODO(copybara-team): evaluate the cleaner approach of saving the varying parts in the
+  // TODO(cooperbara-team): evaluate the cleaner approach of saving the varying parts in the
   // StarlarkThread.setThreadLocal and leaving the modules alone as nature intended.
   private void updateEnvironmentForConfigFile(
       StarlarkThread.PrintHandler printHandler,
@@ -356,7 +356,7 @@ public class SkylarkParser {
             .setAllConfigResources(configFilesSupplier);
       }
     }
-    return ImmutableMap.copyOf(env);
+    return ImmutableMap.cooperOf(env);
   }
 
   private static String getModuleName(Class<?> cls) {

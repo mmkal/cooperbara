@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.copybara.buildozer;
+package com.google.cooperbara.buildozer;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
-import com.google.copybara.exception.NonReversibleValidationException;
+import com.google.cooperbara.exception.NonReversibleValidationException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -89,8 +89,8 @@ public final class Command implements StarlarkValue {
       switch (argv.get(0)) {
         case "del_subinclude":
         case "rename":
-        case "copy":
-        case "copy_no_overwrite":
+        case "cooper":
+        case "cooper_no_overwrite":
           validateCount(argCount() == 2, "exactly 2 arguments");
           break;
         case "fix":

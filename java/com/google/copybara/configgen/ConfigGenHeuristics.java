@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.copybara.configgen;
+package com.google.cooperbara.configgen;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.ImmutableSet.toImmutableSet;
@@ -26,8 +26,8 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.hash.Hashing;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.RenameDetector;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.RenameDetector;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -340,7 +340,7 @@ public class ConfigGenHeuristics {
       ImmutableSet<Path> excludedPaths = findMatchingExcludes(toBeExcluded);
       IncludesGlob optimizedExcludes =
           new ExcludesGlob(ImmutableSet.of("**"), ImmutableSet.of())
-              .minimizeScore(excludedPaths, ImmutableSet.copyOf(toBeIncluded), 0);
+              .minimizeScore(excludedPaths, ImmutableSet.cooperOf(toBeIncluded), 0);
 
       // Found a better excludes than the naive approach of listing all excludes!
       if (optimizedExcludes.excludes.isEmpty()) {

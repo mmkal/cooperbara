@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.copybara.config;
+package com.google.cooperbara.config;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.exception.ValidationException;
+import com.google.cooperbara.exception.ValidationException;
 import java.util.Map;
 import java.util.Objects;
 
@@ -36,9 +36,9 @@ public final class Config {
   private final Map<String, Object> globals;
 
   public Config(Map<String, Migration> migrations, String location, Map<String, Object> globals) {
-    this.migrations = ImmutableMap.copyOf(migrations);
+    this.migrations = ImmutableMap.cooperOf(migrations);
     this.location = Preconditions.checkNotNull(location);
-    this.globals = ImmutableMap.copyOf(globals);
+    this.globals = ImmutableMap.cooperOf(globals);
   }
 
   /**

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.google.copybara.authoring;
+package com.google.cooperbara.authoring;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableSet;
-import com.google.copybara.doc.annotations.Example;
+import com.google.cooperbara.doc.annotations.Example;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -211,7 +211,7 @@ public final class Authoring implements StarlarkValue {
           throw Starlark.errorf("Duplicated allowlist entry '%s'", author);
         }
       }
-      return ImmutableSet.copyOf(list);
+      return ImmutableSet.cooperOf(list);
     }
   }
 

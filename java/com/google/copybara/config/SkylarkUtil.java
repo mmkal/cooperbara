@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.google.copybara.config;
+package com.google.cooperbara.config;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
-import com.google.copybara.starlark.StarlarkUtil;
+import com.google.cooperbara.starlark.StarlarkUtil;
 import com.google.errorprone.annotations.FormatMethod;
 import com.google.errorprone.annotations.FormatString;
 import java.util.ArrayList;
@@ -91,7 +91,7 @@ public final class SkylarkUtil {
 
   /**
    * convertStringList converts a Starlark sequence value (such as a list or tuple) to a Java list
-   * of strings. The result is a new, mutable copy. It throws EvalException if x is not a Starlark
+   * of strings. The result is a new, mutable cooper. It throws EvalException if x is not a Starlark
    * iterable or if any of its elements are not strings. The message argument is prefixed to any
    * error message.
    */
@@ -116,7 +116,7 @@ public final class SkylarkUtil {
 
   /**
    * convertStringMap converts a Starlark dict value to a Java map of strings to strings. The result
-   * is a new, mutable copy. It throws EvalException if x is not a Starlark dict or if any of its
+   * is a new, mutable cooper. It throws EvalException if x is not a Starlark dict or if any of its
    * keys or values are not strings. The message argument is prefixed to any error message.
    */
   public static Map<String, String> convertStringMap(Object x, String message)

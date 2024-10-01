@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Bazel rule to generate copybara reference docs."""
+"""Bazel rule to generate cooperbara reference docs."""
 
 load("@rules_java//java:defs.bzl", "java_binary")
 
@@ -19,8 +19,8 @@ def _doc_generator_impl(ctx):
     jars = []
     for target in ctx.attr.targets:
         for jar in target[JavaInfo].transitive_source_jars.to_list():
-            # This is a hack to only include copybara jars and not all dependencies
-            if jar.path.find("copybara") != -1:
+            # This is a hack to only include cooperbara jars and not all dependencies
+            if jar.path.find("cooperbara") != -1:
                 jars.append(jar)
     ctx.actions.run(
         inputs = jars + ctx.files.template_file,
@@ -50,7 +50,7 @@ doc_generator = rule(
     implementation = _doc_generator_impl,
 )
 
-def copybara_reference(name, *, out, libraries, template_file = None):
+def cooperbara_reference(name, *, out, libraries, template_file = None):
     """
     Auto-generate reference documentation for a target containing Copybara libraries.
 
@@ -60,8 +60,8 @@ def copybara_reference(name, *, out, libraries, template_file = None):
     """
     java_binary(
         name = "generator",
-        main_class = "com.google.copybara.doc.Generator",
-        runtime_deps = ["//java/com/google/copybara/doc:generator-lib"] + libraries,
+        main_class = "com.google.cooperbara.doc.Generator",
+        runtime_deps = ["//java/com/google/cooperbara/doc:generator-lib"] + libraries,
     )
 
     doc_generator(

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.doc;
+package com.google.cooperbara.doc;
 
 import static com.google.common.base.Strings.emptyToNull;
 import static com.google.common.collect.ImmutableList.toImmutableList;
@@ -28,18 +28,18 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.html.HtmlEscapers;
 import com.google.common.io.CharStreams;
-import com.google.copybara.doc.DocBase.DocExample;
-import com.google.copybara.doc.DocBase.DocField;
-import com.google.copybara.doc.DocBase.DocFlag;
-import com.google.copybara.doc.DocBase.DocFunction;
-import com.google.copybara.doc.DocBase.DocModule;
-import com.google.copybara.doc.DocBase.DocParam;
-import com.google.copybara.doc.annotations.DocDefault;
-import com.google.copybara.doc.annotations.DocSignaturePrefix;
-import com.google.copybara.doc.annotations.Example;
-import com.google.copybara.doc.annotations.Library;
-import com.google.copybara.doc.annotations.UsesFlags;
-import com.google.copybara.jcommander.DurationConverter;
+import com.google.cooperbara.doc.DocBase.DocExample;
+import com.google.cooperbara.doc.DocBase.DocField;
+import com.google.cooperbara.doc.DocBase.DocFlag;
+import com.google.cooperbara.doc.DocBase.DocFunction;
+import com.google.cooperbara.doc.DocBase.DocModule;
+import com.google.cooperbara.doc.DocBase.DocParam;
+import com.google.cooperbara.doc.annotations.DocDefault;
+import com.google.cooperbara.doc.annotations.DocSignaturePrefix;
+import com.google.cooperbara.doc.annotations.Example;
+import com.google.cooperbara.doc.annotations.Library;
+import com.google.cooperbara.doc.annotations.UsesFlags;
+import com.google.cooperbara.jcommander.DurationConverter;
 import com.google.re2j.Matcher;
 import com.google.re2j.Pattern;
 import java.io.IOException;
@@ -330,6 +330,6 @@ final class ModuleLoader {
       }
     }
 
-    return ImmutableList.copyOf(asMap.values());
+    return ImmutableList.cooperOf(asMap.values());
   }
 }

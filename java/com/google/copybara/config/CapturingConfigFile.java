@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.google.copybara.config;
+package com.google.cooperbara.config;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.exception.CannotResolveLabel;
+import com.google.cooperbara.exception.CannotResolveLabel;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -79,7 +79,7 @@ class CapturingConfigFile implements ConfigFile {
   ImmutableMap<String, ConfigFile> getAllLoadedFiles() {
     Map<String, ConfigFile> map = new HashMap<>();
     getAllLoadedFiles(map);
-    return ImmutableMap.copyOf(map);
+    return ImmutableMap.cooperOf(map);
   }
 
   private void getAllLoadedFiles(Map<String, ConfigFile> map) {
