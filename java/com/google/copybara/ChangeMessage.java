@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
@@ -24,8 +24,8 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
-import com.google.copybara.doc.annotations.DocSignaturePrefix;
-import com.google.copybara.exception.ValidationException;
+import com.google.cooperbara.doc.annotations.DocSignaturePrefix;
+import com.google.cooperbara.exception.ValidationException;
 import com.google.errorprone.annotations.CheckReturnValue;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +61,7 @@ public final class ChangeMessage implements StarlarkValue {
   private ChangeMessage(String text, String groupSeparator, List<LabelFinder> labels) {
     this.text = TRIM.trimFrom(text);
     this.groupSeparator = Preconditions.checkNotNull(groupSeparator);
-    this.labels = ImmutableList.copyOf(Preconditions.checkNotNull(labels));
+    this.labels = ImmutableList.cooperOf(Preconditions.checkNotNull(labels));
   }
 
   /**

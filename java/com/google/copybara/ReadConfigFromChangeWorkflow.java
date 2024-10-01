@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import static com.google.common.base.Joiner.on;
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 import static java.lang.String.format;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
-import com.google.copybara.Destination.Writer;
-import com.google.copybara.Origin.Reader;
-import com.google.copybara.WorkflowRunHelper.ChangeMigrator;
-import com.google.copybara.config.Config;
-import com.google.copybara.config.ConfigValidator;
-import com.google.copybara.config.Migration;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
-import com.google.copybara.revision.Change;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.Destination.Writer;
+import com.google.cooperbara.Origin.Reader;
+import com.google.cooperbara.WorkflowRunHelper.ChangeMigrator;
+import com.google.cooperbara.config.Config;
+import com.google.cooperbara.config.ConfigValidator;
+import com.google.cooperbara.config.Migration;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.Glob;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Set;

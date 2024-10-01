@@ -35,7 +35,7 @@
     - [core.action_migration](#coreaction_migration)
     - [core.autopatch_config](#coreautopatch_config)
     - [core.convert_encoding](#coreconvert_encoding)
-    - [core.copy](#corecopy)
+    - [core.cooper](#corecooper)
     - [core.dynamic_feedback](#coredynamic_feedback)
     - [core.dynamic_transform](#coredynamic_transform)
     - [core.fail_with_noop](#corefail_with_noop)
@@ -67,7 +67,7 @@
   - [destination](#destination)
   - [destination_effect](#destination_effect)
   - [destination_reader](#destination_reader)
-    - [destination_reader.copy_destination_files](#destination_readercopy_destination_files)
+    - [destination_reader.cooper_destination_files](#destination_readercooper_destination_files)
     - [destination_reader.file_exists](#destination_readerfile_exists)
     - [destination_reader.read_file](#destination_readerread_file)
   - [destination_ref](#destination_ref)
@@ -335,7 +335,7 @@
   - [VersionSelector](#versionselector)
   - [xml](#xml)
     - [xml.xpath](#xmlxpath)
-  - [copybara_flags](#copybara_flags)
+  - [cooperbara_flags](#cooperbara_flags)
 
 
 
@@ -856,12 +856,12 @@ Name | Type | Description
 <span style="white-space: nowrap;">`--nocleanup`</span> | *boolean* | Cleanup the output directories. This includes the workdir, scratch clones of Git repos, etc. By default is set to false and directories will be cleaned prior to the execution. If set to true, the previous run output will not be cleaned up. Keep in mind that running in this mode will lead to an ever increasing disk usage.
 <span style="white-space: nowrap;">`--noprompt`</span> | *boolean* | Don't prompt, this will answer all prompts with 'yes'
 <span style="white-space: nowrap;">`--output-limit`</span> | *int* | Limit the output in the console to a number of records. Each subcommand might use this flag differently. Defaults to 0, which shows all the output.
-<span style="white-space: nowrap;">`--output-root`</span> | *string* | The root directory where to generate output files. If not set, ~/copybara/out is used by default. Use with care, Copybara might remove files inside this root if necessary.
+<span style="white-space: nowrap;">`--output-root`</span> | *string* | The root directory where to generate output files. If not set, ~/cooperbara/out is used by default. Use with care, Copybara might remove files inside this root if necessary.
 <span style="white-space: nowrap;">`--patch-bin`</span> | *string* | Path for GNU Patch command
 <span style="white-space: nowrap;">`--repo-timeout`</span> | *duration* | Repository operation timeout duration.  Example values: 30s, 20m, 1h, etc.
 <span style="white-space: nowrap;">`--squash`</span> | *boolean* | Override workflow's mode with 'SQUASH'. This is useful mainly for workflows that use 'ITERATIVE' mode, when we want to run a single export with 'SQUASH', maybe to fix an issue. Always use --dry-run before, to test your changes locally.
 <span style="white-space: nowrap;">`--validate-starlark`</span> | *string* | Starlark should be validated prior to execution, but this might break legacy configs. Options are LOOSE, STRICT
-<span style="white-space: nowrap;">`--version-selector-use-cli-ref`</span> | *boolean* | If command line ref is to used with a version selector, pass this flag to tell copybara to use it.
+<span style="white-space: nowrap;">`--version-selector-use-cli-ref`</span> | *boolean* | If command line ref is to used with a version selector, pass this flag to tell cooperbara to use it.
 <span style="white-space: nowrap;">`-v, --verbose`</span> | *boolean* | Verbose output.
 
 <a id="core.action" aria-hidden="true"></a>
@@ -961,26 +961,26 @@ core.convert_encoding(
 In this example, `foo/one.txt` encoding will be changed from ISO-8859-1 to UTF-8.
 
 
-<a id="core.copy" aria-hidden="true"></a>
-### core.copy
+<a id="core.cooper" aria-hidden="true"></a>
+### core.cooper
 
 Copy files between directories and renames files
 
-<code><a href="#transformation">transformation</a></code> <code>core.copy(<a href=#core.copy.before>before</a>, <a href=#core.copy.after>after</a>, <a href=#core.copy.paths>paths</a>=glob(["**"]), <a href=#core.copy.overwrite>overwrite</a>=False, <a href=#core.copy.regex_groups>regex_groups</a>={})</code>
+<code><a href="#transformation">transformation</a></code> <code>core.cooper(<a href=#core.cooper.before>before</a>, <a href=#core.cooper.after>after</a>, <a href=#core.cooper.paths>paths</a>=glob(["**"]), <a href=#core.cooper.overwrite>overwrite</a>=False, <a href=#core.cooper.regex_groups>regex_groups</a>={})</code>
 
 
-<h4 id="parameters.core.copy">Parameters:</h4>
+<h4 id="parameters.core.cooper">Parameters:</h4>
 
 Parameter | Description
 --------- | -----------
-<span id=core.copy.before href=#core.copy.before>before</span> | <code>string</code><br><p>The name of the file or directory to copy. If this is the empty string and 'after' is a directory, then all files in the workdir will be copied to the sub directory specified by 'after', maintaining the directory tree.</p>
-<span id=core.copy.after href=#core.copy.after>after</span> | <code>string</code><br><p>The name of the file or directory destination. If this is the empty string and 'before' is a directory, then all files in 'before' will be copied to the repo root, maintaining the directory tree inside 'before'.</p>
-<span id=core.copy.paths href=#core.copy.paths>paths</span> | <code><a href="#glob">glob</a></code> or <code>list of string</code> or <code>NoneType</code><br><p>A glob expression relative to 'before' if it represents a directory. Only files matching the expression will be copied. For example, glob(["**.java"]), matches all java files recursively inside 'before' folder. Defaults to match all the files recursively.</p>
-<span id=core.copy.overwrite href=#core.copy.overwrite>overwrite</span> | <code>bool</code><br><p>Overwrite destination files if they already exist. Note that this makes the transformation non-reversible, since there is no way to know if the file was overwritten or not in the reverse workflow.</p>
-<span id=core.copy.regex_groups href=#core.copy.regex_groups>regex_groups</span> | <code>dict</code><br><p>A set of named regexes that can be used to match part of the file name. Copybara uses [re2](https://github.com/google/re2/wiki/Syntax) syntax. For example {"x": "[A-Za-z]+"}</p>
+<span id=core.cooper.before href=#core.cooper.before>before</span> | <code>string</code><br><p>The name of the file or directory to cooper. If this is the empty string and 'after' is a directory, then all files in the workdir will be copied to the sub directory specified by 'after', maintaining the directory tree.</p>
+<span id=core.cooper.after href=#core.cooper.after>after</span> | <code>string</code><br><p>The name of the file or directory destination. If this is the empty string and 'before' is a directory, then all files in 'before' will be copied to the repo root, maintaining the directory tree inside 'before'.</p>
+<span id=core.cooper.paths href=#core.cooper.paths>paths</span> | <code><a href="#glob">glob</a></code> or <code>list of string</code> or <code>NoneType</code><br><p>A glob expression relative to 'before' if it represents a directory. Only files matching the expression will be copied. For example, glob(["**.java"]), matches all java files recursively inside 'before' folder. Defaults to match all the files recursively.</p>
+<span id=core.cooper.overwrite href=#core.cooper.overwrite>overwrite</span> | <code>bool</code><br><p>Overwrite destination files if they already exist. Note that this makes the transformation non-reversible, since there is no way to know if the file was overwritten or not in the reverse workflow.</p>
+<span id=core.cooper.regex_groups href=#core.cooper.regex_groups>regex_groups</span> | <code>dict</code><br><p>A set of named regexes that can be used to match part of the file name. Copybara uses [re2](https://github.com/google/re2/wiki/Syntax) syntax. For example {"x": "[A-Za-z]+"}</p>
 
 
-<h4 id="example.core.copy">Examples:</h4>
+<h4 id="example.core.cooper">Examples:</h4>
 
 
 ##### Copy a directory:
@@ -988,7 +988,7 @@ Parameter | Description
 Move all the files in a directory to another directory:
 
 ```python
-core.copy("foo/bar_internal", "bar")
+core.cooper("foo/bar_internal", "bar")
 ```
 
 In this example, `foo/bar_internal/one` will be copied to `bar/one`.
@@ -999,7 +999,7 @@ In this example, `foo/bar_internal/one` will be copied to `bar/one`.
 Change a file extension:
 
 ```python
-core.copy(before = 'foo/${x}.txt', after = 'foo/${x}.md', regex_groups = { 'x': '.*'})
+core.cooper(before = 'foo/${x}.txt', after = 'foo/${x}.md', regex_groups = { 'x': '.*'})
 ```
 
 In this example, `foo/bar/README.txt` will be copied to `foo/bar/README.md`.
@@ -1011,7 +1011,7 @@ Copy all static files to a 'static' folder and use remove for reverting the chan
 
 ```python
 core.transform(
-    [core.copy("foo", "foo/static", paths = glob(["**.css","**.html", ]))],
+    [core.cooper("foo", "foo/static", paths = glob(["**.css","**.html", ]))],
     reversal = [core.remove(glob(['foo/static/**.css', 'foo/static/**.html']))]
 )
 ```
@@ -1326,7 +1326,7 @@ In this example, `foo/bar/README.txt` will be moved to `foo/bar/README.md`.
 <a id="core.remove" aria-hidden="true"></a>
 ### core.remove
 
-Remove files from the workdir. **This transformation is only meant to be used inside core.transform for reversing core.copy like transforms**. For regular file filtering use origin_files exclude mechanism.
+Remove files from the workdir. **This transformation is only meant to be used inside core.transform for reversing core.cooper like transforms**. For regular file filtering use origin_files exclude mechanism.
 
 <code><a href="#transformation">transformation</a></code> <code>core.remove(<a href=#core.remove.paths>paths</a>)</code>
 
@@ -1341,13 +1341,13 @@ Parameter | Description
 <h4 id="example.core.remove">Examples:</h4>
 
 
-##### Reverse a file copy:
+##### Reverse a file cooper:
 
 Move all the files in a directory to another directory:
 
 ```python
 core.transform(
-    [core.copy("foo", "foo/public")],
+    [core.cooper("foo", "foo/public")],
     reversal = [core.remove(glob(["foo/public/**"]))])
 ```
 
@@ -1360,7 +1360,7 @@ Copy all static files to a 'static' folder and use remove for reverting the chan
 
 ```python
 core.transform(
-    [core.copy("foo", "foo/static", paths = glob(["**.css","**.html", ]))],
+    [core.cooper("foo", "foo/static", paths = glob(["**.css","**.html", ]))],
     reversal = [core.remove(glob(['foo/static/**.css', 'foo/static/**.html']))]
 )
 ```
@@ -1585,10 +1585,10 @@ This replace would transform a text file like:
 
 ```
 public code
-go/copybara ... public code
-public code ... go/copybara
-go/copybara ... foo/bazelbuild/rules_go/bar
-foo/bazelbuild/rules_go/baz ... go/copybara
+go/cooperbara ... public code
+public code ... go/cooperbara
+go/cooperbara ... foo/bazelbuild/rules_go/bar
+foo/bazelbuild/rules_go/baz ... go/cooperbara
 ```
 
 Into:
@@ -1597,11 +1597,11 @@ Into:
 public code
 (broken link) ... public code
 public code ... (broken link)
-go/copybara ... foo/bazelbuild/rules_go/bar
-foo/bazelbuild/rules_go/baz ... go/copybara
+go/cooperbara ... foo/bazelbuild/rules_go/bar
+foo/bazelbuild/rules_go/baz ... go/cooperbara
 ```
 
-Note that the `go/copybara` links on lines that matched the ignore regex were not replaced. The transformation ignored these lines entirely.
+Note that the `go/cooperbara` links on lines that matched the ignore regex were not replaced. The transformation ignored these lines entirely.
 
 
 <a id="core.replace_mapper" aria-hidden="true"></a>
@@ -1741,7 +1741,7 @@ Defines a migration pipeline which can be invoked via the Copybara command.
 
 Implicit labels that can be used/exposed:
 
-  - COPYBARA_CONTEXT_REFERENCE: Requested reference. For example if copybara is invoked as `copybara copy.bara.sky workflow master`, the value would be `master`.
+  - COPYBARA_CONTEXT_REFERENCE: Requested reference. For example if cooperbara is invoked as `cooperbara cooper.bara.sky workflow master`, the value would be `master`.
   - COPYBARA_LAST_REV: Last reference that was migrated
   - COPYBARA_CURRENT_REV: The current reference being migrated
   - COPYBARA_CURRENT_REV_DATE_TIME: Date & time for the current reference being migrated in ISO format (Example: "2011-12-03T10:15:30+01:00")
@@ -1771,7 +1771,7 @@ Parameter | Description
 <span id=core.workflow.dry_run href=#core.workflow.dry_run>dry_run</span> | <code>bool</code><br><p>Run the migration in dry-run mode. Some destination implementations might have some side effects (like creating a code review), but never submit to a main branch.</p>
 <span id=core.workflow.after_migration href=#core.workflow.after_migration>after_migration</span> | <code>sequence</code><br><p>Run a feedback workflow after one migration happens. This runs once per change in `ITERATIVE` mode and only once for `SQUASH`.</p>
 <span id=core.workflow.after_workflow href=#core.workflow.after_workflow>after_workflow</span> | <code>sequence</code><br><p>Run a feedback workflow after all the changes for this workflow run are migrated. Prefer `after_migration` as it is executed per change (in ITERATIVE mode). Tasks in this hook shouldn't be critical to execute. These actions shouldn't record effects (They'll be ignored).</p>
-<span id=core.workflow.change_identity href=#core.workflow.change_identity>change_identity</span> | <code>string</code> or <code>NoneType</code><br><p>By default, Copybara hashes several fields so that each change has an unique identifier that at the same time reuses the generated destination change. This allows to customize the identity hash generation so that the same identity is used in several workflows. At least ${copybara_config_path} has to be present. Current user is added to the hash automatically.<br><br>Available variables:<ul>  <li>${copybara_config_path}: Main config file path</li>  <li>${copybara_workflow_name}: The name of the workflow being run</li>  <li>${copybara_reference}: The requested reference. In general Copybara tries its best to give a repetable reference. For example Gerrit change number or change-id or GitHub Pull Request number. If it cannot find a context reference it uses the resolved revision.</li>  <li>${label:label_name}: A label present for the current change. Exposed in the message or not.</li></ul>If any of the labels cannot be found it defaults to the default identity (The effect would be no reuse of destination change between workflows)</p>
+<span id=core.workflow.change_identity href=#core.workflow.change_identity>change_identity</span> | <code>string</code> or <code>NoneType</code><br><p>By default, Copybara hashes several fields so that each change has an unique identifier that at the same time reuses the generated destination change. This allows to customize the identity hash generation so that the same identity is used in several workflows. At least ${cooperbara_config_path} has to be present. Current user is added to the hash automatically.<br><br>Available variables:<ul>  <li>${cooperbara_config_path}: Main config file path</li>  <li>${cooperbara_workflow_name}: The name of the workflow being run</li>  <li>${cooperbara_reference}: The requested reference. In general Copybara tries its best to give a repetable reference. For example Gerrit change number or change-id or GitHub Pull Request number. If it cannot find a context reference it uses the resolved revision.</li>  <li>${label:label_name}: A label present for the current change. Exposed in the message or not.</li></ul>If any of the labels cannot be found it defaults to the default identity (The effect would be no reuse of destination change between workflows)</p>
 <span id=core.workflow.set_rev_id href=#core.workflow.set_rev_id>set_rev_id</span> | <code>bool</code><br><p>Copybara adds labels like 'GitOrigin-RevId' in the destination in order to track what was the latest change imported. For `CHANGE_REQUEST` workflows it is not used and is purely informational. This field allows to disable it for that mode. Destinations might ignore the flag.</p>
 <span id=core.workflow.smart_prune href=#core.workflow.smart_prune>smart_prune</span> | <code>bool</code><br><p>By default CHANGE_REQUEST workflows cannot restore scrubbed files. This flag does a best-effort approach in restoring the non-affected snippets. For now we only revert the non-affected files. This only works for CHANGE_REQUEST mode.</p>
 <span id=core.workflow.merge_import href=#core.workflow.merge_import>merge_import</span> | <code>bool</code> or <code><a href="#coremerge_import_config">core.merge_import_config</a></code> or <code>NoneType</code><br><p>A migration mode that shells out to a diffing tool (default is diff3) to merge all files. The inputs to the diffing tool are (1) origin file (2) baseline file (3) destination file. This can be used to perpetuate destination-only changes in non source of truth repositories.</p>
@@ -1797,7 +1797,7 @@ Name | Type | Description
 <span style="white-space: nowrap;">`--change-request-parent, --change_request_parent`</span> | *string* | Commit revision to be used as parent when importing a commit using CHANGE_REQUEST workflow mode. This shouldn't be needed in general as Copybara is able to detect the parent commit message.
 <span style="white-space: nowrap;">`--check-last-rev-state`</span> | *boolean* | If enabled, Copybara will validate that the destination didn't change since last-rev import for destination_files. Note that this flag doesn't work for CHANGE_REQUEST mode.
 <span style="white-space: nowrap;">`--default-author`</span> | *string* | Use this author as default instead of the one in the config file.Format should be 'Foo Bar <foobar@example.com>'
-<span style="white-space: nowrap;">`--diff-in-origin`</span> | *boolean* | When this flag is enabled, copybara will show different changes between last Revision and current revision in origin instead of in destination. NOTE: it Only works for SQUASH and ITERATIVE
+<span style="white-space: nowrap;">`--diff-in-origin`</span> | *boolean* | When this flag is enabled, cooperbara will show different changes between last Revision and current revision in origin instead of in destination. NOTE: it Only works for SQUASH and ITERATIVE
 <span style="white-space: nowrap;">`--disable-consistency-merge-import`</span> | *boolean* | If merge import is set to use consistency in the config, disable it for this run. This uses an import baseline instead. A new consistency file will still be generated.
 <span style="white-space: nowrap;">`--force-author`</span> | *author* | Force the author to this. Note that this only changes the author before the transformations happen, you can still use the transformations to alter it.
 <span style="white-space: nowrap;">`--force-message`</span> | *string* | Force the change description to this. Note that this only changes the message before the transformations happen, you can still use the transformations to alter it.
@@ -1811,7 +1811,7 @@ Name | Type | Description
 <span style="white-space: nowrap;">`--notransformation-join`</span> | *boolean* | By default Copybara tries to join certain transformations in one so that it is more efficient. This disables the feature.
 <span style="white-space: nowrap;">`--read-config-from-change`</span> | *boolean* | For each imported origin change, load the workflow's origin_files, destination_files and transformations from the config version of that change. The rest of the fields (more importantly, origin and destination) cannot change and the version from the first config will be used.
 <span style="white-space: nowrap;">`--read-config-from-change-disable`</span> | *boolean* | --read-config-from-change is a arity 0 flag, this flag overrides it to override it being enabled.
-<span style="white-space: nowrap;">`--same-version`</span> | *boolean* | Re-import the last version imported. This is useful for example to check that a refactor in a copy.bara.sky file doesn't introduce accidental changes.
+<span style="white-space: nowrap;">`--same-version`</span> | *boolean* | Re-import the last version imported. This is useful for example to check that a refactor in a cooper.bara.sky file doesn't introduce accidental changes.
 <span style="white-space: nowrap;">`--squash-skip-history`</span> | *boolean* | Avoid exposing the history of changes that are being migrated. This is useful when we want to migrate a new repository but we don't want to expose all the change history to metadata.squash_notes.
 <span style="white-space: nowrap;">`--threads`</span> | *int* | Number of threads to use when running transformations that change lot of files
 <span style="white-space: nowrap;">`--threads-for-merge-import`</span> | *int* | Number of threads to use for executing the diff tool for the merge import mode.
@@ -1980,23 +1980,23 @@ Handle to read from the destination
 
 <ul><li><a href="#ctx.destination_reader">ctx.destination_reader</a></li></ul>
 
-<a id="destination_reader.copy_destination_files" aria-hidden="true"></a>
-### destination_reader.copy_destination_files
+<a id="destination_reader.cooper_destination_files" aria-hidden="true"></a>
+### destination_reader.cooper_destination_files
 
 Copy files from the destination into the workdir.
 
-<code>destination_reader.copy_destination_files(<a href=#destination_reader.copy_destination_files.glob>glob</a>, <a href=#destination_reader.copy_destination_files.path>path</a>=None)</code>
+<code>destination_reader.cooper_destination_files(<a href=#destination_reader.cooper_destination_files.glob>glob</a>, <a href=#destination_reader.cooper_destination_files.path>path</a>=None)</code>
 
 
-<h4 id="parameters.destination_reader.copy_destination_files">Parameters:</h4>
+<h4 id="parameters.destination_reader.cooper_destination_files">Parameters:</h4>
 
 Parameter | Description
 --------- | -----------
-<span id=destination_reader.copy_destination_files.glob href=#destination_reader.copy_destination_files.glob>glob</span> | <code><a href="#glob">glob</a></code> or <code>list of string</code> or <code>NoneType</code><br><p>Files to copy to the workdir, potentially overwriting files checked out from the origin.</p>
-<span id=destination_reader.copy_destination_files.path href=#destination_reader.copy_destination_files.path>path</span> | <code><a href="#path">Path</a></code> or <code>NoneType</code><br><p>Optional path to copy the files to</p>
+<span id=destination_reader.cooper_destination_files.glob href=#destination_reader.cooper_destination_files.glob>glob</span> | <code><a href="#glob">glob</a></code> or <code>list of string</code> or <code>NoneType</code><br><p>Files to cooper to the workdir, potentially overwriting files checked out from the origin.</p>
+<span id=destination_reader.cooper_destination_files.path href=#destination_reader.cooper_destination_files.path>path</span> | <code><a href="#path">Path</a></code> or <code>NoneType</code><br><p>Optional path to cooper the files to</p>
 
 
-<h4 id="example.destination_reader.copy_destination_files">Example:</h4>
+<h4 id="example.destination_reader.cooper_destination_files">Example:</h4>
 
 
 ##### Copy files from the destination's baseline:
@@ -2004,14 +2004,14 @@ Parameter | Description
 This can be added to the transformations of your core.workflow:
 
 ```python
-def _copy_destination_file(ctx):
-   content = ctx.destination_reader().copy_destination_files(glob(include = ['path/to/**']))
+def _cooper_destination_file(ctx):
+   content = ctx.destination_reader().cooper_destination_files(glob(include = ['path/to/**']))
 
-transforms = [core.dynamic_transform(_copy_destination_file)]
+transforms = [core.dynamic_transform(_cooper_destination_file)]
 
 ```
 
-Would copy all files in path/to/ from the destination baseline to the copybara workdir. The files do not have to be covered by origin_files nor destination_files, but will cause errors if they are not covered by destination_files and not moved or deleted.
+Would cooper all files in path/to/ from the destination baseline to the cooperbara workdir. The files do not have to be covered by origin_files nor destination_files, but will cause errors if they are not covered by destination_files and not moved or deleted.
 
 
 <a id="destination_reader.file_exists" aria-hidden="true"></a>
@@ -2864,13 +2864,13 @@ Set of functions to define Git origins and destinations.
 
 Name | Type | Description
 ---- | ---- | -----------
-<span style="white-space: nowrap;">`--allowed-git-push-options`</span> | *list* | This is a flag used to allowlist push options sent to git servers. E.g. copybara copy.bara.sky --git-push-option="foo,bar" would make copybara validate push so that the only push options (if there are any) used are 'foo' and 'bar'. If this flag is unset, it will skip push options validation. Set to "" to allow no push options.
-<span style="white-space: nowrap;">`--experiment-checkout-affected-files`</span> | *boolean* | If set, copybara will only checkout affected files at git origin. Note that this is experimental.
+<span style="white-space: nowrap;">`--allowed-git-push-options`</span> | *list* | This is a flag used to allowlist push options sent to git servers. E.g. cooperbara cooper.bara.sky --git-push-option="foo,bar" would make cooperbara validate push so that the only push options (if there are any) used are 'foo' and 'bar'. If this flag is unset, it will skip push options validation. Set to "" to allow no push options.
+<span style="white-space: nowrap;">`--experiment-checkout-affected-files`</span> | *boolean* | If set, cooperbara will only checkout affected files at git origin. Note that this is experimental.
 <span style="white-space: nowrap;">`--git-credential-helper-store-file`</span> | *string* | Credentials store file to be used. See https://git-scm.com/docs/git-credential-store
 <span style="white-space: nowrap;">`--git-no-verify`</span> | *boolean* | Pass the '--no-verify' option to git pushes and commits to disable git commit hooks.
 <span style="white-space: nowrap;">`--git-origin-fetch-depth`</span> | *integer* | Use a shallow clone of the specified depth for git.origin. If set, only the n most recent changes' tree states are imported with older changes omitted.
-<span style="white-space: nowrap;">`--git-push-option`</span> | *list* | This is a repeatable flag used to set git push level flags to send to git servers. E.g. copybara copy.bara.sky --git-push-option foo --git-push-option bar would make git operations done by copybara under the hood use the --push-option flags: git push -push-option=foo -push-option=bar ...
-<span style="white-space: nowrap;">`--git-tag-overwrite`</span> | *boolean* | If set, copybara will force update existing git tag
+<span style="white-space: nowrap;">`--git-push-option`</span> | *list* | This is a repeatable flag used to set git push level flags to send to git servers. E.g. cooperbara cooper.bara.sky --git-push-option foo --git-push-option bar would make git operations done by cooperbara under the hood use the --push-option flags: git push -push-option=foo -push-option=bar ...
+<span style="white-space: nowrap;">`--git-tag-overwrite`</span> | *boolean* | If set, cooperbara will force update existing git tag
 <span style="white-space: nowrap;">`--nogit-credential-helper-store`</span> | *boolean* | Disable using credentials store. See https://git-scm.com/docs/git-credential-store
 <span style="white-space: nowrap;">`--nogit-prompt`</span> | *boolean* | Disable username/password prompt and fail if no credentials are found. This flag sets the environment variable GIT_TERMINAL_PROMPT which is intended for automated jobs running Git https://git-scm.com/docs/git/2.3.0#git-emGITTERMINALPROMPTem
 
@@ -2893,7 +2893,7 @@ Parameter | Description
 <span id=git.destination.fetch href=#git.destination.fetch>fetch</span> | <code>string</code> or <code>NoneType</code><br><p>Indicates the ref from which to get the parent commit. Defaults to push value if None</p>
 <span id=git.destination.partial_fetch href=#git.destination.partial_fetch>partial_fetch</span> | <code>bool</code><br><p>This is an experimental feature that only works for certain origin globs.</p>
 <span id=git.destination.integrates href=#git.destination.integrates>integrates</span> | <code>sequence of git_integrate</code> or <code>NoneType</code><br><p>Integrate changes from a url present in the migrated change label. Defaults to a semi-fake merge if COPYBARA_INTEGRATE_REVIEW label is present in the message</p>
-<span id=git.destination.primary_branch_migration href=#git.destination.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, copybara will ignore the 'push' and 'fetch' params if either is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the param's declared value.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
+<span id=git.destination.primary_branch_migration href=#git.destination.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, cooperbara will ignore the 'push' and 'fetch' params if either is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the param's declared value.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
 <span id=git.destination.checker href=#git.destination.checker>checker</span> | <code><a href="#checker">checker</a></code> or <code>NoneType</code><br><p>A checker that can check leaks or other checks in the commit created. </p>
 <span id=git.destination.credentials href=#git.destination.credentials>credentials</span> | <code>UsernamePasswordIssuer</code> or <code>NoneType</code><br><p>EXPERIMENTAL: Read credentials from config file to access the Git Repo. This expects a 'credentials.username_password' specifying the username to use for the remote git host and a password or token. This is gated by the '--use-credentials-from-config' flag</p>
 
@@ -2970,7 +2970,7 @@ Parameter | Description
 <span id=git.gerrit_destination.integrates href=#git.gerrit_destination.integrates>integrates</span> | <code>sequence of git_integrate</code> or <code>NoneType</code><br><p>Integrate changes from a url present in the migrated change label. Defaults to a semi-fake merge if COPYBARA_INTEGRATE_REVIEW label is present in the message</p>
 <span id=git.gerrit_destination.topic href=#git.gerrit_destination.topic>topic</span> | <code>string</code> or <code>NoneType</code><br><p>Sets the topic of the Gerrit change created.<br><br>By default it sets no topic. This field accepts a template with labels. For example: `"topic_${CONTEXT_REFERENCE}"`</p>
 <span id=git.gerrit_destination.gerrit_submit href=#git.gerrit_destination.gerrit_submit>gerrit_submit</span> | <code>bool</code><br><p>By default, Copybara uses git commit/push to the main branch when submit = True.  If this flag is enabled, it will update the Gerrit change with the latest commit and submit using Gerrit.</p>
-<span id=git.gerrit_destination.primary_branch_migration href=#git.gerrit_destination.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, copybara will ignore the 'push_to_refs_for' and 'fetch' params if either is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the param's declared value.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
+<span id=git.gerrit_destination.primary_branch_migration href=#git.gerrit_destination.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, cooperbara will ignore the 'push_to_refs_for' and 'fetch' params if either is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the param's declared value.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
 <span id=git.gerrit_destination.checker href=#git.gerrit_destination.checker>checker</span> | <code><a href="#checker">checker</a></code> or <code>NoneType</code><br><p>A checker that validates the commit files & message. If `api_checker` is not set, it will also be used for checking API calls. If only `api_checker`is used, that checker will only apply to API calls.</p>
 <span id=git.gerrit_destination.credentials href=#git.gerrit_destination.credentials>credentials</span> | <code>UsernamePasswordIssuer</code> or <code>NoneType</code><br><p>EXPERIMENTAL: Read credentials from config file to access the Git Repo. This expects a 'credentials.username_password' specifying the username to use for the remote git host and a password or token. This is gated by the '--use-credentials-from-config' flag</p>
 
@@ -3034,7 +3034,7 @@ Parameter | Description
 <span id=git.gerrit_origin.branch href=#git.gerrit_origin.branch>branch</span> | <code>string</code> or <code>NoneType</code><br><p>Limit the import to changes that are for this branch. By default imports everything.</p>
 <span id=git.gerrit_origin.describe_version href=#git.gerrit_origin.describe_version>describe_version</span> | <code>bool</code> or <code>NoneType</code><br><p>Download tags and use 'git describe' to create four labels with a meaningful version identifier:<br><br>  - `GIT_DESCRIBE_CHANGE_VERSION`: The version for the change or changes being migrated. The value changes per change in `ITERATIVE` mode and will be the latest migrated change in `SQUASH` (In other words, doesn't include excluded changes). this is normally what users want to use.<br> - `GIT_DESCRIBE_REQUESTED_VERSION`: `git describe` for the requested/head version. Constant in `ITERATIVE` mode and includes filtered changes.<br>  -`GIT_DESCRIBE_FIRST_PARENT`: `git describe` for the first parent version.<br>  -`GIT_SEQUENTIAL_REVISION_NUMBER`: The sequential number of the commit. Falls back to the SHA1 if not applicable.<br></p>
 <span id=git.gerrit_origin.ignore_gerrit_noop href=#git.gerrit_origin.ignore_gerrit_noop>ignore_gerrit_noop</span> | <code>bool</code><br><p>Option to not migrate Gerrit changes that do not change origin_files</p>
-<span id=git.gerrit_origin.primary_branch_migration href=#git.gerrit_origin.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, copybara will ignore the 'ref' param if it is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the 'ref' param.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
+<span id=git.gerrit_origin.primary_branch_migration href=#git.gerrit_origin.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, cooperbara will ignore the 'ref' param if it is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the 'ref' param.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
 
 
 
@@ -3126,9 +3126,9 @@ Parameter | Description
 <span id=git.github_destination.delete_pr_branch href=#git.github_destination.delete_pr_branch>delete_pr_branch</span> | <code>bool</code> or <code>NoneType</code><br><p>When `pr_branch_to_update` is enabled, it will delete the branch reference after the push to the branch and main branch (i.e master) happens. This allows to cleanup temporary branches created for testing.</p>
 <span id=git.github_destination.integrates href=#git.github_destination.integrates>integrates</span> | <code>sequence of git_integrate</code> or <code>NoneType</code><br><p>Integrate changes from a url present in the migrated change label. Defaults to a semi-fake merge if COPYBARA_INTEGRATE_REVIEW label is present in the message</p>
 <span id=git.github_destination.api_checker href=#git.github_destination.api_checker>api_checker</span> | <code><a href="#checker">checker</a></code> or <code>NoneType</code><br><p>A checker for the Gerrit API endpoint provided for after_migration hooks. This field is not required if the workflow hooks don't use the origin/destination endpoints.</p>
-<span id=git.github_destination.primary_branch_migration href=#git.github_destination.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, copybara will ignore the 'push' and 'fetch' params if either is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the param's declared value.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
-<span id=git.github_destination.tag_name href=#git.github_destination.tag_name>tag_name</span> | <code>string</code> or <code>NoneType</code><br><p>A template string that specifies to a tag name. If the tag already exists, copybara will only overwrite it if the --git-tag-overwrite flag is set.<br>Note that tag creation is best-effort and the migration will succeed even if the tag cannot be created. Usage: Users can use a string or a string with a label. For instance ${label}_tag_name. And the value of label must be in changes' label list. Otherwise, tag won't be created.</p>
-<span id=git.github_destination.tag_msg href=#git.github_destination.tag_msg>tag_msg</span> | <code>string</code> or <code>NoneType</code><br><p>A template string that refers to the commit msg for a tag. If set, copybara willcreate an annotated tag with this custom message<br>Usage: Labels in the string will be resolved. E.g. .${label}_message.By default, the tag will be created with the labeled commit's message.</p>
+<span id=git.github_destination.primary_branch_migration href=#git.github_destination.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, cooperbara will ignore the 'push' and 'fetch' params if either is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the param's declared value.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
+<span id=git.github_destination.tag_name href=#git.github_destination.tag_name>tag_name</span> | <code>string</code> or <code>NoneType</code><br><p>A template string that specifies to a tag name. If the tag already exists, cooperbara will only overwrite it if the --git-tag-overwrite flag is set.<br>Note that tag creation is best-effort and the migration will succeed even if the tag cannot be created. Usage: Users can use a string or a string with a label. For instance ${label}_tag_name. And the value of label must be in changes' label list. Otherwise, tag won't be created.</p>
+<span id=git.github_destination.tag_msg href=#git.github_destination.tag_msg>tag_msg</span> | <code>string</code> or <code>NoneType</code><br><p>A template string that refers to the commit msg for a tag. If set, cooperbara willcreate an annotated tag with this custom message<br>Usage: Labels in the string will be resolved. E.g. .${label}_message.By default, the tag will be created with the labeled commit's message.</p>
 <span id=git.github_destination.checker href=#git.github_destination.checker>checker</span> | <code><a href="#checker">checker</a></code> or <code>NoneType</code><br><p>A checker that validates the commit files & message. If `api_checker` is not set, it will also be used for checking API calls. If only `api_checker`is used, that checker will only apply to API calls.</p>
 <span id=git.github_destination.credentials href=#git.github_destination.credentials>credentials</span> | <code>UsernamePasswordIssuer</code> or <code>NoneType</code><br><p>EXPERIMENTAL: Read credentials from config file to access the Git Repo. This expects a 'credentials.username_password' specifying the username to use for the remote git host and a password or token. This is gated by the '--use-credentials-from-config' flag</p>
 
@@ -3176,7 +3176,7 @@ Parameter | Description
 <span id=git.github_origin.patch href=#git.github_origin.patch>patch</span> | <code><a href="#transformation">transformation</a></code> or <code>NoneType</code><br><p>Patch the checkout dir. The difference with `patch.apply` transformation is that here we can apply it using three-way</p>
 <span id=git.github_origin.describe_version href=#git.github_origin.describe_version>describe_version</span> | <code>bool</code> or <code>NoneType</code><br><p>Download tags and use 'git describe' to create four labels with a meaningful version identifier:<br><br>  - `GIT_DESCRIBE_CHANGE_VERSION`: The version for the change or changes being migrated. The value changes per change in `ITERATIVE` mode and will be the latest migrated change in `SQUASH` (In other words, doesn't include excluded changes). this is normally what users want to use.<br> - `GIT_DESCRIBE_REQUESTED_VERSION`: `git describe` for the requested/head version. Constant in `ITERATIVE` mode and includes filtered changes.<br>  -`GIT_DESCRIBE_FIRST_PARENT`: `git describe` for the first parent version.<br>  -`GIT_SEQUENTIAL_REVISION_NUMBER`: The sequential number of the commit. Falls back to the SHA1 if not applicable.<br></p>
 <span id=git.github_origin.version_selector href=#git.github_origin.version_selector>version_selector</span> | <code><a href="#versionselector">VersionSelector</a></code> or <code>NoneType</code><br><p>Select a custom version (tag)to migrate instead of 'ref'. Version selector is expected to match the whole refspec (e.g. 'refs/heads/${n1}')</p>
-<span id=git.github_origin.primary_branch_migration href=#git.github_origin.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, copybara will ignore the 'ref' param if it is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the 'ref' param.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
+<span id=git.github_origin.primary_branch_migration href=#git.github_origin.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, cooperbara will ignore the 'ref' param if it is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the 'ref' param.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
 <span id=git.github_origin.enable_lfs href=#git.github_origin.enable_lfs>enable_lfs</span> | <code>bool</code><br><p>If true, Large File Storage support is enabled for the origin.</p>
 <span id=git.github_origin.credentials href=#git.github_origin.credentials>credentials</span> | <code>UsernamePasswordIssuer</code> or <code>NoneType</code><br><p>EXPERIMENTAL: Read credentials from config file to access the Git Repo. This expects a 'credentials.username_password' specifying the username to use for the remote git host and a password or token. This is gated by the '--use-credentials-from-config' flag</p>
 
@@ -3207,11 +3207,11 @@ Creates changes in a new pull request in the destination.
 
 Parameter | Description
 --------- | -----------
-<span id=git.github_pr_destination.url href=#git.github_pr_destination.url>url</span> | <code>string</code><br><p>Url of the GitHub project. For example "https://github.com/google/copybara'"</p>
+<span id=git.github_pr_destination.url href=#git.github_pr_destination.url>url</span> | <code>string</code><br><p>Url of the GitHub project. For example "https://github.com/google/cooperbara'"</p>
 <span id=git.github_pr_destination.destination_ref href=#git.github_pr_destination.destination_ref>destination_ref</span> | <code>string</code><br><p>Destination reference for the change.</p>
 <span id=git.github_pr_destination.pr_branch href=#git.github_pr_destination.pr_branch>pr_branch</span> | <code>string</code> or <code>NoneType</code><br><p>Customize the pull request branch. The token ${CONTEXT_REFERENCE} will be replaced with the corresponding stable reference (head, PR number, Gerrit change number, etc.).</p>
 <span id=git.github_pr_destination.partial_fetch href=#git.github_pr_destination.partial_fetch>partial_fetch</span> | <code>bool</code><br><p>This is an experimental feature that only works for certain origin globs.</p>
-<span id=git.github_pr_destination.allow_empty_diff href=#git.github_pr_destination.allow_empty_diff>allow_empty_diff</span> | <code>bool</code><br><p>By default, copybara migrates changes without checking existing PRs. If set, copybara will skip pushing a change to an existing PR only if the git three of the pending migrating change is the same as the existing PR.</p>
+<span id=git.github_pr_destination.allow_empty_diff href=#git.github_pr_destination.allow_empty_diff>allow_empty_diff</span> | <code>bool</code><br><p>By default, cooperbara migrates changes without checking existing PRs. If set, cooperbara will skip pushing a change to an existing PR only if the git three of the pending migrating change is the same as the existing PR.</p>
 <span id=git.github_pr_destination.allow_empty_diff_merge_statuses href=#git.github_pr_destination.allow_empty_diff_merge_statuses>allow_empty_diff_merge_statuses</span> | <code>sequence of string</code><br><p>**EXPERIMENTAL feature.** By default, if `allow_empty_diff = False` is set, Copybara skips uploading the change if the tree hasn't changed and it can be merged. When this list is set with values from https://docs.github.com/en/github-ae@latest/graphql/reference/enums#mergestatestatus, it will still upload for the configured statuses. For example, if a user sets it to `['DIRTY', 'UNSTABLE', 'UNKNOWN']` (the recommended set to use), it wouldn't skip upload if test failed in GitHub for previous export, or if the change cannot be merged. **Note that this field is experimental and is subject to change by GitHub without notice**. Please consult Copybara team before using this field.</p>
 <span id=git.github_pr_destination.allow_empty_diff_check_suites_to_conclusion href=#git.github_pr_destination.allow_empty_diff_check_suites_to_conclusion>allow_empty_diff_check_suites_to_conclusion</span> | <code>dict of string</code><br><p>**EXPERIMENTAL feature.** By default, if `allow_empty_diff = False` is set, Copybara skips uploading the change if the tree hasn't changed and it can be merged.<br><br>This field allows to configure Check suit slugs and conclusions for those check suites where an upload needs to happen despite no code changes. For example this can be used to upload if tests are failing. A Very common usage would be `{"github-actions" :   ["none", "failure", "timed_out", "cancelled"]}`: This would upload changes when Checks are in progress, has failed, timeout or being cancelled. `github-actions` check suit slug name is the default name for checks run by GitHub actions where the suit is not given a name.</p>
 <span id=git.github_pr_destination.title href=#git.github_pr_destination.title>title</span> | <code>string</code> or <code>NoneType</code><br><p>When creating (or updating if `update_description` is set) a pull request, use this title. By default it uses the change first line. This field accepts a template with labels. For example: `"Change ${CONTEXT_REFERENCE}"`</p>
@@ -3220,7 +3220,7 @@ Parameter | Description
 <span id=git.github_pr_destination.integrates href=#git.github_pr_destination.integrates>integrates</span> | <code>sequence of git_integrate</code> or <code>NoneType</code><br><p>Integrate changes from a url present in the migrated change label. Defaults to a semi-fake merge if COPYBARA_INTEGRATE_REVIEW label is present in the message</p>
 <span id=git.github_pr_destination.api_checker href=#git.github_pr_destination.api_checker>api_checker</span> | <code><a href="#checker">checker</a></code> or <code>NoneType</code><br><p>A checker for the GitHub API endpoint provided for after_migration hooks. This field is not required if the workflow hooks don't use the origin/destination endpoints.</p>
 <span id=git.github_pr_destination.update_description href=#git.github_pr_destination.update_description>update_description</span> | <code>bool</code><br><p>By default, Copybara only set the title and body of the PR when creating the PR. If this field is set to true, it will update those fields for every update.</p>
-<span id=git.github_pr_destination.primary_branch_migration href=#git.github_pr_destination.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, copybara will ignore the 'desination_ref' param if it is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the param's declared value.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
+<span id=git.github_pr_destination.primary_branch_migration href=#git.github_pr_destination.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, cooperbara will ignore the 'desination_ref' param if it is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the param's declared value.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
 <span id=git.github_pr_destination.checker href=#git.github_pr_destination.checker>checker</span> | <code><a href="#checker">checker</a></code> or <code>NoneType</code><br><p>A checker that validates the commit files & message. If `api_checker` is not set, it will also be used for checking API calls. If only `api_checker`is used, that checker will only apply to API calls.</p>
 <span id=git.github_pr_destination.draft href=#git.github_pr_destination.draft>draft</span> | <code>bool</code><br><p>Flag create pull request as draft or not.</p>
 <span id=git.github_pr_destination.credentials href=#git.github_pr_destination.credentials>credentials</span> | <code>UsernamePasswordIssuer</code> or <code>NoneType</code><br><p>EXPERIMENTAL: Read credentials from config file to access the Git Repo. This expects a 'credentials.username_password' specifying the username to use for the remote git host and a password or token. This is gated by the '--use-credentials-from-config' flag</p>
@@ -3231,11 +3231,11 @@ Parameter | Description
 
 ##### Common usage:
 
-Create a branch by using copybara's computerIdentity algorithm:
+Create a branch by using cooperbara's computerIdentity algorithm:
 
 ```python
 git.github_pr_destination(
-        url = "https://github.com/google/copybara",
+        url = "https://github.com/google/cooperbara",
         destination_ref = "master",
     )
 ```
@@ -3247,7 +3247,7 @@ Customize pr_branch with context reference:
 
 ```python
 git.github_pr_destination(
-        url = "https://github.com/google/copybara",
+        url = "https://github.com/google/cooperbara",
          destination_ref = "master",
          pr_branch = 'test_${CONTEXT_REFERENCE}',
     )
@@ -3260,7 +3260,7 @@ Customize pr_branch with a constant string:
 
 ```python
 git.github_pr_destination(
-        url = "https://github.com/google/copybara",
+        url = "https://github.com/google/cooperbara",
         destination_ref = "master",
         pr_branch = 'test_my_branch',
     )
@@ -3474,7 +3474,7 @@ Parameter | Description
 <a id="git.origin" aria-hidden="true"></a>
 ### git.origin
 
-Defines a standard Git origin. For Git specific origins use: `github_origin` or `gerrit_origin`.<br><br>All the origins in this module accept several string formats as reference (When copybara is called in the form of `copybara config workflow reference`):<br><ul><li>**Branch name:** For example `master`</li><li>**An arbitrary reference:** `refs/changes/20/50820/1`</li><li>**A SHA-1:** Note that it has to be reachable from the default refspec</li><li>**A Git repository URL and reference:** `http://github.com/foo master`</li><li>**A GitHub pull request URL:** `https://github.com/some_project/pull/1784`</li></ul><br>So for example, Copybara can be invoked for a `git.origin` in the CLI as:<br>`copybara copy.bara.sky my_workflow https://github.com/some_project/pull/1784`<br>This will use the pull request as the origin URL and reference.
+Defines a standard Git origin. For Git specific origins use: `github_origin` or `gerrit_origin`.<br><br>All the origins in this module accept several string formats as reference (When cooperbara is called in the form of `cooperbara config workflow reference`):<br><ul><li>**Branch name:** For example `master`</li><li>**An arbitrary reference:** `refs/changes/20/50820/1`</li><li>**A SHA-1:** Note that it has to be reachable from the default refspec</li><li>**A Git repository URL and reference:** `http://github.com/foo master`</li><li>**A GitHub pull request URL:** `https://github.com/some_project/pull/1784`</li></ul><br>So for example, Copybara can be invoked for a `git.origin` in the CLI as:<br>`cooperbara cooper.bara.sky my_workflow https://github.com/some_project/pull/1784`<br>This will use the pull request as the origin URL and reference.
 
 <code><a href="#origin">origin</a></code> <code>git.origin(<a href=#git.origin.url>url</a>, <a href=#git.origin.ref>ref</a>=None, <a href=#git.origin.submodules>submodules</a>='NO', <a href=#git.origin.excluded_submodules>excluded_submodules</a>=[], <a href=#git.origin.include_branch_commit_logs>include_branch_commit_logs</a>=False, <a href=#git.origin.first_parent>first_parent</a>=True, <a href=#git.origin.partial_fetch>partial_fetch</a>=False, <a href=#git.origin.patch>patch</a>=None, <a href=#git.origin.describe_version>describe_version</a>=None, <a href=#git.origin.version_selector>version_selector</a>=None, <a href=#git.origin.primary_branch_migration>primary_branch_migration</a>=False, <a href=#git.origin.credentials>credentials</a>=None)</code>
 
@@ -3493,7 +3493,7 @@ Parameter | Description
 <span id=git.origin.patch href=#git.origin.patch>patch</span> | <code><a href="#transformation">transformation</a></code> or <code>NoneType</code><br><p>Patch the checkout dir. The difference with `patch.apply` transformation is that here we can apply it using three-way</p>
 <span id=git.origin.describe_version href=#git.origin.describe_version>describe_version</span> | <code>bool</code> or <code>NoneType</code><br><p>Download tags and use 'git describe' to create four labels with a meaningful version identifier:<br><br>  - `GIT_DESCRIBE_CHANGE_VERSION`: The version for the change or changes being migrated. The value changes per change in `ITERATIVE` mode and will be the latest migrated change in `SQUASH` (In other words, doesn't include excluded changes). this is normally what users want to use.<br> - `GIT_DESCRIBE_REQUESTED_VERSION`: `git describe` for the requested/head version. Constant in `ITERATIVE` mode and includes filtered changes.<br>  -`GIT_DESCRIBE_FIRST_PARENT`: `git describe` for the first parent version.<br>  -`GIT_SEQUENTIAL_REVISION_NUMBER`: The sequential number of the commit. Falls back to the SHA1 if not applicable.<br></p>
 <span id=git.origin.version_selector href=#git.origin.version_selector>version_selector</span> | <code><a href="#versionselector">VersionSelector</a></code> or <code>NoneType</code><br><p>Select a custom version (tag)to migrate instead of 'ref'. Version selector is expected to match the whole refspec (e.g. 'refs/heads/${n1}')</p>
-<span id=git.origin.primary_branch_migration href=#git.origin.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, copybara will ignore the 'ref' param if it is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the 'ref' param.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
+<span id=git.origin.primary_branch_migration href=#git.origin.primary_branch_migration>primary_branch_migration</span> | <code>bool</code><br><p>When enabled, cooperbara will ignore the 'ref' param if it is 'master' or 'main' and instead try to establish the default git branch. If this fails, it will fall back to the 'ref' param.<br>This is intended to help migrating to the new standard of using 'main' without breaking users relying on the legacy default.</p>
 <span id=git.origin.credentials href=#git.origin.credentials>credentials</span> | <code>UsernamePasswordIssuer</code> or <code>NoneType</code><br><p>EXPERIMENTAL: Read credentials from config file to access the Git Repo. This expects a 'credentials.username_password' specifying the username to use for the remote git host and a password or token. This is gated by the '--use-credentials-from-config' flag</p>
 
 
@@ -3521,7 +3521,7 @@ Parameter | Description
 --------- | -----------
 <span id=git.review_input.labels href=#git.review_input.labels>labels</span> | <code>dict</code><br><p>The labels to post.</p>
 <span id=git.review_input.message href=#git.review_input.message>message</span> | <code>string</code> or <code>NoneType</code><br><p>The message to be added as review comment.</p>
-<span id=git.review_input.tag href=#git.review_input.tag>tag</span> | <code>string</code> or <code>NoneType</code><br><p>Tag to be applied to the review, for instance 'autogenerated:copybara'.</p>
+<span id=git.review_input.tag href=#git.review_input.tag>tag</span> | <code>string</code> or <code>NoneType</code><br><p>Tag to be applied to the review, for instance 'autogenerated:cooperbara'.</p>
 
 
 
@@ -3922,7 +3922,7 @@ Parameter | Description
 --------- | -----------
 <span id=github_api_obj.create_status.sha href=#github_api_obj.create_status.sha>sha</span> | <code>string</code><br><p>The SHA-1 for which we want to create or update the status</p>
 <span id=github_api_obj.create_status.state href=#github_api_obj.create_status.state>state</span> | <code>string</code><br><p>The state of the commit status: 'success', 'error', 'pending' or 'failure'</p>
-<span id=github_api_obj.create_status.context href=#github_api_obj.create_status.context>context</span> | <code>string</code><br><p>The context for the commit status. Use a value like 'copybara/import_successful' or similar</p>
+<span id=github_api_obj.create_status.context href=#github_api_obj.create_status.context>context</span> | <code>string</code><br><p>The context for the commit status. Use a value like 'cooperbara/import_successful' or similar</p>
 <span id=github_api_obj.create_status.description href=#github_api_obj.create_status.description>description</span> | <code>string</code><br><p>Description about what happened</p>
 <span id=github_api_obj.create_status.target_url href=#github_api_obj.create_status.target_url>target_url</span> | <code>string</code> or <code>NoneType</code><br><p>Url with expanded information about the event</p>
 
@@ -4522,7 +4522,7 @@ A glob represents a set of relative filepaths in the Copybara workdir. Most cons
 <ul><li><a href="#glob">glob</a></li></ul>
 <h4 id="consumed_by.glob">Consumed By:</h4>
 
-<ul><li><a href="#archive.extract">archive.extract</a></li><li><a href="#compression.unzip_path">compression.unzip_path</a></li><li><a href="#core.autopatch_config">core.autopatch_config</a></li><li><a href="#core.convert_encoding">core.convert_encoding</a></li><li><a href="#core.copy">core.copy</a></li><li><a href="#core.filter_replace">core.filter_replace</a></li><li><a href="#core.merge_import_config">core.merge_import_config</a></li><li><a href="#core.move">core.move</a></li><li><a href="#core.remove">core.remove</a></li><li><a href="#core.rename">core.rename</a></li><li><a href="#core.replace">core.replace</a></li><li><a href="#core.todo_replace">core.todo_replace</a></li><li><a href="#core.verify_match">core.verify_match</a></li><li><a href="#core.workflow">core.workflow</a></li><li><a href="#destination_reader.copy_destination_files">destination_reader.copy_destination_files</a></li><li><a href="#format.buildifier">format.buildifier</a></li><li><a href="#ctx.list">ctx.list</a></li><li><a href="#ctx.run">ctx.run</a></li></ul>
+<ul><li><a href="#archive.extract">archive.extract</a></li><li><a href="#compression.unzip_path">compression.unzip_path</a></li><li><a href="#core.autopatch_config">core.autopatch_config</a></li><li><a href="#core.convert_encoding">core.convert_encoding</a></li><li><a href="#core.cooper">core.cooper</a></li><li><a href="#core.filter_replace">core.filter_replace</a></li><li><a href="#core.merge_import_config">core.merge_import_config</a></li><li><a href="#core.move">core.move</a></li><li><a href="#core.remove">core.remove</a></li><li><a href="#core.rename">core.rename</a></li><li><a href="#core.replace">core.replace</a></li><li><a href="#core.todo_replace">core.todo_replace</a></li><li><a href="#core.verify_match">core.verify_match</a></li><li><a href="#core.workflow">core.workflow</a></li><li><a href="#destination_reader.cooper_destination_files">destination_reader.cooper_destination_files</a></li><li><a href="#format.buildifier">format.buildifier</a></li><li><a href="#ctx.list">ctx.list</a></li><li><a href="#ctx.run">ctx.run</a></li></ul>
 
 
 
@@ -4814,7 +4814,7 @@ Parameter | Description
 
 ## html
 
-Set of functions to work with HTML in copybara
+Set of functions to work with HTML in cooperbara
 
 <a id="html.xpath" aria-hidden="true"></a>
 ### html.xpath
@@ -5345,7 +5345,7 @@ Parameter | Description
 <span id=metadata.expose_label.separator href=#metadata.expose_label.separator>separator</span> | <code>string</code><br><p>The separator to use when adding the label to the message</p>
 <span id=metadata.expose_label.ignore_label_not_found href=#metadata.expose_label.ignore_label_not_found>ignore_label_not_found</span> | <code>bool</code><br><p>If a label is not found, ignore the error and continue.</p>
 <span id=metadata.expose_label.all href=#metadata.expose_label.all>all</span> | <code>bool</code><br><p>By default Copybara tries to find the most relevant instance of the label. First looking into the message and then looking into the changes in order. If this field is true it exposes all the matches instead.</p>
-<span id=metadata.expose_label.concat_separator href=#metadata.expose_label.concat_separator>concat_separator</span> | <code>unknown</code><br><p>If all is set, copybara will expose multiple values in one per line. If a separator is specified, it will concat the values instead.</p>
+<span id=metadata.expose_label.concat_separator href=#metadata.expose_label.concat_separator>concat_separator</span> | <code>unknown</code><br><p>If all is set, cooperbara will expose multiple values in one per line. If a separator is specified, it will concat the values instead.</p>
 
 
 <h4 id="example.metadata.expose_label">Examples:</h4>
@@ -5457,7 +5457,7 @@ Parameter | Description
 <span id=metadata.map_references.before href=#metadata.map_references.before>before</span> | <code>string</code><br><p>Template for origin references in the change message. Use a '${reference}' token to capture the actual references. E.g. if the origin uses links like 'http://changes?1234', the template would be 'http://changes?${reference}', with reference_regex = '[0-9]+'</p>
 <span id=metadata.map_references.after href=#metadata.map_references.after>after</span> | <code>string</code><br><p>Format for destination references in the change message. Use a '${reference}' token to represent the destination reference.  E.g. if the destination uses links like 'http://changes?1234', the template would be 'http://changes?${reference}', with reference_regex = '[0-9]+'</p>
 <span id=metadata.map_references.regex_groups href=#metadata.map_references.regex_groups>regex_groups</span> | <code>dict</code><br><p>Regexes for the ${reference} token's content. Requires one 'before_ref' entry matching the ${reference} token's content on the before side. Optionally accepts one 'after_ref' used for validation. Copybara uses [re2](https://github.com/google/re2/wiki/Syntax) syntax.</p>
-<span id=metadata.map_references.additional_import_labels href=#metadata.map_references.additional_import_labels>additional_import_labels</span> | <code>sequence of string</code><br><p>Meant to be used when migrating from another tool: Per default, copybara will only recognize the labels defined in the workflow's endpoints. The tool will use these additional labels to find labels created by other invocations and tools.</p>
+<span id=metadata.map_references.additional_import_labels href=#metadata.map_references.additional_import_labels>additional_import_labels</span> | <code>sequence of string</code><br><p>Meant to be used when migrating from another tool: Per default, cooperbara will only recognize the labels defined in the workflow's endpoints. The tool will use these additional labels to find labels created by other invocations and tools.</p>
 
 
 <h4 id="example.metadata.map_references">Example:</h4>
@@ -5566,7 +5566,7 @@ Parameter | Description
 <a id="metadata.save_author" aria-hidden="true"></a>
 ### metadata.save_author
 
-For a given change, store a copy of the author as a label with the name ORIGINAL_AUTHOR.
+For a given change, store a cooper of the author as a label with the name ORIGINAL_AUTHOR.
 
 <code><a href="#transformation">transformation</a></code> <code>metadata.save_author(<a href=#metadata.save_author.label>label</a>='ORIGINAL_AUTHOR', <a href=#metadata.save_author.separator>separator</a>="=")</code>
 
@@ -5992,13 +5992,13 @@ Parameter | Description
 Suppose the destination repository's directory structure looks like:
 ```
 source_root/BUILD
-source_root/copy.bara.sky
+source_root/cooper.bara.sky
 source_root/migrated_file1
 source_root/migrated_file2
 source_root/patches/series
 source_root/patches/patch1.patch
 ```
-Then the transformations in `source_root/copy.bara.sky` should look like:
+Then the transformations in `source_root/cooper.bara.sky` should look like:
 
 ```python
 [
@@ -6042,7 +6042,7 @@ path | <code>string</code><br><p>Full path relative to the checkout directory</p
 <ul><li><a href="#path.read_symlink">path.read_symlink</a></li><li><a href="#path.relativize">path.relativize</a></li><li><a href="#path.resolve">path.resolve</a></li><li><a href="#path.resolve_sibling">path.resolve_sibling</a></li><li><a href="#ctx.list">ctx.list</a></li><li><a href="#ctx.new_path">ctx.new_path</a></li></ul>
 <h4 id="consumed_by.Path">Consumed By:</h4>
 
-<ul><li><a href="#archive.extract">archive.extract</a></li><li><a href="#compression.unzip_path">compression.unzip_path</a></li><li><a href="#destination_reader.copy_destination_files">destination_reader.copy_destination_files</a></li><li><a href="#hashing.path_md5_sum">hashing.path_md5_sum</a></li><li><a href="#hashing.path_sha256_sum">hashing.path_sha256_sum</a></li><li><a href="#http.multipart_form_file">http.multipart_form_file</a></li><li><a href="#http_response.download">http_response.download</a></li><li><a href="#path.relativize">path.relativize</a></li><li><a href="#path.resolve">path.resolve</a></li><li><a href="#path.resolve_sibling">path.resolve_sibling</a></li><li><a href="#python.parse_metadata">python.parse_metadata</a></li><li><a href="#ctx.create_symlink">ctx.create_symlink</a></li><li><a href="#ctx.read_path">ctx.read_path</a></li><li><a href="#ctx.set_executable">ctx.set_executable</a></li><li><a href="#ctx.write_path">ctx.write_path</a></li></ul>
+<ul><li><a href="#archive.extract">archive.extract</a></li><li><a href="#compression.unzip_path">compression.unzip_path</a></li><li><a href="#destination_reader.cooper_destination_files">destination_reader.cooper_destination_files</a></li><li><a href="#hashing.path_md5_sum">hashing.path_md5_sum</a></li><li><a href="#hashing.path_sha256_sum">hashing.path_sha256_sum</a></li><li><a href="#http.multipart_form_file">http.multipart_form_file</a></li><li><a href="#http_response.download">http_response.download</a></li><li><a href="#path.relativize">path.relativize</a></li><li><a href="#path.resolve">path.resolve</a></li><li><a href="#path.resolve_sibling">path.resolve_sibling</a></li><li><a href="#python.parse_metadata">python.parse_metadata</a></li><li><a href="#ctx.create_symlink">ctx.create_symlink</a></li><li><a href="#ctx.read_path">ctx.read_path</a></li><li><a href="#ctx.set_executable">ctx.set_executable</a></li><li><a href="#ctx.write_path">ctx.write_path</a></li></ul>
 
 <a id="path.exists" aria-hidden="true"></a>
 ### path.exists
@@ -6397,7 +6397,7 @@ A tarball for a specific SHA1 on GitHub. Experimental.
 
 Parameter | Description
 --------- | -----------
-<span id=remotefiles.github_archive.project href=#remotefiles.github_archive.project>project</span> | <code>string</code><br><p>The GitHub project from which to load the file, e.g. google/copybara</p>
+<span id=remotefiles.github_archive.project href=#remotefiles.github_archive.project>project</span> | <code>string</code><br><p>The GitHub project from which to load the file, e.g. google/cooperbara</p>
 <span id=remotefiles.github_archive.revision href=#remotefiles.github_archive.revision>revision</span> | <code>string</code><br><p>The revision to download from the project, typically a commit SHA1.</p>
 <span id=remotefiles.github_archive.type href=#remotefiles.github_archive.type>type</span> | <code>string</code><br><p>Archive type to download, options are 'TARBALL' or 'ZIP'.</p>
 
@@ -6414,7 +6414,7 @@ Name | Type | Description
 
 Defines a remote file origin.
 
-<code><a href="#origin">origin</a></code> <code>remotefiles.origin(<a href=#remotefiles.origin.author>author</a>='Copybara <noreply@copybara.io>', <a href=#remotefiles.origin.message>message</a>='Placeholder message', <a href=#remotefiles.origin.unpack_method>unpack_method</a>='AS_IS', <a href=#remotefiles.origin.archive_source>archive_source</a>='', <a href=#remotefiles.origin.version_list>version_list</a>=None, <a href=#remotefiles.origin.origin_version_selector>origin_version_selector</a>=None, <a href=#remotefiles.origin.version_resolver>version_resolver</a>=None)</code>
+<code><a href="#origin">origin</a></code> <code>remotefiles.origin(<a href=#remotefiles.origin.author>author</a>='Copybara <noreply@cooperbara.io>', <a href=#remotefiles.origin.message>message</a>='Placeholder message', <a href=#remotefiles.origin.unpack_method>unpack_method</a>='AS_IS', <a href=#remotefiles.origin.archive_source>archive_source</a>='', <a href=#remotefiles.origin.version_list>version_list</a>=None, <a href=#remotefiles.origin.origin_version_selector>origin_version_selector</a>=None, <a href=#remotefiles.origin.version_resolver>version_resolver</a>=None)</code>
 
 
 <h4 id="parameters.remotefiles.origin">Parameters:</h4>
@@ -6651,7 +6651,7 @@ A single operation which modifies the source checked out from the origin, prior 
 
 <h4 id="returned_by.transformation">Returned By:</h4>
 
-<ul><li><a href="#buildozer.create">buildozer.create</a></li><li><a href="#buildozer.delete">buildozer.delete</a></li><li><a href="#buildozer.modify">buildozer.modify</a></li><li><a href="#core.convert_encoding">core.convert_encoding</a></li><li><a href="#core.copy">core.copy</a></li><li><a href="#core.dynamic_transform">core.dynamic_transform</a></li><li><a href="#core.move">core.move</a></li><li><a href="#core.remove">core.remove</a></li><li><a href="#core.rename">core.rename</a></li><li><a href="#core.replace">core.replace</a></li><li><a href="#core.reverse">core.reverse</a></li><li><a href="#core.todo_replace">core.todo_replace</a></li><li><a href="#core.transform">core.transform</a></li><li><a href="#core.verify_match">core.verify_match</a></li><li><a href="#format.buildifier">format.buildifier</a></li><li><a href="#metadata.add_header">metadata.add_header</a></li><li><a href="#metadata.expose_label">metadata.expose_label</a></li><li><a href="#metadata.map_author">metadata.map_author</a></li><li><a href="#metadata.map_references">metadata.map_references</a></li><li><a href="#metadata.remove_label">metadata.remove_label</a></li><li><a href="#metadata.replace_message">metadata.replace_message</a></li><li><a href="#metadata.restore_author">metadata.restore_author</a></li><li><a href="#metadata.save_author">metadata.save_author</a></li><li><a href="#metadata.scrubber">metadata.scrubber</a></li><li><a href="#metadata.squash_notes">metadata.squash_notes</a></li><li><a href="#metadata.use_last_change">metadata.use_last_change</a></li><li><a href="#metadata.verify_match">metadata.verify_match</a></li><li><a href="#patch.apply">patch.apply</a></li><li><a href="#patch.quilt_apply">patch.quilt_apply</a></li></ul>
+<ul><li><a href="#buildozer.create">buildozer.create</a></li><li><a href="#buildozer.delete">buildozer.delete</a></li><li><a href="#buildozer.modify">buildozer.modify</a></li><li><a href="#core.convert_encoding">core.convert_encoding</a></li><li><a href="#core.cooper">core.cooper</a></li><li><a href="#core.dynamic_transform">core.dynamic_transform</a></li><li><a href="#core.move">core.move</a></li><li><a href="#core.remove">core.remove</a></li><li><a href="#core.rename">core.rename</a></li><li><a href="#core.replace">core.replace</a></li><li><a href="#core.reverse">core.reverse</a></li><li><a href="#core.todo_replace">core.todo_replace</a></li><li><a href="#core.transform">core.transform</a></li><li><a href="#core.verify_match">core.verify_match</a></li><li><a href="#format.buildifier">format.buildifier</a></li><li><a href="#metadata.add_header">metadata.add_header</a></li><li><a href="#metadata.expose_label">metadata.expose_label</a></li><li><a href="#metadata.map_author">metadata.map_author</a></li><li><a href="#metadata.map_references">metadata.map_references</a></li><li><a href="#metadata.remove_label">metadata.remove_label</a></li><li><a href="#metadata.replace_message">metadata.replace_message</a></li><li><a href="#metadata.restore_author">metadata.restore_author</a></li><li><a href="#metadata.save_author">metadata.save_author</a></li><li><a href="#metadata.scrubber">metadata.scrubber</a></li><li><a href="#metadata.squash_notes">metadata.squash_notes</a></li><li><a href="#metadata.use_last_change">metadata.use_last_change</a></li><li><a href="#metadata.verify_match">metadata.verify_match</a></li><li><a href="#patch.apply">patch.apply</a></li><li><a href="#patch.quilt_apply">patch.quilt_apply</a></li></ul>
 <h4 id="consumed_by.transformation">Consumed By:</h4>
 
 <ul><li><a href="#core.replace_mapper">core.replace_mapper</a></li><li><a href="#core.reverse">core.reverse</a></li><li><a href="#core.transform">core.transform</a></li><li><a href="#git.gerrit_origin">git.gerrit_origin</a></li><li><a href="#git.github_origin">git.github_origin</a></li><li><a href="#git.github_pr_origin">git.github_pr_origin</a></li><li><a href="#git.origin">git.origin</a></li><li><a href="#ctx.run">ctx.run</a></li></ul>
@@ -7096,7 +7096,7 @@ Parameter | Description
 
 
 
-## copybara_flags
+## cooperbara_flags
 
 All flag options available to the Copybara CLI.
 
@@ -7107,7 +7107,7 @@ All flag options available to the Copybara CLI.
 Name | Type | Description
 ---- | ---- | -----------
 <span style="white-space: nowrap;">`--allow-empty-diff`</span> | *boolean* | If set to false, Copybara will not write to the destination if the exact same change is already pending in the destination. Currently only supported for `git.github_pr_destination` and `git.gerrit_destination`.
-<span style="white-space: nowrap;">`--allowed-git-push-options`</span> | *list* | This is a flag used to allowlist push options sent to git servers. E.g. copybara copy.bara.sky --git-push-option="foo,bar" would make copybara validate push so that the only push options (if there are any) used are 'foo' and 'bar'. If this flag is unset, it will skip push options validation. Set to "" to allow no push options.
+<span style="white-space: nowrap;">`--allowed-git-push-options`</span> | *list* | This is a flag used to allowlist push options sent to git servers. E.g. cooperbara cooper.bara.sky --git-push-option="foo,bar" would make cooperbara validate push so that the only push options (if there are any) used are 'foo' and 'bar'. If this flag is unset, it will skip push options validation. Set to "" to allow no push options.
 <span style="white-space: nowrap;">`--commands-timeout`</span> | *duration* | Commands timeout.  Example values: 30s, 20m, 1h, etc.
 <span style="white-space: nowrap;">`--config-root`</span> | *string* | Configuration root path to be used for resolving absolute config labels like '//foo/bar'
 <span style="white-space: nowrap;">`--console-file-flush-interval`</span> | *duration* | How often Copybara should flush the console to the output file. (10s, 1m, etc.)If set to 0s, console will be flushed only at the end.  Example values: 30s, 20m, 1h, etc.
@@ -7119,13 +7119,13 @@ Name | Type | Description
 <span style="white-space: nowrap;">`--disable-reversible-check`</span> | *boolean* | If set, all workflows will be executed without reversible_check, overriding the  workflow config and the normal behavior for CHANGE_REQUEST mode.
 <span style="white-space: nowrap;">`--dry-run`</span> | *boolean* | Run the migration in dry-run mode. Some destination implementations might have some side effects (like creating a code review), but never submit to a main branch.
 <span style="white-space: nowrap;">`--event-monitor`</span> | *list* | Eventmonitors to enable. These must be in the list of available monitors.
-<span style="white-space: nowrap;">`--experiment-checkout-affected-files`</span> | *boolean* | If set, copybara will only checkout affected files at git origin. Note that this is experimental.
+<span style="white-space: nowrap;">`--experiment-checkout-affected-files`</span> | *boolean* | If set, cooperbara will only checkout affected files at git origin. Note that this is experimental.
 <span style="white-space: nowrap;">`--force, --force-update`</span> | *boolean* | Force the migration even if Copybara cannot find in the destination a change that is an ancestor of the one(s) being migrated. This should be used with care, as it could lose changes when migrating a previous/conflicting change.
 <span style="white-space: nowrap;">`--git-credential-helper-store-file`</span> | *string* | Credentials store file to be used. See https://git-scm.com/docs/git-credential-store
 <span style="white-space: nowrap;">`--git-no-verify`</span> | *boolean* | Pass the '--no-verify' option to git pushes and commits to disable git commit hooks.
 <span style="white-space: nowrap;">`--git-origin-fetch-depth`</span> | *integer* | Use a shallow clone of the specified depth for git.origin. If set, only the n most recent changes' tree states are imported with older changes omitted.
-<span style="white-space: nowrap;">`--git-push-option`</span> | *list* | This is a repeatable flag used to set git push level flags to send to git servers. E.g. copybara copy.bara.sky --git-push-option foo --git-push-option bar would make git operations done by copybara under the hood use the --push-option flags: git push -push-option=foo -push-option=bar ...
-<span style="white-space: nowrap;">`--git-tag-overwrite`</span> | *boolean* | If set, copybara will force update existing git tag
+<span style="white-space: nowrap;">`--git-push-option`</span> | *list* | This is a repeatable flag used to set git push level flags to send to git servers. E.g. cooperbara cooper.bara.sky --git-push-option foo --git-push-option bar would make git operations done by cooperbara under the hood use the --push-option flags: git push -push-option=foo -push-option=bar ...
+<span style="white-space: nowrap;">`--git-tag-overwrite`</span> | *boolean* | If set, cooperbara will force update existing git tag
 <span style="white-space: nowrap;">`--info-list-only`</span> | *boolean* | When set, the INFO command will print a list of workflows defined in the file.
 <span style="white-space: nowrap;">`--noansi`</span> | *boolean* | Don't use ANSI output for messages
 <span style="white-space: nowrap;">`--nocleanup`</span> | *boolean* | Cleanup the output directories. This includes the workdir, scratch clones of Git repos, etc. By default is set to false and directories will be cleaned prior to the execution. If set to true, the previous run output will not be cleaned up. Keep in mind that running in this mode will lead to an ever increasing disk usage.
@@ -7133,13 +7133,13 @@ Name | Type | Description
 <span style="white-space: nowrap;">`--nogit-prompt`</span> | *boolean* | Disable username/password prompt and fail if no credentials are found. This flag sets the environment variable GIT_TERMINAL_PROMPT which is intended for automated jobs running Git https://git-scm.com/docs/git/2.3.0#git-emGITTERMINALPROMPTem
 <span style="white-space: nowrap;">`--noprompt`</span> | *boolean* | Don't prompt, this will answer all prompts with 'yes'
 <span style="white-space: nowrap;">`--output-limit`</span> | *int* | Limit the output in the console to a number of records. Each subcommand might use this flag differently. Defaults to 0, which shows all the output.
-<span style="white-space: nowrap;">`--output-root`</span> | *string* | The root directory where to generate output files. If not set, ~/copybara/out is used by default. Use with care, Copybara might remove files inside this root if necessary.
+<span style="white-space: nowrap;">`--output-root`</span> | *string* | The root directory where to generate output files. If not set, ~/cooperbara/out is used by default. Use with care, Copybara might remove files inside this root if necessary.
 <span style="white-space: nowrap;">`--patch-bin`</span> | *string* | Path for GNU Patch command
 <span style="white-space: nowrap;">`--remote-http-files-connection-timeout`</span> | *duration* | Timeout for the fetch operation, e.g. 30s.  Example values: 30s, 20m, 1h, etc.
 <span style="white-space: nowrap;">`--repo-timeout`</span> | *duration* | Repository operation timeout duration.  Example values: 30s, 20m, 1h, etc.
 <span style="white-space: nowrap;">`--squash`</span> | *boolean* | Override workflow's mode with 'SQUASH'. This is useful mainly for workflows that use 'ITERATIVE' mode, when we want to run a single export with 'SQUASH', maybe to fix an issue. Always use --dry-run before, to test your changes locally.
 <span style="white-space: nowrap;">`--validate-starlark`</span> | *string* | Starlark should be validated prior to execution, but this might break legacy configs. Options are LOOSE, STRICT
-<span style="white-space: nowrap;">`--version-selector-use-cli-ref`</span> | *boolean* | If command line ref is to used with a version selector, pass this flag to tell copybara to use it.
+<span style="white-space: nowrap;">`--version-selector-use-cli-ref`</span> | *boolean* | If command line ref is to used with a version selector, pass this flag to tell cooperbara to use it.
 <span style="white-space: nowrap;">`-v, --verbose`</span> | *boolean* | Verbose output.
 
 

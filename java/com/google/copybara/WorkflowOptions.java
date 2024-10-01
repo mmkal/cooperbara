@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
@@ -22,11 +22,11 @@ import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Suppliers;
 import com.google.common.collect.Lists;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.jcommander.AuthorConverter;
-import com.google.copybara.jcommander.GlobConverter;
-import com.google.copybara.jcommander.GreaterThanZeroListValidator;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.jcommander.AuthorConverter;
+import com.google.cooperbara.jcommander.GlobConverter;
+import com.google.cooperbara.jcommander.GreaterThanZeroListValidator;
+import com.google.cooperbara.util.Glob;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Supplier;
@@ -68,7 +68,7 @@ public class WorkflowOptions implements Option {
       names = "--same-version",
       description =
           "Re-import the last version imported. This is useful for example to check that"
-              + " a refactor in a copy.bara.sky file doesn't introduce accidental changes.")
+              + " a refactor in a cooper.bara.sky file doesn't introduce accidental changes.")
   public boolean importSameVersion;
 
   @Parameter(names = INIT_HISTORY_FLAG,
@@ -234,7 +234,7 @@ public class WorkflowOptions implements Option {
   Author forcedAuthor = null;
 
   @Parameter(names = "--diff-in-origin",
-      description = "When this flag is enabled, copybara will show different changes between last"
+      description = "When this flag is enabled, cooperbara will show different changes between last"
           + " Revision and current revision in origin instead of in destination. NOTE: it Only"
           + " works for SQUASH and ITERATIVE")
   public boolean diffInOrigin = false;

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
-import static com.google.copybara.GeneralOptions.NOPROMPT;
-import static com.google.copybara.MainArguments.COPYBARA_SKYLARK_CONFIG_FILENAME;
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.GeneralOptions.NOPROMPT;
+import static com.google.cooperbara.MainArguments.COPYBARA_SKYLARK_CONFIG_FILENAME;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
@@ -32,29 +32,29 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.MainArguments.CommandWithArgs;
-import com.google.copybara.config.ConfigValidator;
-import com.google.copybara.config.Migration;
-import com.google.copybara.config.PathBasedConfigFile;
-import com.google.copybara.exception.CommandLineException;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.jcommander.DurationConverter;
-import com.google.copybara.onboard.GeneratorCmd;
-import com.google.copybara.onboard.OnboardCmd;
-import com.google.copybara.profiler.ConsoleProfilerListener;
-import com.google.copybara.profiler.Listener;
-import com.google.copybara.profiler.LogProfilerListener;
-import com.google.copybara.profiler.Profiler;
-import com.google.copybara.regenerate.RegenerateCmd;
-import com.google.copybara.util.ExitCode;
-import com.google.copybara.util.console.AnsiConsole;
-import com.google.copybara.util.console.Console;
-import com.google.copybara.util.console.Consoles;
-import com.google.copybara.util.console.FileConsole;
-import com.google.copybara.util.console.LogConsole;
-import com.google.copybara.util.console.NoPromptConsole;
+import com.google.cooperbara.MainArguments.CommandWithArgs;
+import com.google.cooperbara.config.ConfigValidator;
+import com.google.cooperbara.config.Migration;
+import com.google.cooperbara.config.PathBasedConfigFile;
+import com.google.cooperbara.exception.CommandLineException;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.jcommander.DurationConverter;
+import com.google.cooperbara.onboard.GeneratorCmd;
+import com.google.cooperbara.onboard.OnboardCmd;
+import com.google.cooperbara.profiler.ConsoleProfilerListener;
+import com.google.cooperbara.profiler.Listener;
+import com.google.cooperbara.profiler.LogProfilerListener;
+import com.google.cooperbara.profiler.Profiler;
+import com.google.cooperbara.regenerate.RegenerateCmd;
+import com.google.cooperbara.util.ExitCode;
+import com.google.cooperbara.util.console.AnsiConsole;
+import com.google.cooperbara.util.console.Console;
+import com.google.cooperbara.util.console.Consoles;
+import com.google.cooperbara.util.console.FileConsole;
+import com.google.cooperbara.util.console.LogConsole;
+import com.google.cooperbara.util.console.NoPromptConsole;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  */
 public class Main {
 
-  private static final String COPYBARA_NAMESPACE = "com.google.copybara";
+  private static final String COPYBARA_NAMESPACE = "com.google.cooperbara";
 
   private static final FluentLogger logger = FluentLogger.forEnclosingClass();
   /**
@@ -99,7 +99,7 @@ public class Main {
   }
 
   public Main(Map<String, String> environment) {
-    this.environment = Preconditions.checkNotNull(ImmutableMap.copyOf(environment));
+    this.environment = Preconditions.checkNotNull(ImmutableMap.cooperOf(environment));
   }
 
   public static void main(String[] args) {
@@ -209,13 +209,13 @@ public class Main {
     try {
       ModuleSet moduleSet = newModuleSet(environment, fs, console);
 
-      final MainArguments mainArgs = new MainArguments(ImmutableList.copyOf(args));
+      final MainArguments mainArgs = new MainArguments(ImmutableList.cooperOf(args));
       Options options = moduleSet.getOptions();
       jCommander = new JCommander(ImmutableList.builder()
           .addAll(options.getAll())
           .add(mainArgs)
           .build());
-      jCommander.setProgramName("copybara");
+      jCommander.setProgramName("cooperbara");
 
       String version = getVersion();
       logger.atInfo().log("Copybara version: %s", version);
@@ -235,7 +235,7 @@ public class Main {
       CommandWithArgs cmdToRun = mainArgs.parseCommand(commands, commands.get("migrate"));
       subcommand = cmdToRun.getSubcommand();
 
-      initEnvironment(options, cmdToRun.getSubcommand(), ImmutableList.copyOf(args));
+      initEnvironment(options, cmdToRun.getSubcommand(), ImmutableList.cooperOf(args));
 
       GeneralOptions generalOptions = options.get(GeneralOptions.class);
       Path baseWorkdir = mainArgs.getBaseWorkdir(generalOptions, generalOptions.getFileSystem());
@@ -248,7 +248,7 @@ public class Main {
 
     } catch (CommandLineException | ParameterException e) {
       Consoles.printCauseChain(Level.WARNING, console, args, e);
-      console.error("Try 'copybara help'.");
+      console.error("Try 'cooperbara help'.");
       return new CommandResult(ExitCode.COMMAND_LINE_ERROR, subcommand, commandEnv);
     } catch (RepoException e) {
       Consoles.printCauseChain(Level.SEVERE, console, args, e);
@@ -275,7 +275,7 @@ public class Main {
       // intervention. Print stack trace without concern for presentation.
       e.printStackTrace();
       handleUnexpectedError(console,
-          "Unexpected error (please file a bug against copybara): " + e.getMessage(), args, e);
+          "Unexpected error (please file a bug against cooperbara): " + e.getMessage(), args, e);
       return new CommandResult(ExitCode.INTERNAL_ERROR, subcommand, commandEnv);
     }
   }
@@ -334,7 +334,7 @@ public class Main {
 
   protected ContextProvider newInfoContextProvider() {
     return (config, configFileArgs, configLoaderProvider, console) ->
-        ImmutableMap.of("copybara_config", config.getLocation());
+        ImmutableMap.of("cooperbara_config", config.getLocation());
   }
 
   /**
@@ -448,7 +448,7 @@ public class Main {
               + ".level=INFO\n"
               + "java.util.logging.FileHandler.level=" + level + "\n"
               + "java.util.logging.FileHandler.pattern="
-              + baseDir + "/copybara-%g.log\n"
+              + baseDir + "/cooperbara-%g.log\n"
               + "java.util.logging.FileHandler.count=10\n"
               + "java.util.logging.FileHandler.formatter=java.util.logging.SimpleFormatter\n"
               + "java.util.logging.SimpleFormatter.format="
@@ -463,7 +463,7 @@ public class Main {
    * Sample use case are remote logging, test harnesses and others. Called after command line
    * options are parsed, but before a file is read or a run started.
    */
-  protected void initEnvironment(Options options, CopybaraCmd copybaraCmd,
+  protected void initEnvironment(Options options, CopybaraCmd cooperbaraCmd,
       ImmutableList<String> rawArgs)
       throws ValidationException, IOException, RepoException {
     GeneralOptions generalOptions = options.get(GeneralOptions.class);
@@ -540,7 +540,7 @@ public class Main {
     fullUsage
         .append("\n")
         .append("Example:\n")
-        .append("  copybara ").append(COPYBARA_SKYLARK_CONFIG_FILENAME).append(" origin/master\n");
+        .append("  cooperbara ").append(COPYBARA_SKYLARK_CONFIG_FILENAME).append(" origin/master\n");
     return fullUsage.toString();
   }
 

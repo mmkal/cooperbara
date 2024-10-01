@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableBiMap;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.exception.NonReversibleValidationException;
-import com.google.copybara.transform.ReversibleFunction;
+import com.google.cooperbara.exception.NonReversibleValidationException;
+import com.google.cooperbara.transform.ReversibleFunction;
 
 public class MapMapper implements ReversibleFunction<String, String> {
 
@@ -33,7 +33,7 @@ public class MapMapper implements ReversibleFunction<String, String> {
   @Override
   public ReversibleFunction<String, String> reverseMapping() throws NonReversibleValidationException {
     try {
-      return new MapMapper(ImmutableBiMap.copyOf(map).inverse());
+      return new MapMapper(ImmutableBiMap.cooperOf(map).inverse());
     } catch (IllegalArgumentException e) {
       throw new NonReversibleValidationException(
           "Non-reversible map: " + map + ": " + e.getMessage());

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Maps;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.revision.Change;
-import com.google.copybara.revision.Revision;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.revision.Revision;
 import java.util.Map;
 import javax.annotation.Nullable;
 
@@ -52,13 +52,13 @@ public interface ChangeVisitable <R extends Revision> {
     visitChanges(start, input -> {
       // We could return all the label values, but this is really only used for
       // RevId like ones and last is good enough for now.
-      Map<String, String> copy = Maps.newHashMap(Maps.transformValues(input.getLabels().asMap(),
+      Map<String, String> cooper = Maps.newHashMap(Maps.transformValues(input.getLabels().asMap(),
           Iterables::getLast));
-      copy.keySet().retainAll(labels);
-      if (copy.isEmpty()) {
+      cooper.keySet().retainAll(labels);
+      if (cooper.isEmpty()) {
         return VisitResult.CONTINUE;
       }
-      return visitor.visit(input, ImmutableMap.copyOf(copy));
+      return visitor.visit(input, ImmutableMap.cooperOf(cooper));
     });
   }
   

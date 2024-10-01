@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.google.common.base.Preconditions;
-import com.google.copybara.config.Config;
-import com.google.copybara.config.ConfigFile;
-import com.google.copybara.config.SkylarkParser;
-import com.google.copybara.config.SkylarkParser.ConfigWithDependencies;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.console.Console;
-import com.google.copybara.util.console.StarlarkMode;
+import com.google.cooperbara.config.Config;
+import com.google.cooperbara.config.ConfigFile;
+import com.google.cooperbara.config.SkylarkParser;
+import com.google.cooperbara.config.SkylarkParser.ConfigWithDependencies;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.console.Console;
+import com.google.cooperbara.util.console.StarlarkMode;
 import java.io.IOException;
 
 /**

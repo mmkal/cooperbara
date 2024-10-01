@@ -8,7 +8,7 @@
 ## Basic git-to-git import
 
 This example will import Copybara source code to an internal git repository
-under ``$GIT/third_party/copybara``.
+under ``$GIT/third_party/cooperbara``.
 
 Assuming you have an existing git repository. For the example in ``/tmp/foo``. But it could be
 a remote one:
@@ -19,10 +19,10 @@ cd /tmp/foo
 git init --bare .
 ```
 
-Create a ``copy.bara.sky`` config file like:
+Create a ``cooper.bara.sky`` config file like:
 
 ```python
-url = "https://github.com/google/copybara.git"
+url = "https://github.com/google/cooperbara.git"
 
 core.workflow(
     name = "default",
@@ -36,11 +36,11 @@ core.workflow(
         push = "master",
     ),
     # Copy everything but don't remove a README_INTERNAL.txt file if it exists.
-    destination_files = glob(["third_party/copybara/**"], exclude = ["README_INTERNAL.txt"]),
+    destination_files = glob(["third_party/cooperbara/**"], exclude = ["README_INTERNAL.txt"]),
 
     authoring = authoring.pass_thru("Default email <default@default.com>"),
     transformations = [
-	    core.move("", "third_party/copybara"),
+	    core.move("", "third_party/cooperbara"),
 	],
 )
 ```
@@ -48,14 +48,14 @@ core.workflow(
 Invoke the tool like:
 
 ```bash
-copybara copy.bara.sky --force
+cooperbara cooper.bara.sky --force
 ```
 
 ``--force`` should only be needed for empty destination repositories or non-existent
 branches in the destination. After the first import, it should be always invoked as:
 
 ```
-copybara copy.bara.sky
+cooperbara cooper.bara.sky
 ```
 
 ## GitHub SSH basic import
@@ -65,7 +65,7 @@ This example will import private source code to an external GitHub repository, a
 PROTIP: You will need to have an ssh key setup without a password to accomplish this, Copybara doesn't
 currently support ssh with a password.
 
-Create a ``copy.bara.sky`` config file like:
+Create a ``cooper.bara.sky`` config file like:
 
 ```python
 # Update these references to your orginzations repos
@@ -98,14 +98,14 @@ core.workflow(
 Invoke the tool like:
 
 ```bash
-copybara copy.bara.sky --force
+cooperbara cooper.bara.sky --force
 ```
 
 ``--force`` should only be needed for empty destination repositories or non-existent
 branches in the destination. After the first import, it should be always invoked as:
 
 ```
-copybara copy.bara.sky
+cooperbara cooper.bara.sky
 ```
 
 After running through this example, you should see all the source from
@@ -125,10 +125,10 @@ $ mkdir /tmp/gitdest
 $ cd /tmp/gitdest
 $ git init --bare .
 ```
-Next up is creating and editing a `copy.bara.sky` config file. The config file will contain the
+Next up is creating and editing a `cooper.bara.sky` config file. The config file will contain the
 details of our workflow. Using your text editor of choice, create and edit the config file:
 ```
-$ vim /tmp/copy.bara.sky
+$ vim /tmp/cooper.bara.sky
 ```
 We'll define in the config to pull changes from the default branch in the origin repository.
 ```
@@ -143,7 +143,7 @@ core.workflow(
   ),
   # Files that you want to import
   origin_files = glob(['**']),
-  # Files that you want to copy
+  # Files that you want to cooper
   destination_files = glob(['**']),
   # Set up a default author
   authoring = authoring.pass_thru("Default email <default@default.com>"),
@@ -156,7 +156,7 @@ repository has many commits, we can just pull default branch revisions from the 
 revisions in the repository, using the `--last-rev` flag.
 
 ```
-$ copybara /tmp/copy.bara.sky --force --last-rev -15
+$ cooperbara /tmp/cooper.bara.sky --force --last-rev -15
 ```
 If we wanted to pull all revisions from the default branch, we would omit the `--last-rev` flag.
 Since we are using `SQUASH` mode, all commits from the origin repository will be "squashed" into a
@@ -178,7 +178,7 @@ and we replace it with the correct destination one just for BUILD files:
 
 
 ```python
-url = "https://github.com/google/copybara.git"
+url = "https://github.com/google/cooperbara.git"
 
 core.workflow(
     name = "default",
@@ -193,7 +193,7 @@ core.workflow(
     ),
 
     # Copy everything but don't remove a README_INTERNAL.txt file if it exists.
-    destination_files = glob(["third_party/copybara/**"], exclude = ["README_INTERNAL.txt"]),
+    destination_files = glob(["third_party/cooperbara/**"], exclude = ["README_INTERNAL.txt"]),
 
     authoring = authoring.pass_thru("Default email <default@default.com>"),
 
@@ -203,7 +203,7 @@ core.workflow(
             after = "//another/path:bashunit",
             paths = glob(["**/BUILD"]),
         ),
-        core.move("", "third_party/copybara"),
+        core.move("", "third_party/cooperbara"),
     ],
 )
 ```
@@ -215,14 +215,14 @@ command is specified, *migrate* is executed by default. These two commands are
 equivalent:
 
 ```shell
-$ copybara copy.bara.sky
-$ copybara migrate copy.bara.sky
+$ cooperbara cooper.bara.sky
+$ cooperbara migrate cooper.bara.sky
 ```
 
 You can validate your configuration running:
 
 ```shell
-$ copybara validate copy.bara.sky
+$ cooperbara validate cooper.bara.sky
 Copybara source mover
 INFO: Configuration validated.
 ```
@@ -230,7 +230,7 @@ INFO: Configuration validated.
 And you can get information about a migration workflow by running:
 
 ```shell
-$ copybara info copy.bara.sky
+$ cooperbara info cooper.bara.sky
 Copybara source mover
 ...
 INFO: Workflow 'default': last_migrated_ref 4dd20b2...

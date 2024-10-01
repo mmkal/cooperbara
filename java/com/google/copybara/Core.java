@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
-import static com.google.copybara.Workflow.COPYBARA_CONFIG_PATH_IDENTITY_VAR;
-import static com.google.copybara.config.GlobalMigrations.getGlobalMigrations;
-import static com.google.copybara.config.SkylarkUtil.check;
-import static com.google.copybara.config.SkylarkUtil.convertFromNoneable;
-import static com.google.copybara.config.SkylarkUtil.convertOptionalString;
-import static com.google.copybara.config.SkylarkUtil.convertStringList;
-import static com.google.copybara.config.SkylarkUtil.convertStringMap;
-import static com.google.copybara.config.SkylarkUtil.stringToEnum;
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.transform.Transformations.toTransformation;
-import static com.google.copybara.util.Glob.wrapGlob;
-import static com.google.copybara.version.LatestVersionSelector.VersionElementType.ALPHABETIC;
-import static com.google.copybara.version.LatestVersionSelector.VersionElementType.NUMERIC;
+import static com.google.cooperbara.Workflow.COPYBARA_CONFIG_PATH_IDENTITY_VAR;
+import static com.google.cooperbara.config.GlobalMigrations.getGlobalMigrations;
+import static com.google.cooperbara.config.SkylarkUtil.check;
+import static com.google.cooperbara.config.SkylarkUtil.convertFromNoneable;
+import static com.google.cooperbara.config.SkylarkUtil.convertOptionalString;
+import static com.google.cooperbara.config.SkylarkUtil.convertStringList;
+import static com.google.cooperbara.config.SkylarkUtil.convertStringMap;
+import static com.google.cooperbara.config.SkylarkUtil.stringToEnum;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.transform.Transformations.toTransformation;
+import static com.google.cooperbara.util.Glob.wrapGlob;
+import static com.google.cooperbara.version.LatestVersionSelector.VersionElementType.ALPHABETIC;
+import static com.google.cooperbara.version.LatestVersionSelector.VersionElementType.NUMERIC;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableCollection;
@@ -36,46 +36,46 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
 import com.google.common.collect.Iterables;
-import com.google.copybara.StructModule.StructImpl;
-import com.google.copybara.action.Action;
-import com.google.copybara.action.StarlarkAction;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.config.ConfigFile;
-import com.google.copybara.config.LabelsAwareModule;
-import com.google.copybara.config.Migration;
-import com.google.copybara.doc.annotations.DocDefault;
-import com.google.copybara.doc.annotations.Example;
-import com.google.copybara.doc.annotations.UsesFlags;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.NonReversibleValidationException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.folder.FolderModule;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.templatetoken.Parser;
-import com.google.copybara.templatetoken.Token;
-import com.google.copybara.templatetoken.Token.TokenType;
-import com.google.copybara.transform.CopyOrMove;
-import com.google.copybara.transform.ExplicitReversal;
-import com.google.copybara.transform.FilterReplace;
-import com.google.copybara.transform.Remove;
-import com.google.copybara.transform.Rename;
-import com.google.copybara.transform.Replace;
-import com.google.copybara.transform.ReplaceMapper;
-import com.google.copybara.transform.ReversibleFunction;
-import com.google.copybara.transform.Sequence;
-import com.google.copybara.transform.SkylarkConsole;
-import com.google.copybara.transform.SkylarkTransformation;
-import com.google.copybara.transform.TodoReplace;
-import com.google.copybara.transform.TodoReplace.Mode;
-import com.google.copybara.transform.VerifyMatch;
-import com.google.copybara.transform.debug.DebugOptions;
-import com.google.copybara.util.Glob;
-import com.google.copybara.version.LatestVersionSelector;
-import com.google.copybara.version.LatestVersionSelector.VersionElementType;
-import com.google.copybara.version.OrderedVersionSelector;
-import com.google.copybara.version.RequestedVersionSelector;
-import com.google.copybara.version.VersionSelector;
+import com.google.cooperbara.StructModule.StructImpl;
+import com.google.cooperbara.action.Action;
+import com.google.cooperbara.action.StarlarkAction;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.config.ConfigFile;
+import com.google.cooperbara.config.LabelsAwareModule;
+import com.google.cooperbara.config.Migration;
+import com.google.cooperbara.doc.annotations.DocDefault;
+import com.google.cooperbara.doc.annotations.Example;
+import com.google.cooperbara.doc.annotations.UsesFlags;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.NonReversibleValidationException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.folder.FolderModule;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.templatetoken.Parser;
+import com.google.cooperbara.templatetoken.Token;
+import com.google.cooperbara.templatetoken.Token.TokenType;
+import com.google.cooperbara.transform.CopyOrMove;
+import com.google.cooperbara.transform.ExplicitReversal;
+import com.google.cooperbara.transform.FilterReplace;
+import com.google.cooperbara.transform.Remove;
+import com.google.cooperbara.transform.Rename;
+import com.google.cooperbara.transform.Replace;
+import com.google.cooperbara.transform.ReplaceMapper;
+import com.google.cooperbara.transform.ReversibleFunction;
+import com.google.cooperbara.transform.Sequence;
+import com.google.cooperbara.transform.SkylarkConsole;
+import com.google.cooperbara.transform.SkylarkTransformation;
+import com.google.cooperbara.transform.TodoReplace;
+import com.google.cooperbara.transform.TodoReplace.Mode;
+import com.google.cooperbara.transform.VerifyMatch;
+import com.google.cooperbara.transform.debug.DebugOptions;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.version.LatestVersionSelector;
+import com.google.cooperbara.version.LatestVersionSelector.VersionElementType;
+import com.google.cooperbara.version.OrderedVersionSelector;
+import com.google.cooperbara.version.RequestedVersionSelector;
+import com.google.cooperbara.version.VersionSelector;
 import com.google.re2j.Matcher;
 import com.google.re2j.Pattern;
 import java.nio.charset.Charset;
@@ -199,8 +199,8 @@ public class Core implements LabelsAwareModule, StarlarkValue {
               + "\n"
               + "  - "
               + TransformWork.COPYBARA_CONTEXT_REFERENCE_LABEL
-              + ": Requested reference. For example if copybara is invoked as `copybara"
-              + " copy.bara.sky workflow master`, the value would be `master`.\n"
+              + ": Requested reference. For example if cooperbara is invoked as `cooperbara"
+              + " cooper.bara.sky workflow master`, the value would be `master`.\n"
               + "  - "
               + TransformWork.COPYBARA_LAST_REV
               + ": Last reference that was migrated\n"
@@ -368,12 +368,12 @@ public class Core implements LabelsAwareModule, StarlarkValue {
                 "By default, Copybara hashes several fields so that each change has an unique"
                     + " identifier that at the same time reuses the generated destination change."
                     + " This allows to customize the identity hash generation so that the same"
-                    + " identity is used in several workflows. At least ${copybara_config_path}"
+                    + " identity is used in several workflows. At least ${cooperbara_config_path}"
                     + " has to be present. Current user is added to the hash"
                     + " automatically.<br><br>Available variables:<ul> "
-                    + " <li>${copybara_config_path}: Main config file path</li> "
-                    + " <li>${copybara_workflow_name}: The name of the workflow being run</li> "
-                    + " <li>${copybara_reference}: The requested reference. In general Copybara"
+                    + " <li>${cooperbara_config_path}: Main config file path</li> "
+                    + " <li>${cooperbara_workflow_name}: The name of the workflow being run</li> "
+                    + " <li>${cooperbara_reference}: The requested reference. In general Copybara"
                     + " tries its best to give a repetable reference. For example Gerrit change"
                     + " number or change-id or GitHub Pull Request number. If it cannot find a"
                     + " context reference it uses the resolved revision.</li> "
@@ -917,14 +917,14 @@ public class Core implements LabelsAwareModule, StarlarkValue {
 
   @SuppressWarnings("unused")
   @StarlarkMethod(
-      name = "copy",
+      name = "cooper",
       doc = "Copy files between directories and renames files",
       parameters = {
         @Param(
             name = "before",
             named = true,
             doc =
-                "The name of the file or directory to copy. If this is the empty string and"
+                "The name of the file or directory to cooper. If this is the empty string and"
                     + " 'after' is a directory, then all files in the workdir will be copied to"
                     + " the sub directory specified by 'after', maintaining the directory tree."),
         @Param(
@@ -971,13 +971,13 @@ public class Core implements LabelsAwareModule, StarlarkValue {
   @Example(
       title = "Copy a directory",
       before = "Move all the files in a directory to another directory:",
-      code = "core.copy(\"foo/bar_internal\", \"bar\")",
+      code = "core.cooper(\"foo/bar_internal\", \"bar\")",
       after = "In this example, `foo/bar_internal/one` will be copied to `bar/one`.")
   @Example(
       title = "Copy using Regex",
       before = "Change a file extension:",
       code =
-          "core.copy(before = 'foo/${x}.txt', after = 'foo/${x}.md', regex_groups = {"
+          "core.cooper(before = 'foo/${x}.txt', after = 'foo/${x}.md', regex_groups = {"
               + " 'x': '.*'})",
       after = "In this example, `foo/bar/README.txt` will be copied to `foo/bar/README.md`.")
   @Example(
@@ -985,12 +985,12 @@ public class Core implements LabelsAwareModule, StarlarkValue {
       before = "Copy all static files to a 'static' folder and use remove for reverting the change",
       code =
           "core.transform(\n"
-              + "    [core.copy(\"foo\", \"foo/static\", paths = glob([\"**.css\",\"**.html\","
+              + "    [core.cooper(\"foo\", \"foo/static\", paths = glob([\"**.css\",\"**.html\","
               + " ]))],\n"
               + "    reversal = [core.remove(glob(['foo/static/**.css',"
               + " 'foo/static/**.html']))]\n"
               + ")")
-  public Transformation copy(
+  public Transformation cooper(
       String before,
       String after,
       Object paths,
@@ -1016,18 +1016,18 @@ public class Core implements LabelsAwareModule, StarlarkValue {
       name = "remove",
       doc =
           "Remove files from the workdir. **This transformation is only meant to be used inside"
-              + " core.transform for reversing core.copy like transforms**. For regular file"
+              + " core.transform for reversing core.cooper like transforms**. For regular file"
               + " filtering use origin_files exclude mechanism.",
       parameters = {
         @Param(name = "paths", named = true, doc = "The files to be deleted"),
       },
       useStarlarkThread = true)
   @Example(
-      title = "Reverse a file copy",
+      title = "Reverse a file cooper",
       before = "Move all the files in a directory to another directory:",
       code =
           "core.transform(\n"
-              + "    [core.copy(\"foo\", \"foo/public\")],\n"
+              + "    [core.cooper(\"foo\", \"foo/public\")],\n"
               + "    reversal = [core.remove(glob([\"foo/public/**\"]))])",
       after = "In this example, `foo/one` will be moved to `foo/public/one`.")
   @Example(
@@ -1035,7 +1035,7 @@ public class Core implements LabelsAwareModule, StarlarkValue {
       before = "Copy all static files to a 'static' folder and use remove for reverting the change",
       code =
           "core.transform(\n"
-              + "    [core.copy(\"foo\", \"foo/static\", paths = glob([\"**.css\",\"**.html\","
+              + "    [core.cooper(\"foo\", \"foo/static\", paths = glob([\"**.css\",\"**.html\","
               + " ]))],\n"
               + "    reversal = [core.remove(glob(['foo/static/**.css',"
               + " 'foo/static/**.html']))]\n"
@@ -1292,20 +1292,20 @@ public class Core implements LabelsAwareModule, StarlarkValue {
           "This replace would transform a text file like:\n\n"
               + "```\n"
               + "public code\n"
-              + "go/copybara ... public code\n"
-              + "public code ... go/copybara\n"
-              + "go/copybara ... foo/bazelbuild/rules_go/bar\n"
-              + "foo/bazelbuild/rules_go/baz ... go/copybara\n"
+              + "go/cooperbara ... public code\n"
+              + "public code ... go/cooperbara\n"
+              + "go/cooperbara ... foo/bazelbuild/rules_go/bar\n"
+              + "foo/bazelbuild/rules_go/baz ... go/cooperbara\n"
               + "```\n\n"
               + "Into:\n\n"
               + "```\n"
               + "public code\n"
               + "(broken link) ... public code\n"
               + "public code ... (broken link)\n"
-              + "go/copybara ... foo/bazelbuild/rules_go/bar\n"
-              + "foo/bazelbuild/rules_go/baz ... go/copybara\n"
+              + "go/cooperbara ... foo/bazelbuild/rules_go/bar\n"
+              + "foo/bazelbuild/rules_go/baz ... go/cooperbara\n"
               + "```\n\n"
-              + "Note that the `go/copybara` links on lines that matched the ignore regex were not"
+              + "Note that the `go/cooperbara` links on lines that matched the ignore regex were not"
               + " replaced. The transformation ignored these lines entirely.")
   public Replace replace(
       String before,
@@ -1437,7 +1437,7 @@ public class Core implements LabelsAwareModule, StarlarkValue {
     Map<String, String> mapping = convertStringMap(skyMapping, "mapping");
     String defaultString = convertFromNoneable(skyDefault, /*defaultValue=*/null);
     ImmutableList<String> tags =
-        ImmutableList.copyOf(convertStringList(skyTags, "tags"));
+        ImmutableList.cooperOf(convertStringList(skyTags, "tags"));
     String ignorePattern = convertFromNoneable(regexToIgnore, null);
     Pattern regexIgnorelist = ignorePattern != null ? Pattern.compile(ignorePattern) : null;
 
@@ -1594,7 +1594,7 @@ public class Core implements LabelsAwareModule, StarlarkValue {
       throws EvalException {
     if (mapping instanceof Dict) {
       ImmutableMap<String, String> map =
-          ImmutableMap.copyOf(Dict.noneableCast(mapping, String.class, String.class, "mapping"));
+          ImmutableMap.cooperOf(Dict.noneableCast(mapping, String.class, String.class, "mapping"));
       check(!map.isEmpty(), "Empty mapping is not allowed." + " Remove the transformation instead");
       return new MapMapper(map);
     }
@@ -1885,7 +1885,7 @@ public class Core implements LabelsAwareModule, StarlarkValue {
   public Transformation dynamic_transform(
       StarlarkCallable impl, Dict<?, ?> params, StarlarkThread thread) {
     return new SkylarkTransformation(
-        impl, Dict.<Object, Object>copyOf(thread.mutability(), params), printHandler);
+        impl, Dict.<Object, Object>cooperOf(thread.mutability(), params), printHandler);
   }
 
   // TODO(malcon): Deprecate this method once all references moved to core.action
@@ -1909,7 +1909,7 @@ public class Core implements LabelsAwareModule, StarlarkValue {
       useStarlarkThread = true)
   public Action dynamicFeedback(StarlarkCallable impl, Dict<?, ?> params, StarlarkThread thread) {
     return new StarlarkAction(findCallableName(impl, thread),
-        impl, Dict.<Object, Object>copyOf(thread.mutability(), params), printHandler);
+        impl, Dict.<Object, Object>cooperOf(thread.mutability(), params), printHandler);
   }
 
   @SuppressWarnings("unused")
@@ -1933,7 +1933,7 @@ public class Core implements LabelsAwareModule, StarlarkValue {
   public Action action(StarlarkCallable impl, Dict<?, ?> params, StarlarkThread thread) {
 
     return new StarlarkAction(findCallableName(impl, thread),
-        impl, Dict.<Object, Object>copyOf(thread.mutability(), params), printHandler);
+        impl, Dict.<Object, Object>cooperOf(thread.mutability(), params), printHandler);
   }
 
   private String findCallableName(StarlarkCallable impl, StarlarkThread thread) {

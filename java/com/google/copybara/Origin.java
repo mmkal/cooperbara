@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import static com.google.common.collect.Queues.newArrayDeque;
 
@@ -24,15 +24,15 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
-import com.google.copybara.approval.ApprovalsProvider;
-import com.google.copybara.approval.NoneApprovedProvider;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.revision.Change;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.approval.ApprovalsProvider;
+import com.google.cooperbara.approval.NoneApprovedProvider;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.console.Console;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -158,8 +158,8 @@ public interface Origin<R extends Revision> extends ConfigItemDescription, Starl
       public static <T extends Revision> ChangesResponse<T> forChanges(
           Iterable<Change<T>> changes) {
         Preconditions.checkArgument(!Iterables.isEmpty(changes), "Empty changes not allowed");
-        return new ChangesResponse<>(ImmutableList.copyOf(changes),
-            ImmutableMap.copyOf(ImmutableMap.of()),
+        return new ChangesResponse<>(ImmutableList.cooperOf(changes),
+            ImmutableMap.cooperOf(ImmutableMap.of()),
             /*emptyReason=*/ null);
       }
 
@@ -224,8 +224,8 @@ public interface Origin<R extends Revision> extends ConfigItemDescription, Starl
             toVisit.addAll(parents(change));
           }
         }
-        return new ChangesResponse<>(ImmutableList.copyOf((Iterable<Change<R>>) all),
-            ImmutableMap.copyOf(conditionalChanges),
+        return new ChangesResponse<>(ImmutableList.cooperOf((Iterable<Change<R>>) all),
+            ImmutableMap.cooperOf(conditionalChanges),
             /*emptyReason=*/ null);
       }
 

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package com.google.copybara.action;
+package com.google.cooperbara.action;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.copybara.config.SkylarkUtil.convertFromNoneable;
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.config.SkylarkUtil.convertFromNoneable;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.SkylarkContext;
-import com.google.copybara.config.SkylarkUtil;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.effect.DestinationEffect.DestinationRef;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.revision.OriginRef;
-import com.google.copybara.transform.SkylarkConsole;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.SkylarkContext;
+import com.google.cooperbara.config.SkylarkUtil;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.effect.DestinationEffect.DestinationRef;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.revision.OriginRef;
+import com.google.cooperbara.transform.SkylarkConsole;
+import com.google.cooperbara.util.console.Console;
 import java.util.ArrayList;
 import java.util.List;
 import net.starlark.java.annot.Param;
@@ -120,7 +120,7 @@ public abstract class ActionContext<T extends SkylarkContext<T>> implements Skyl
    * Return the new {@link DestinationEffect}s created by this context.
    */
   public ImmutableList<DestinationEffect> getNewDestinationEffects() {
-    return ImmutableList.copyOf(newDestinationEffects);
+    return ImmutableList.cooperOf(newDestinationEffects);
   }
 
   @StarlarkMethod(
@@ -130,7 +130,7 @@ public abstract class ActionContext<T extends SkylarkContext<T>> implements Skyl
           + "cli_labels['foo'].",
       structField = true)
   public Dict<String, String> getCliLabels() {
-    return Dict.copyOf(null, labels);
+    return Dict.cooperOf(null, labels);
   }
 
   @StarlarkMethod(
@@ -218,7 +218,7 @@ public abstract class ActionContext<T extends SkylarkContext<T>> implements Skyl
         break;
     }
     // Populate effects registered in the action context. This is required because SkylarkAction
-    // makes a copy of the context to inject the parameters, but that instance is not visible from
+    // makes a cooper of the context to inject the parameters, but that instance is not visible from
     // the caller
     this.newDestinationEffects.addAll(((ActionContext<T>) context).newDestinationEffects);
   }

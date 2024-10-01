@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 
-import static com.google.copybara.GeneralOptions.FORCE;
-import static com.google.copybara.Origin.Reader.ChangesResponse.EmptyReason.NO_CHANGES;
-import static com.google.copybara.WorkflowOptions.CHANGE_REQUEST_FROM_SOT_LIMIT_FLAG;
-import static com.google.copybara.WorkflowOptions.CHANGE_REQUEST_PARENT_FLAG;
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.exception.ValidationException.retriableException;
+import static com.google.cooperbara.GeneralOptions.FORCE;
+import static com.google.cooperbara.Origin.Reader.ChangesResponse.EmptyReason.NO_CHANGES;
+import static com.google.cooperbara.WorkflowOptions.CHANGE_REQUEST_FROM_SOT_LIMIT_FLAG;
+import static com.google.cooperbara.WorkflowOptions.CHANGE_REQUEST_PARENT_FLAG;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.retriableException;
 import static java.lang.String.format;
 
 import com.google.common.base.Joiner;
@@ -32,24 +32,24 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Iterables;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.ChangeVisitable.VisitResult;
-import com.google.copybara.Origin.Baseline;
-import com.google.copybara.Origin.Reader.ChangesResponse;
-import com.google.copybara.Origin.Reader.ChangesResponse.EmptyReason;
-import com.google.copybara.WorkflowRunHelper.ChangeMigrator;
-import com.google.copybara.doc.annotations.DocField;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.effect.DestinationEffect.Type;
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.ChangeRejectedException;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.revision.Change;
-import com.google.copybara.revision.Changes;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.console.PrefixConsole;
+import com.google.cooperbara.ChangeVisitable.VisitResult;
+import com.google.cooperbara.Origin.Baseline;
+import com.google.cooperbara.Origin.Reader.ChangesResponse;
+import com.google.cooperbara.Origin.Reader.ChangesResponse.EmptyReason;
+import com.google.cooperbara.WorkflowRunHelper.ChangeMigrator;
+import com.google.cooperbara.doc.annotations.DocField;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.effect.DestinationEffect.Type;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.ChangeRejectedException;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.revision.Changes;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.console.PrefixConsole;
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -161,7 +161,7 @@ public enum WorkflowMode {
       }
       int changeNumber = 1;
 
-      ImmutableList<Change<O>> changes = ImmutableList.copyOf(changesResponse.getChanges());
+      ImmutableList<Change<O>> changes = ImmutableList.cooperOf(changesResponse.getChanges());
       Iterator<Change<O>> changesIterator = changes.iterator();
       int limit = changes.size();
       if (runHelper.workflowOptions().iterativeLimitChanges < changes.size()) {
@@ -468,7 +468,7 @@ public enum WorkflowMode {
           throw new EmptyChangeException(
               String.format(
                   "'%s' has been already migrated. Use %s if you really want to run the migration"
-                      + " again (For example if the copy.bara.sky file has changed).",
+                      + " again (For example if the cooper.bara.sky file has changed).",
                   current.asString(), GeneralOptions.FORCE));
         }
         runHelper

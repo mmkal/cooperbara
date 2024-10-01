@@ -1,10 +1,10 @@
-package com.google.copybara;
+package com.google.cooperbara;
 /*
  * Copyright (C) 2022 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -19,7 +19,7 @@ import static java.util.stream.Collectors.joining;
 
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.doc.annotations.Example;
+import com.google.cooperbara.doc.annotations.Example;
 import javax.annotation.Nullable;
 import net.starlark.java.annot.Param;
 import net.starlark.java.annot.StarlarkBuiltin;
@@ -51,7 +51,7 @@ public class StructModule implements StarlarkValue {
       code = "my_struct = struct(foo='bar')\nx = my_struct.foo",
       testExistingVariable = "x")
   public StructImpl create(Dict<String, Object> kwargs) {
-    return new StructImpl(ImmutableMap.copyOf(kwargs));
+    return new StructImpl(ImmutableMap.cooperOf(kwargs));
   }
 
   /**

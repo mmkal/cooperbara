@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,56 +14,56 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.google.copybara.archive.ArchiveModule;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.buildozer.BuildozerModule;
-import com.google.copybara.buildozer.BuildozerOptions;
-import com.google.copybara.compression.CompressionModule;
-import com.google.copybara.credentials.CredentialModule;
-import com.google.copybara.credentials.CredentialOptions;
-import com.google.copybara.folder.FolderDestinationOptions;
-import com.google.copybara.folder.FolderModule;
-import com.google.copybara.folder.FolderOriginOptions;
-import com.google.copybara.format.BuildifierOptions;
-import com.google.copybara.format.FormatModule;
-import com.google.copybara.git.GerritOptions;
-import com.google.copybara.git.GitDestinationOptions;
-import com.google.copybara.git.GitHubDestinationOptions;
-import com.google.copybara.git.GitHubOptions;
-import com.google.copybara.git.GitHubPrOriginOptions;
-import com.google.copybara.git.GitMirrorOptions;
-import com.google.copybara.git.GitModule;
-import com.google.copybara.git.GitOptions;
-import com.google.copybara.git.GitOriginOptions;
-import com.google.copybara.go.GoModule;
-import com.google.copybara.hashing.HashingModule;
-import com.google.copybara.hg.HgModule;
-import com.google.copybara.hg.HgOptions;
-import com.google.copybara.hg.HgOriginOptions;
-import com.google.copybara.html.HtmlModule;
-import com.google.copybara.http.HttpModule;
-import com.google.copybara.http.HttpOptions;
-import com.google.copybara.onboard.GeneratorOptions;
-import com.google.copybara.python.PythonModule;
-import com.google.copybara.re2.Re2Module;
-import com.google.copybara.regenerate.RegenerateOptions;
-import com.google.copybara.remotefile.RemoteFileModule;
-import com.google.copybara.remotefile.RemoteFileOptions;
-import com.google.copybara.rust.RustModule;
-import com.google.copybara.toml.TomlModule;
-import com.google.copybara.transform.debug.DebugOptions;
-import com.google.copybara.transform.metadata.MetadataModule;
-import com.google.copybara.transform.patch.PatchModule;
-import com.google.copybara.transform.patch.PatchingOptions;
-import com.google.copybara.tsjs.npm.NpmModule;
-import com.google.copybara.util.console.Console;
-import com.google.copybara.xml.XmlModule;
+import com.google.cooperbara.archive.ArchiveModule;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.buildozer.BuildozerModule;
+import com.google.cooperbara.buildozer.BuildozerOptions;
+import com.google.cooperbara.compression.CompressionModule;
+import com.google.cooperbara.credentials.CredentialModule;
+import com.google.cooperbara.credentials.CredentialOptions;
+import com.google.cooperbara.folder.FolderDestinationOptions;
+import com.google.cooperbara.folder.FolderModule;
+import com.google.cooperbara.folder.FolderOriginOptions;
+import com.google.cooperbara.format.BuildifierOptions;
+import com.google.cooperbara.format.FormatModule;
+import com.google.cooperbara.git.GerritOptions;
+import com.google.cooperbara.git.GitDestinationOptions;
+import com.google.cooperbara.git.GitHubDestinationOptions;
+import com.google.cooperbara.git.GitHubOptions;
+import com.google.cooperbara.git.GitHubPrOriginOptions;
+import com.google.cooperbara.git.GitMirrorOptions;
+import com.google.cooperbara.git.GitModule;
+import com.google.cooperbara.git.GitOptions;
+import com.google.cooperbara.git.GitOriginOptions;
+import com.google.cooperbara.go.GoModule;
+import com.google.cooperbara.hashing.HashingModule;
+import com.google.cooperbara.hg.HgModule;
+import com.google.cooperbara.hg.HgOptions;
+import com.google.cooperbara.hg.HgOriginOptions;
+import com.google.cooperbara.html.HtmlModule;
+import com.google.cooperbara.http.HttpModule;
+import com.google.cooperbara.http.HttpOptions;
+import com.google.cooperbara.onboard.GeneratorOptions;
+import com.google.cooperbara.python.PythonModule;
+import com.google.cooperbara.re2.Re2Module;
+import com.google.cooperbara.regenerate.RegenerateOptions;
+import com.google.cooperbara.remotefile.RemoteFileModule;
+import com.google.cooperbara.remotefile.RemoteFileOptions;
+import com.google.cooperbara.rust.RustModule;
+import com.google.cooperbara.toml.TomlModule;
+import com.google.cooperbara.transform.debug.DebugOptions;
+import com.google.cooperbara.transform.metadata.MetadataModule;
+import com.google.cooperbara.transform.patch.PatchModule;
+import com.google.cooperbara.transform.patch.PatchingOptions;
+import com.google.cooperbara.tsjs.npm.NpmModule;
+import com.google.cooperbara.util.console.Console;
+import com.google.cooperbara.xml.XmlModule;
 import java.nio.file.FileSystem;
 import java.util.Map;
 import java.util.function.Function;
@@ -178,7 +178,7 @@ public class ModuleSupplier {
   }
 
   /**
-   * A ModuleSet contains the collection of modules and flags for one Skylark copy.bara.sky
+   * A ModuleSet contains the collection of modules and flags for one Skylark cooper.bara.sky
    * evaluation/execution.
    */
   public final ModuleSet create() {

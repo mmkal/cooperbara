@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.beust.jcommander.Parameters;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
-import com.google.copybara.config.Config;
-import com.google.copybara.config.ConfigValidator;
-import com.google.copybara.config.LabelsAwareModule;
-import com.google.copybara.config.Migration;
-import com.google.copybara.config.ValidationResult;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.ExitCode;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.config.Config;
+import com.google.cooperbara.config.ConfigValidator;
+import com.google.cooperbara.config.LabelsAwareModule;
+import com.google.cooperbara.config.Migration;
+import com.google.cooperbara.config.ValidationResult;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.ExitCode;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.function.Consumer;

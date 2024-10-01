@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.approval.ApprovalsProvider;
-import com.google.copybara.approval.ApprovalsProvider.ApprovalsResult;
-import com.google.copybara.approval.ChangeWithApprovals;
-import com.google.copybara.approval.NoneApprovedProvider;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.revision.Changes;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.DiffUtil.DiffFile;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.approval.ApprovalsProvider;
+import com.google.cooperbara.approval.ApprovalsProvider.ApprovalsResult;
+import com.google.cooperbara.approval.ChangeWithApprovals;
+import com.google.cooperbara.approval.NoneApprovedProvider;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.revision.Changes;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.DiffUtil.DiffFile;
+import com.google.cooperbara.util.console.Console;
 import com.google.errorprone.annotations.CheckReturnValue;
 import java.nio.file.Path;
 import java.time.ZoneId;

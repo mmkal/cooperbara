@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -14,7 +14,7 @@
 
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
 load("@rules_java//java:defs.bzl", "java_binary", "java_library")
-load(":docs.bzl", "copybara_reference")
+load(":docs.bzl", "cooperbara_reference")
 
 licenses(["notice"])
 
@@ -33,29 +33,29 @@ JAVACOPTS = [
 ]
 
 java_binary(
-    name = "copybara",
+    name = "cooperbara",
     javacopts = JAVACOPTS,
-    main_class = "com.google.copybara.Main",
+    main_class = "com.google.cooperbara.Main",
     runtime_deps = [
-        ":copybara_main",
+        ":cooperbara_main",
     ],
 )
 
 java_library(
-    name = "copybara_main",
+    name = "cooperbara_main",
     srcs = ["Main.java"],
     javacopts = JAVACOPTS,
     deps = [
         ":base",
-        ":copybara_lib",
+        ":cooperbara_lib",
         ":general_options",
-        "//java/com/google/copybara/config:base",
-        "//java/com/google/copybara/exception",
-        "//java/com/google/copybara/jcommander:converters",
-        "//java/com/google/copybara/onboard",
-        "//java/com/google/copybara/profiler",
-        "//java/com/google/copybara/util",
-        "//java/com/google/copybara/util/console",
+        "//java/com/google/cooperbara/config:base",
+        "//java/com/google/cooperbara/exception",
+        "//java/com/google/cooperbara/jcommander:converters",
+        "//java/com/google/cooperbara/onboard",
+        "//java/com/google/cooperbara/profiler",
+        "//java/com/google/cooperbara/util",
+        "//java/com/google/cooperbara/util/console",
         "//third_party:flogger",
         "//third_party:guava",
         "//third_party:jcommander",
@@ -63,10 +63,10 @@ java_library(
     ],
 )
 
-copybara_reference(
+cooperbara_reference(
     name = "generate_reference",
     out = "reference.md",
-    libraries = ["//java/com/google/copybara:copybara_main"],
+    libraries = ["//java/com/google/cooperbara:cooperbara_main"],
 )
 
 BASE_SRCS = [
@@ -109,8 +109,8 @@ java_library(
     ],
     javacopts = JAVACOPTS,
     deps = [
-        "//java/com/google/copybara/exception",
-        "//java/com/google/copybara/templatetoken",
+        "//java/com/google/cooperbara/exception",
+        "//java/com/google/cooperbara/templatetoken",
         "//third_party:guava",
         "//third_party:re2j",
     ],
@@ -141,11 +141,11 @@ java_library(
     srcs = ["CoreGlobal.java"],
     javacopts = JAVACOPTS,
     deps = [
-        "//java/com/google/copybara:base",
-        "//java/com/google/copybara/authoring",
-        "//java/com/google/copybara/config:base",
-        "//java/com/google/copybara/doc:annotations",
-        "//java/com/google/copybara/util",
+        "//java/com/google/cooperbara:base",
+        "//java/com/google/cooperbara/authoring",
+        "//java/com/google/cooperbara/config:base",
+        "//java/com/google/cooperbara/doc:annotations",
+        "//java/com/google/cooperbara/util",
         "//third_party:starlark",
     ],
 )
@@ -157,16 +157,16 @@ java_library(
     deps = [
         ":labels",
         ":local_parallelizer",
-        "//java/com/google/copybara/approval",
-        "//java/com/google/copybara/authoring",
-        "//java/com/google/copybara/doc:annotations",
-        "//java/com/google/copybara/effect",
-        "//java/com/google/copybara/exception",
-        "//java/com/google/copybara/jcommander:converters",
-        "//java/com/google/copybara/jcommander:validators",
-        "//java/com/google/copybara/revision",
-        "//java/com/google/copybara/util",
-        "//java/com/google/copybara/util/console",
+        "//java/com/google/cooperbara/approval",
+        "//java/com/google/cooperbara/authoring",
+        "//java/com/google/cooperbara/doc:annotations",
+        "//java/com/google/cooperbara/effect",
+        "//java/com/google/cooperbara/exception",
+        "//java/com/google/cooperbara/jcommander:converters",
+        "//java/com/google/cooperbara/jcommander:validators",
+        "//java/com/google/cooperbara/revision",
+        "//java/com/google/cooperbara/util",
+        "//java/com/google/cooperbara/util/console",
         "//third_party:autovalue",
         "//third_party:error_prone",
         "//third_party:flogger",
@@ -183,12 +183,12 @@ java_library(
     javacopts = JAVACOPTS,
     deps = [
         ":base",
-        "//java/com/google/copybara/exception",
-        "//java/com/google/copybara/jcommander:converters",
-        "//java/com/google/copybara/monitor",
-        "//java/com/google/copybara/profiler",
-        "//java/com/google/copybara/util",
-        "//java/com/google/copybara/util/console",
+        "//java/com/google/cooperbara/exception",
+        "//java/com/google/cooperbara/jcommander:converters",
+        "//java/com/google/cooperbara/monitor",
+        "//java/com/google/cooperbara/profiler",
+        "//java/com/google/cooperbara/util",
+        "//java/com/google/cooperbara/util/console",
         "//third_party:flogger",
         "//third_party:guava",
         "//third_party:jcommander",
@@ -202,7 +202,7 @@ java_library(
     srcs = ["LocalParallelizer.java"],
     javacopts = JAVACOPTS,
     deps = [
-        "//java/com/google/copybara/exception",
+        "//java/com/google/cooperbara/exception",
         "//third_party:guava",
     ],
 )
@@ -212,15 +212,15 @@ java_library(
     srcs = ["StarlarkDateTimeModule.java"],
     javacopts = JAVACOPTS,
     deps = [
-        "//java/com/google/copybara/doc:annotations",
-        "//java/com/google/copybara/exception",
+        "//java/com/google/cooperbara/doc:annotations",
+        "//java/com/google/cooperbara/exception",
         "//third_party:guava",
         "//third_party:starlark",
     ],
 )
 
 java_library(
-    name = "copybara_lib",
+    name = "cooperbara_lib",
     srcs = glob(
         ["**/*.java"],
         exclude = [
@@ -236,45 +236,45 @@ java_library(
         ":general_options",
         ":labels",
         ":starlark_date_time_module",
-        "//java/com/google/copybara/action",
-        "//java/com/google/copybara/archive",
-        "//java/com/google/copybara/authoring",
-        "//java/com/google/copybara/buildozer",
-        "//java/com/google/copybara/buildozer:buildozer_options",
-        "//java/com/google/copybara/compression",
-        "//java/com/google/copybara/config:base",
-        "//java/com/google/copybara/config:global_migrations",
-        "//java/com/google/copybara/config:parser",
-        "//java/com/google/copybara/credentials",
-        "//java/com/google/copybara/doc:annotations",
-        "//java/com/google/copybara/effect",
-        "//java/com/google/copybara/exception",
-        "//java/com/google/copybara/format",
-        "//java/com/google/copybara/git",
-        "//java/com/google/copybara/go",
-        "//java/com/google/copybara/hashing",
-        "//java/com/google/copybara/hg",
-        "//java/com/google/copybara/html",
-        "//java/com/google/copybara/http",
-        "//java/com/google/copybara/monitor",
-        "//java/com/google/copybara/onboard:options",
-        "//java/com/google/copybara/profiler",
-        "//java/com/google/copybara/python",
-        "//java/com/google/copybara/re2",
-        "//java/com/google/copybara/remotefile",
-        "//java/com/google/copybara/revision",
-        "//java/com/google/copybara/rust",
-        "//java/com/google/copybara/templatetoken",
-        "//java/com/google/copybara/toml",
-        "//java/com/google/copybara/transform",
-        "//java/com/google/copybara/transform/debug",
-        "//java/com/google/copybara/transform/patch",
-        "//java/com/google/copybara/tsjs/npm",
-        "//java/com/google/copybara/util",
-        "//java/com/google/copybara/util:consistency",
-        "//java/com/google/copybara/util/console",
-        "//java/com/google/copybara/version",
-        "//java/com/google/copybara/xml",
+        "//java/com/google/cooperbara/action",
+        "//java/com/google/cooperbara/archive",
+        "//java/com/google/cooperbara/authoring",
+        "//java/com/google/cooperbara/buildozer",
+        "//java/com/google/cooperbara/buildozer:buildozer_options",
+        "//java/com/google/cooperbara/compression",
+        "//java/com/google/cooperbara/config:base",
+        "//java/com/google/cooperbara/config:global_migrations",
+        "//java/com/google/cooperbara/config:parser",
+        "//java/com/google/cooperbara/credentials",
+        "//java/com/google/cooperbara/doc:annotations",
+        "//java/com/google/cooperbara/effect",
+        "//java/com/google/cooperbara/exception",
+        "//java/com/google/cooperbara/format",
+        "//java/com/google/cooperbara/git",
+        "//java/com/google/cooperbara/go",
+        "//java/com/google/cooperbara/hashing",
+        "//java/com/google/cooperbara/hg",
+        "//java/com/google/cooperbara/html",
+        "//java/com/google/cooperbara/http",
+        "//java/com/google/cooperbara/monitor",
+        "//java/com/google/cooperbara/onboard:options",
+        "//java/com/google/cooperbara/profiler",
+        "//java/com/google/cooperbara/python",
+        "//java/com/google/cooperbara/re2",
+        "//java/com/google/cooperbara/remotefile",
+        "//java/com/google/cooperbara/revision",
+        "//java/com/google/cooperbara/rust",
+        "//java/com/google/cooperbara/templatetoken",
+        "//java/com/google/cooperbara/toml",
+        "//java/com/google/cooperbara/transform",
+        "//java/com/google/cooperbara/transform/debug",
+        "//java/com/google/cooperbara/transform/patch",
+        "//java/com/google/cooperbara/tsjs/npm",
+        "//java/com/google/cooperbara/util",
+        "//java/com/google/cooperbara/util:consistency",
+        "//java/com/google/cooperbara/util/console",
+        "//java/com/google/cooperbara/version",
+        "//java/com/google/cooperbara/xml",
         "//third_party:autovalue",
         "//third_party:error_prone",
         "//third_party:flogger",

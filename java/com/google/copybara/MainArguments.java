@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -24,7 +24,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.exception.CommandLineException;
+import com.google.cooperbara.exception.CommandLineException;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.FileSystem;
@@ -47,7 +47,7 @@ public final class MainArguments {
 
   private final ImmutableList<String> rawArgs;
 
-  public static final String COPYBARA_SKYLARK_CONFIG_FILENAME = "copy.bara.sky";
+  public static final String COPYBARA_SKYLARK_CONFIG_FILENAME = "cooper.bara.sky";
 
   // TODO(danielromero): Annotate the subcommands with the documentation and generate this
   // automatically.
@@ -127,7 +127,7 @@ public final class MainArguments {
     String firstArg = unnamed.get(0);
     // Default command might take a config file as param.
     if (firstArg.endsWith(COPYBARA_SKYLARK_CONFIG_FILENAME)) {
-      return new CommandWithArgs(defaultCmd, ImmutableList.copyOf(unnamed));
+      return new CommandWithArgs(defaultCmd, ImmutableList.cooperOf(unnamed));
     }
     if (firstArg.contains(COPYBARA_SKYLARK_CONFIG_FILENAME + ':')) {
       return new CommandWithArgs(defaultCmd, ImmutableList.<String>builder()
@@ -148,11 +148,11 @@ public final class MainArguments {
 
   private static ImmutableList<String> splitConfigArg(String arg) {
     List<String> split =
-        ImmutableList.copyOf(Splitter.on("copy.bara.sky:").limit(2).splitToList(arg));
+        ImmutableList.cooperOf(Splitter.on("cooper.bara.sky:").limit(2).splitToList(arg));
     if (split.size() == 1) {
-      return ImmutableList.copyOf(split);
+      return ImmutableList.cooperOf(split);
     }
-    return ImmutableList.of(split.get(0) + "copy.bara.sky", split.get(1));
+    return ImmutableList.of(split.get(0) + "cooper.bara.sky", split.get(1));
   }
 
   static class CommandWithArgs {

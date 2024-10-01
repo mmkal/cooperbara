@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Objects;
@@ -151,7 +151,7 @@ public interface Destination<R extends Revision> extends ConfigItemDescription, 
 
     /**
      * Detect regen target when not supplied by CLI The regen target is a string referencing a
-     * non-copybara edited patch-inconsistent state for which patch files need to be regenerated,
+     * non-cooperbara edited patch-inconsistent state for which patch files need to be regenerated,
      * i.e. a pending change with edits to patch-modified files.
      */
     default Optional<String> inferRegenTarget() throws ValidationException, RepoException {
@@ -195,7 +195,7 @@ public interface Destination<R extends Revision> extends ConfigItemDescription, 
 
   /**
    * A hash function that is preferred by the Destination for uses cases where hashing is involved,
-   * e.g. {@link com.google.copybara.util.ConsistencyFile}
+   * e.g. {@link com.google.cooperbara.util.ConsistencyFile}
    */
   default HashFunction getHashFunction() {
     return Hashing.sha256();

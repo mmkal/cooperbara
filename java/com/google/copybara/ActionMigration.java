@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.MoreObjects;
@@ -23,21 +23,21 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.ImmutableSetMultimap.Builder;
 import com.google.common.collect.Iterables;
-import com.google.copybara.action.Action;
-import com.google.copybara.action.ActionResult;
-import com.google.copybara.action.ActionResult.Result;
-import com.google.copybara.config.ConfigFile;
-import com.google.copybara.config.Migration;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
-import com.google.copybara.monitor.EventMonitor.ChangeMigrationStartedEvent;
-import com.google.copybara.monitor.EventMonitor.EventMonitors;
-import com.google.copybara.profiler.Profiler;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.transform.SkylarkConsole;
+import com.google.cooperbara.action.Action;
+import com.google.cooperbara.action.ActionResult;
+import com.google.cooperbara.action.ActionResult.Result;
+import com.google.cooperbara.config.ConfigFile;
+import com.google.cooperbara.config.Migration;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
+import com.google.cooperbara.monitor.EventMonitor.ChangeMigrationStartedEvent;
+import com.google.cooperbara.monitor.EventMonitor.EventMonitors;
+import com.google.cooperbara.profiler.Profiler;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.transform.SkylarkConsole;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -112,7 +112,7 @@ public class ActionMigration implements Migration {
               capitalize(mode), name, action.getName(), actionResult.getMsg());
         } finally {
           eventMonitors().dispatchEvent(m -> m.onChangeMigrationFinished(
-              new ChangeMigrationFinishedEvent(ImmutableList.copyOf(effects),
+              new ChangeMigrationFinishedEvent(ImmutableList.cooperOf(effects),
                   getOriginDescription(), getDestinationDescription())));
         }
       }

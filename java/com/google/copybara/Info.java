@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMultimap;
-import com.google.copybara.revision.Change;
-import com.google.copybara.revision.Revision;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.revision.Revision;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -43,7 +43,7 @@ public abstract class Info<O extends Revision> {
     return new AutoValue_Info<>(
         originDescription,
         destinationDescription,
-        ImmutableList.copyOf(migrationReferences),
+        ImmutableList.cooperOf(migrationReferences),
         ImmutableList.of());
   }
 
@@ -55,7 +55,7 @@ public abstract class Info<O extends Revision> {
     return new AutoValue_Info<>(
         originDescription,
         destinationDescription,
-        ImmutableList.copyOf(migrationReferences),
+        ImmutableList.cooperOf(migrationReferences),
         versions);
   }
 
@@ -88,7 +88,7 @@ public abstract class Info<O extends Revision> {
         @Nullable Change<O> lastMigratedChange,
         Iterable<Change<O>> availableToMigrate) {
       return new AutoValue_Info_MigrationReference<>(
-          label, lastMigrated, lastMigratedChange, ImmutableList.copyOf(availableToMigrate));
+          label, lastMigrated, lastMigratedChange, ImmutableList.cooperOf(availableToMigrate));
     }
 
     public static <O extends Revision> MigrationReference<O> create(
@@ -99,7 +99,7 @@ public abstract class Info<O extends Revision> {
           label,
           lastMigratedChange == null ? null : lastMigratedChange.getRevision(),
           lastMigratedChange,
-          ImmutableList.copyOf(availableToMigrate));
+          ImmutableList.cooperOf(availableToMigrate));
     }
 
     /**

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.beust.jcommander.Parameters;
 import com.google.common.base.Ascii;
@@ -26,19 +26,19 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Iterables;
-import com.google.copybara.Info.MigrationReference;
-import com.google.copybara.config.Config;
-import com.google.copybara.config.Migration;
-import com.google.copybara.config.SkylarkParser.ConfigWithDependencies;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.monitor.EventMonitor.InfoFailedEvent;
-import com.google.copybara.monitor.EventMonitor.InfoFinishedEvent;
-import com.google.copybara.revision.Change;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.ExitCode;
-import com.google.copybara.util.TablePrinter;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.Info.MigrationReference;
+import com.google.cooperbara.config.Config;
+import com.google.cooperbara.config.Migration;
+import com.google.cooperbara.config.SkylarkParser.ConfigWithDependencies;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.monitor.EventMonitor.InfoFailedEvent;
+import com.google.cooperbara.monitor.EventMonitor.InfoFinishedEvent;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.ExitCode;
+import com.google.cooperbara.util.TablePrinter;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
@@ -90,7 +90,7 @@ public class InfoCmd implements CopybaraCmd {
   private static void listMigrations(CommandEnv commandEnv, Config config) {
     Console console = commandEnv.getOptions().get(GeneralOptions.class).console();
     console.infoFmt("MIGRATIONS: %s",
-        Joiner.on(',').join(ImmutableSortedSet.copyOf(config.getMigrations().keySet())));
+        Joiner.on(',').join(ImmutableSortedSet.cooperOf(config.getMigrations().keySet())));
   }
 
   private static void showAllMigrations(CommandEnv commandEnv, Config config) {
@@ -111,7 +111,7 @@ public class InfoCmd implements CopybaraCmd {
       console.info(line);
     }
     console.info("To get information about the state of any migration run:\n\n"
-        + "    copybara info " + config.getLocation() + " [workflow_name]"
+        + "    cooperbara info " + config.getLocation() + " [workflow_name]"
         + "\n");
   }
 

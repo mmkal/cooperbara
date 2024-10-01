@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -32,7 +32,7 @@ USER ubuntu
 WORKDIR /home/ubuntu/
 COPY . . 
 
-RUN bazel build //java/com/google/copybara:copybara_deploy.jar --java_language_version=11 --tool_java_language_version=11 --java_runtime_version=remotejdk_11
+RUN bazel build //java/com/google/cooperbara:cooperbara_deploy.jar --java_language_version=11 --tool_java_language_version=11 --java_runtime_version=remotejdk_11
 
 # Use jammy to drop Python 2
 FROM docker.io/eclipse-temurin:17-jre-jammy
@@ -42,9 +42,9 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=buildtools /go/bin/buildozer /go/bin/buildifier /usr/local/bin/
-COPY --from=build /home/ubuntu/bazel-bin/java/com/google/copybara/copybara_deploy.jar /opt/copybara/copybara_deploy.jar
-COPY .docker/copybara /usr/local/bin/copybara
+COPY --from=build /home/ubuntu/bazel-bin/java/com/google/cooperbara/cooperbara_deploy.jar /opt/cooperbara/cooperbara_deploy.jar
+COPY .docker/cooperbara /usr/local/bin/cooperbara
 
-ENTRYPOINT ["/usr/local/bin/copybara"]
-CMD ["migrate", "copy.bara.sky"]
+ENTRYPOINT ["/usr/local/bin/cooperbara"]
+CMD ["migrate", "cooper.bara.sky"]
 WORKDIR /usr/src/app

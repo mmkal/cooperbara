@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.doc.annotations.DocSignaturePrefix;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.util.FileUtil;
-import com.google.copybara.util.FileUtil.ResolvedSymlink;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.doc.annotations.DocSignaturePrefix;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.util.FileUtil;
+import com.google.cooperbara.util.FileUtil.ResolvedSymlink;
+import com.google.cooperbara.util.Glob;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;

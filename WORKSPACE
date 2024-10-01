@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -12,16 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-workspace(name = "com_github_google_copybara")
+workspace(name = "com_github_google_cooperbara")
 
-load("//:repositories.bzl", "copybara_repositories")
+load("//:repositories.bzl", "cooperbara_repositories")
 
-copybara_repositories()
+cooperbara_repositories()
 
-load("//:repositories.maven.bzl", "copybara_maven_repositories")
+load("//:repositories.maven.bzl", "cooperbara_maven_repositories")
 
-copybara_maven_repositories()
+cooperbara_maven_repositories()
 
-load("//:repositories.go.bzl", "copybara_go_repositories")
+load("//:repositories.go.bzl", "cooperbara_go_repositories")
 
-copybara_go_repositories()
+cooperbara_go_repositories()

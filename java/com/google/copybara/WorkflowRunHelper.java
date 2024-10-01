@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,61 +14,61 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.copybara.GeneralOptions.OUTPUT_ROOT_FLAG;
-import static com.google.copybara.TransformWork.COPYBARA_CONFIG_PATH_LABEL;
-import static com.google.copybara.TransformWork.COPYBARA_WORKFLOW_NAME_LABEL;
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.util.FileUtil.CopySymlinkStrategy.FAIL_OUTSIDE_SYMLINKS;
+import static com.google.cooperbara.GeneralOptions.OUTPUT_ROOT_FLAG;
+import static com.google.cooperbara.TransformWork.COPYBARA_CONFIG_PATH_LABEL;
+import static com.google.cooperbara.TransformWork.COPYBARA_WORKFLOW_NAME_LABEL;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.util.FileUtil.CopySymlinkStrategy.FAIL_OUTSIDE_SYMLINKS;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.base.Verify;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSetMultimap;
-import com.google.copybara.Destination.DestinationStatus;
-import com.google.copybara.Destination.Writer;
-import com.google.copybara.Origin.Baseline;
-import com.google.copybara.Origin.Reader;
-import com.google.copybara.Origin.Reader.ChangesResponse;
-import com.google.copybara.TransformWork.ResourceSupplier;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.effect.DestinationEffect.DestinationRef;
-import com.google.copybara.effect.DestinationEffect.Type;
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.ChangeRejectedException;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.RedundantChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.exception.VoidOperationException;
-import com.google.copybara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
-import com.google.copybara.monitor.EventMonitor.ChangeMigrationStartedEvent;
-import com.google.copybara.monitor.EventMonitor.EventMonitors;
-import com.google.copybara.profiler.Profiler;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.revision.Change;
-import com.google.copybara.revision.Changes;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.ApplyDestinationPatch;
-import com.google.copybara.util.AutoPatchUtil;
-import com.google.copybara.util.CommandLineDiffUtil;
-import com.google.copybara.util.ConsistencyFile;
-import com.google.copybara.util.DiffUtil;
-import com.google.copybara.util.DiffUtil.DiffFile;
-import com.google.copybara.util.FileUtil;
-import com.google.copybara.util.FileUtil.CopySymlinkStrategy;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.InsideGitDirException;
-import com.google.copybara.util.MergeImportTool;
-import com.google.copybara.util.MergeImportTool.MergeRunner;
-import com.google.copybara.util.console.AnsiColor;
-import com.google.copybara.util.console.Console;
-import com.google.copybara.util.console.PrefixConsole;
+import com.google.cooperbara.Destination.DestinationStatus;
+import com.google.cooperbara.Destination.Writer;
+import com.google.cooperbara.Origin.Baseline;
+import com.google.cooperbara.Origin.Reader;
+import com.google.cooperbara.Origin.Reader.ChangesResponse;
+import com.google.cooperbara.TransformWork.ResourceSupplier;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.effect.DestinationEffect.DestinationRef;
+import com.google.cooperbara.effect.DestinationEffect.Type;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.ChangeRejectedException;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.RedundantChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.exception.VoidOperationException;
+import com.google.cooperbara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
+import com.google.cooperbara.monitor.EventMonitor.ChangeMigrationStartedEvent;
+import com.google.cooperbara.monitor.EventMonitor.EventMonitors;
+import com.google.cooperbara.profiler.Profiler;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.revision.Changes;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.ApplyDestinationPatch;
+import com.google.cooperbara.util.AutoPatchUtil;
+import com.google.cooperbara.util.CommandLineDiffUtil;
+import com.google.cooperbara.util.ConsistencyFile;
+import com.google.cooperbara.util.DiffUtil;
+import com.google.cooperbara.util.DiffUtil.DiffFile;
+import com.google.cooperbara.util.FileUtil;
+import com.google.cooperbara.util.FileUtil.CopySymlinkStrategy;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.InsideGitDirException;
+import com.google.cooperbara.util.MergeImportTool;
+import com.google.cooperbara.util.MergeImportTool.MergeRunner;
+import com.google.cooperbara.util.console.AnsiColor;
+import com.google.cooperbara.util.console.Console;
+import com.google.cooperbara.util.console.PrefixConsole;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.re2j.Pattern;
 import java.io.IOException;
@@ -351,7 +351,7 @@ public class WorkflowRunHelper<O extends Revision, D extends Revision> {
       // folder as the origin code but excluded.
       //
       // The config root can be a subfolder of the files as seen by the origin. For example:
-      // admin/copy.bara.sky could be present in the origin as root/admin/copy.bara.sky.
+      // admin/cooper.bara.sky could be present in the origin as root/admin/cooper.bara.sky.
       // This might give us some false positives but they would be noop migrations.
       for (String changesFile : currentChange.getChangeFiles()) {
         for (String configPath : getConfigFiles()) {
@@ -601,11 +601,11 @@ public class WorkflowRunHelper<O extends Revision, D extends Revision> {
       Path originCopy = null;
       Console console = workflow.getConsole();
       if (getReverseTransformForCheck() != null) {
-        try (ProfilerTask ignored = profiler().start("reverse_copy")) {
-          console.progress("Making a copy or the workdir for reverse checking");
+        try (ProfilerTask ignored = profiler().start("reverse_cooper")) {
+          console.progress("Making a cooper or the workdir for reverse checking");
           originCopy = Files.createDirectories(workdir.resolve("origin"));
           try {
-            FileUtil.copyFilesRecursively(checkoutDir, originCopy, FAIL_OUTSIDE_SYMLINKS);
+            FileUtil.cooperFilesRecursively(checkoutDir, originCopy, FAIL_OUTSIDE_SYMLINKS);
           } catch (NoSuchFileException e) {
             throw new ValidationException(String.format(""
                 + "Failed to perform reversible check of transformations due to symlink '%s' "
@@ -655,10 +655,10 @@ public class WorkflowRunHelper<O extends Revision, D extends Revision> {
       if (getReverseTransformForCheck() != null) {
         console.progress("Checking that the transformations can be reverted");
         Path reverse;
-        try (ProfilerTask ignored = profiler().start("reverse_copy")) {
+        try (ProfilerTask ignored = profiler().start("reverse_cooper")) {
           reverse = Files.createDirectories(workdir.resolve("reverse"));
           try {
-            FileUtil.copyFilesRecursively(checkoutDir, reverse, FAIL_OUTSIDE_SYMLINKS);
+            FileUtil.cooperFilesRecursively(checkoutDir, reverse, FAIL_OUTSIDE_SYMLINKS);
           } catch (NoSuchFileException e) {
             throw new ValidationException(""
                 + "Failed to perform reversible check of transformations due to a symlink that "
@@ -856,7 +856,7 @@ public class WorkflowRunHelper<O extends Revision, D extends Revision> {
       Glob patchlessDestinationFiles = patchlessDestinationFiles(workflow);
 
       Path destinationFilesWorkdir = Files.createDirectories(workdir.resolve("destination"));
-      reader.copyDestinationFilesToDirectory(
+      reader.cooperDestinationFilesToDirectory(
           patchlessDestinationFiles, destinationFilesWorkdir);
 
       Path baselineWorkdir = null;
@@ -866,7 +866,7 @@ public class WorkflowRunHelper<O extends Revision, D extends Revision> {
         // Otherwise, fall back to baseline import.
         Path consistencyFileWorkdir =
             Files.createDirectories(workdir.resolve("currentConsistencyFile"));
-        reader.copyDestinationFilesToDirectory(
+        reader.cooperDestinationFilesToDirectory(
             consistencyFileGlob(workflow), consistencyFileWorkdir);
 
         if (reader.exists(workflow.getConsistencyFilePath())) {
@@ -918,7 +918,7 @@ public class WorkflowRunHelper<O extends Revision, D extends Revision> {
       }
 
       Path preMergeImportWorkdir = Files.createDirectories(workdir.resolve("premerge"));
-      FileUtil.copyFilesRecursively(
+      FileUtil.cooperFilesRecursively(
           checkoutDir,
           preMergeImportWorkdir,
           CopySymlinkStrategy.IGNORE_INVALID_SYMLINKS,
@@ -1037,16 +1037,16 @@ public class WorkflowRunHelper<O extends Revision, D extends Revision> {
       Path consistencyFileWorkdir = Files.createDirectories(workdir.resolve("consistencyFile"));
       Path consistencyFilePath = consistencyFileWorkdir.resolve(workflow.getConsistencyFilePath());
 
-      // copy the consistency file somewhere so we can parse it
-      reader.copyDestinationFilesToDirectory(consistencyFileGlob(workflow), consistencyFileWorkdir);
+      // cooper the consistency file somewhere so we can parse it
+      reader.cooperDestinationFilesToDirectory(consistencyFileGlob(workflow), consistencyFileWorkdir);
       ConsistencyFile consistencyFile =
           ConsistencyFile.fromBytes(Files.readAllBytes(consistencyFilePath));
 
-      // copy the current destination files to the baseline directory
+      // cooper the current destination files to the baseline directory
       Glob baselineFiles = Glob.createGlob(consistencyFile.getFileHashes().keySet().asList());
 
       Path baselineWorkdir = Files.createDirectories(workdir.resolve("baseline"));
-      reader.copyDestinationFilesToDirectory(baselineFiles, baselineWorkdir);
+      reader.cooperDestinationFilesToDirectory(baselineFiles, baselineWorkdir);
 
       consistencyFile.validateDirectory(
           ConsistencyFile.filesInDir(baselineWorkdir), reader::getHash);
@@ -1237,7 +1237,7 @@ public class WorkflowRunHelper<O extends Revision, D extends Revision> {
           String.format(
               "Latest destination change has value '%s' for label '%s', but this does not resolve"
                   + " in the origin. This commonly happens if changes were merged outside the"
-                  + " Source of Truth, several copybara workflows use the same label or if the"
+                  + " Source of Truth, several cooperbara workflows use the same label or if the"
                   + " origin history was re-written. Manually set the '--last-rev' flag to the"
                   + " export baseline to export a valid state to the destination.",
               (status == null) ? null : status.getBaseline(), getOriginLabelName()),

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
-import static com.google.copybara.LazyResourceLoader.memoized;
-import static com.google.copybara.WorkflowMode.CHANGE_REQUEST;
-import static com.google.copybara.WorkflowMode.CHANGE_REQUEST_FROM_SOT;
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.LazyResourceLoader.memoized;
+import static com.google.cooperbara.WorkflowMode.CHANGE_REQUEST;
+import static com.google.cooperbara.WorkflowMode.CHANGE_REQUEST_FROM_SOT;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.MoreObjects;
@@ -28,32 +28,32 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.Destination.DestinationStatus;
-import com.google.copybara.Destination.Writer;
-import com.google.copybara.Info.MigrationReference;
-import com.google.copybara.Origin.Reader;
-import com.google.copybara.Origin.Reader.ChangesResponse;
-import com.google.copybara.action.Action;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.config.ConfigFile;
-import com.google.copybara.config.Migration;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.exception.CommandLineException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.feedback.FinishHookContext;
-import com.google.copybara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
-import com.google.copybara.monitor.EventMonitor.EventMonitors;
-import com.google.copybara.profiler.Profiler;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.revision.Change;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.templatetoken.Token;
-import com.google.copybara.templatetoken.Token.TokenType;
-import com.google.copybara.transform.SkylarkConsole;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.Identity;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.Destination.DestinationStatus;
+import com.google.cooperbara.Destination.Writer;
+import com.google.cooperbara.Info.MigrationReference;
+import com.google.cooperbara.Origin.Reader;
+import com.google.cooperbara.Origin.Reader.ChangesResponse;
+import com.google.cooperbara.action.Action;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.config.ConfigFile;
+import com.google.cooperbara.config.Migration;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.exception.CommandLineException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.feedback.FinishHookContext;
+import com.google.cooperbara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
+import com.google.cooperbara.monitor.EventMonitor.EventMonitors;
+import com.google.cooperbara.profiler.Profiler;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.templatetoken.Token;
+import com.google.cooperbara.templatetoken.Token.TokenType;
+import com.google.cooperbara.transform.SkylarkConsole;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.Identity;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -77,9 +77,9 @@ public class Workflow<O extends Revision, D extends Revision> implements Migrati
 
   private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
-  static final String COPYBARA_CONFIG_PATH_IDENTITY_VAR = "copybara_config_path";
-  static final String COPYBARA_WORKFLOW_NAME_IDENTITY_VAR = "copybara_workflow_name";
-  static final String COPYBARA_REFERENCE_IDENTITY_VAR = "copybara_reference";
+  static final String COPYBARA_CONFIG_PATH_IDENTITY_VAR = "cooperbara_config_path";
+  static final String COPYBARA_WORKFLOW_NAME_IDENTITY_VAR = "cooperbara_workflow_name";
+  static final String COPYBARA_REFERENCE_IDENTITY_VAR = "cooperbara_reference";
   static final String COPYBARA_REFERENCE_LABEL_VAR = "label:";
 
   private final String name;
@@ -214,7 +214,7 @@ public class Workflow<O extends Revision, D extends Revision> implements Migrati
   }
 
   /**
-   * The destination repository to copy to.
+   * The destination repository to cooper to.
    */
   public Destination<D> getDestination() {
     return destination;
@@ -269,7 +269,7 @@ public class Workflow<O extends Revision, D extends Revision> implements Migrati
       throw new CommandLineException(
           String.format(
               "Workflow does not support multiple source_ref arguments yet: %s",
-              ImmutableList.copyOf(sourceRefs)));
+              ImmutableList.cooperOf(sourceRefs)));
     }
     @Nullable
     String sourceRef = sourceRefs.size() == 1 ? sourceRefs.get(0) : null;
@@ -565,7 +565,7 @@ public class Workflow<O extends Revision, D extends Revision> implements Migrati
 
   /**
    * Migration identity tries to create a stable identifier for the migration that is stable between
-   * Copybara invocations for the same reference. For example it will contain the copy.bara.sky
+   * Copybara invocations for the same reference. For example it will contain the cooper.bara.sky
    * config file location relative to the root, the workflow name or the context reference used in
    * the request.
    *
@@ -667,7 +667,7 @@ public class Workflow<O extends Revision, D extends Revision> implements Migrati
                 action,
                 originEndpoint,
                 destinationEndpoint,
-                ImmutableList.copyOf(effects),
+                ImmutableList.cooperOf(effects),
                 generalOptions.labels,
                 resolvedRef,
                 console);

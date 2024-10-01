@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.action.Action;
-import com.google.copybara.action.ActionContext;
-import com.google.copybara.transform.SkylarkConsole;
+import com.google.cooperbara.action.Action;
+import com.google.cooperbara.action.ActionContext;
+import com.google.cooperbara.transform.SkylarkConsole;
 import java.nio.file.Path;
 import javax.annotation.Nullable;
 import net.starlark.java.annot.StarlarkBuiltin;
@@ -65,7 +65,7 @@ public class ActionMigrationContext extends ActionContext<ActionMigrationContext
       @Nullable ActionFileSystem fs) {
     super(currentAction, console, labels, params);
     this.actionMigration = Preconditions.checkNotNull(actionMigration);
-    this.refs = ImmutableList.copyOf(refs);
+    this.refs = ImmutableList.cooperOf(refs);
     this.fs = fs;
   }
 

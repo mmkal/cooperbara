@@ -43,7 +43,7 @@ Official support for other repositories types will be added in the future.
 core.workflow(
     name = "default",
     origin = git.github_origin(
-      url = "https://github.com/google/copybara.git",
+      url = "https://github.com/google/cooperbara.git",
       ref = "master",
     ),
     destination = git.destination(
@@ -51,7 +51,7 @@ core.workflow(
     ),
 
     # Copy everything but don't remove a README_INTERNAL.txt file if it exists.
-    destination_files = glob(["third_party/copybara/**"], exclude = ["README_INTERNAL.txt"]),
+    destination_files = glob(["third_party/cooperbara/**"], exclude = ["README_INTERNAL.txt"]),
 
     authoring = authoring.pass_thru("Default email <default@default.com>"),
     transformations = [
@@ -59,7 +59,7 @@ core.workflow(
                 before = "//third_party/bazel/bashunit",
                 after = "//another/path:bashunit",
                 paths = glob(["**/BUILD"])),
-        core.move("", "third_party/copybara")
+        core.move("", "third_party/cooperbara")
     ],
 )
 ```
@@ -68,7 +68,7 @@ Run:
 
 ```shell
 $ (mkdir /tmp/foo ; cd /tmp/foo ; git init --bare)
-$ copybara copy.bara.sky
+$ cooperbara cooper.bara.sky
 ```
 
 ## Getting Started using Copybara
@@ -78,11 +78,11 @@ In order to do that, you need to do the following:
 
   * [Install JDK 11](https://www.oracle.com/java/technologies/downloads/#java11).
   * [Install Bazel](https://bazel.build/install).
-  * Clone the copybara source locally:
-      * `git clone https://github.com/google/copybara.git`
+  * Clone the cooperbara source locally:
+      * `git clone https://github.com/google/cooperbara.git`
   * Build:
-      * `bazel build //java/com/google/copybara`
-      * `bazel build //java/com/google/copybara:copybara_deploy.jar` to create an executable uberjar.
+      * `bazel build //java/com/google/cooperbara`
+      * `bazel build //java/com/google/cooperbara:cooperbara_deploy.jar` to create an executable uberjar.
   * Tests: `bazel test //...` if you want to ensure you are not using a broken version. Note that
     certain tests require the underlying tool to be installed(e.g. Mercurial, Quilt, etc.). It is
     fine to skip those tests if your Pull Request is unrelated to those modules (And our CI will
@@ -95,9 +95,9 @@ system.
 
 #### Arch Linux
 
-  * [`aur/copybara-git`][install/archlinux/aur-git]
+  * [`aur/cooperbara-git`][install/archlinux/aur-git]
 
-[install/archlinux/aur-git]: https://aur.archlinux.org/packages/copybara-git "Copybara on the AUR"
+[install/archlinux/aur-git]: https://aur.archlinux.org/packages/cooperbara-git "Copybara on the AUR"
 
 ### Using Intellij with Bazel plugin
 
@@ -105,15 +105,15 @@ If you use Intellij and the Bazel plugin, use this project configuration:
 
 ```
 directories:
-  copybara/integration
-  java/com/google/copybara
-  javatests/com/google/copybara
+  cooperbara/integration
+  java/com/google/cooperbara
+  javatests/com/google/cooperbara
   third_party
 
 targets:
-  //copybara/integration/...
-  //java/com/google/copybara/...
-  //javatests/com/google/copybara/...
+  //cooperbara/integration/...
+  //java/com/google/cooperbara/...
+  //javatests/com/google/cooperbara/...
   //third_party/...
 ```
 
@@ -128,46 +128,46 @@ following code to your `WORKSPACE` file, replacing `{{ sha256sum }}` and
 
 ```bzl
 http_archive(
-  name = "com_github_google_copybara",
+  name = "com_github_google_cooperbara",
   sha256 = "{{ sha256sum }}",
-  strip_prefix = "copybara-{{ commit }}",
-  url = "https://github.com/google/copybara/archive/{{ commit }}.zip",
+  strip_prefix = "cooperbara-{{ commit }}",
+  url = "https://github.com/google/cooperbara/archive/{{ commit }}.zip",
 )
 
-load("@com_github_google_copybara//:repositories.bzl", "copybara_repositories")
+load("@com_github_google_cooperbara//:repositories.bzl", "cooperbara_repositories")
 
-copybara_repositories()
+cooperbara_repositories()
 
-load("@com_github_google_copybara//:repositories.maven.bzl", "copybara_maven_repositories")
+load("@com_github_google_cooperbara//:repositories.maven.bzl", "cooperbara_maven_repositories")
 
-copybara_maven_repositories()
+cooperbara_maven_repositories()
 
-load("@com_github_google_copybara//:repositories.go.bzl", "copybara_go_repositories")
+load("@com_github_google_cooperbara//:repositories.go.bzl", "cooperbara_go_repositories")
 
-copybara_go_repositories()
+cooperbara_go_repositories()
 ```
 
 You can then build and run the Copybara tool from within your workspace:
 
 ```sh
-bazel run @com_github_google_copybara//java/com/google/copybara -- <args...>
+bazel run @com_github_google_cooperbara//java/com/google/cooperbara -- <args...>
 ```
 
 ### Using Docker to build and run Copybara
 
 *NOTE: Docker use is currently experimental, and we encourage feedback or contributions.*
 
-You can build copybara using Docker like so
+You can build cooperbara using Docker like so
 
 ```sh
-docker build --rm -t copybara .
+docker build --rm -t cooperbara .
 ```
 
 Once this has finished building, you can run the image like so from the root of
 the code you are trying to use Copybara on:
 
 ```sh
-docker run -it -v "$(pwd)":/usr/src/app copybara help
+docker run -it -v "$(pwd)":/usr/src/app cooperbara help
 ```
 
 #### Environment variables
@@ -176,21 +176,21 @@ In addition to passing cmd args to the container, you can also set the following
 environment variables as an alternative:
 * `COPYBARA_SUBCOMMAND=migrate`
   * allows you to change the command run, defaults to `migrate`
-* `COPYBARA_CONFIG=copy.bara.sky`
-  * allows you to specify a path to a config file, defaults to root `copy.bara.sky`
+* `COPYBARA_CONFIG=cooper.bara.sky`
+  * allows you to specify a path to a config file, defaults to root `cooper.bara.sky`
 * `COPYBARA_WORKFLOW=default`
   * allows you to specify the workflow to run, defaults to `default`
 * `COPYBARA_SOURCEREF=''`
   * allows you to specify the sourceref, defaults to none
 * `COPYBARA_OPTIONS=''`
-  * allows you to specify options for copybara, defaults to none
+  * allows you to specify options for cooperbara, defaults to none
 
 ```sh
 docker run \
     -e COPYBARA_SUBCOMMAND='validate' \
     -e COPYBARA_CONFIG='other.config.sky' \
     -v "$(pwd)":/usr/src/app \
-    -it copybara
+    -it cooperbara
 ```
 
 #### Git Config and Credentials
@@ -204,7 +204,7 @@ docker run \
     -v ~/.ssh:/root/.ssh \
     -v ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK} -e SSH_AUTH_SOCK
     -v "$(pwd)":/usr/src/app \
-    -it copybara
+    -it cooperbara
 ```
 
 ## Documentation
@@ -213,12 +213,12 @@ We are still working on the documentation. Here are some resources:
 
   * [Reference documentation](docs/reference.md)
   * [Examples](docs/examples.md)
-  * [Tutorial on how to get started](https://blog.kubesimplify.com/moving-code-between-git-repositories-with-copybara)
+  * [Tutorial on how to get started](https://blog.kubesimplify.com/moving-code-between-git-repositories-with-cooperbara)
 
 ## Contact us
 
 If you have any questions about how Copybara works, please contact us at our
-[mailing list](https://groups.google.com/forum/#!forum/copybara-discuss).
+[mailing list](https://groups.google.com/forum/#!forum/cooperbara-discuss).
 
 ## Optional tips
 

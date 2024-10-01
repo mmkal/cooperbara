@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.ImmutableList.toImmutableList;
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
@@ -32,20 +32,20 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.common.flogger.FluentLogger;
 import com.google.common.flogger.StackSize;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.jcommander.DurationConverter;
-import com.google.copybara.jcommander.MapConverter;
-import com.google.copybara.monitor.ConsoleEventMonitor;
-import com.google.copybara.monitor.EventMonitor;
-import com.google.copybara.monitor.EventMonitor.EventMonitors;
-import com.google.copybara.profiler.Profiler;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.util.CommandRunner;
-import com.google.copybara.util.DirFactory;
-import com.google.copybara.util.console.Console;
-import com.google.copybara.util.console.StarlarkMode;
-import com.google.copybara.shell.Command;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.jcommander.DurationConverter;
+import com.google.cooperbara.jcommander.MapConverter;
+import com.google.cooperbara.monitor.ConsoleEventMonitor;
+import com.google.cooperbara.monitor.EventMonitor;
+import com.google.cooperbara.monitor.EventMonitor.EventMonitors;
+import com.google.cooperbara.profiler.Profiler;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.util.CommandRunner;
+import com.google.cooperbara.util.DirFactory;
+import com.google.cooperbara.util.console.Console;
+import com.google.cooperbara.util.console.StarlarkMode;
+import com.google.cooperbara.shell.Command;
 import java.io.IOException;
 import java.nio.file.FileSystem;
 import java.nio.file.Files;
@@ -244,7 +244,7 @@ public final class GeneralOptions implements Option {
    * Returns a {@link DirFactory} capable of creating directories in a self contained location in
    * the filesystem.
    *
-   * <p>By default, the directories are created under {@code $HOME/copybara}, but it can be
+   * <p>By default, the directories are created under {@code $HOME/cooperbara}, but it can be
    * overridden with the flag --output-root.
    */
   public DirFactory getDirFactory() {
@@ -252,7 +252,7 @@ public final class GeneralOptions implements Option {
       return new DirFactory(getOutputRoot());
     } else {
       String home = checkNotNull(environment.get("HOME"), "$HOME environment var is not set");
-      return new DirFactory(fileSystem.getPath(home).resolve("copybara"));
+      return new DirFactory(fileSystem.getPath(home).resolve("cooperbara"));
     }
   }
 
@@ -370,7 +370,7 @@ public final class GeneralOptions implements Option {
   @Parameter(
       names = "--version-selector-use-cli-ref",
       description =
-          "If command line ref is to used with a version selector, pass this flag to tell copybara"
+          "If command line ref is to used with a version selector, pass this flag to tell cooperbara"
               + " to use it.",
       arity = 1)
   boolean versionSelectorUseCliRef = true;
@@ -392,7 +392,7 @@ public final class GeneralOptions implements Option {
   @Parameter(
       names = OUTPUT_ROOT_FLAG,
       description =
-          "The root directory where to generate output files. If not set, ~/copybara/out is used "
+          "The root directory where to generate output files. If not set, ~/cooperbara/out is used "
               + "by default. Use with care, Copybara might remove files inside this root if "
               + "necessary.")
   String outputRoot = null;

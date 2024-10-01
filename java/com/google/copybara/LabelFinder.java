@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.google.copybara;
+package com.google.cooperbara;
 
 import static com.google.common.base.Preconditions.checkState;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.templatetoken.LabelTemplate;
-import com.google.copybara.templatetoken.LabelTemplate.LabelNotFoundException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.templatetoken.LabelTemplate;
+import com.google.cooperbara.templatetoken.LabelTemplate.LabelNotFoundException;
 import com.google.re2j.Matcher;
 import com.google.re2j.Pattern;
 import java.util.Collection;

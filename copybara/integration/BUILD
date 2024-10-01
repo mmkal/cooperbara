@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -19,7 +19,7 @@ sh_test(
     srcs = ["reference_doc_test.sh"],
     data = [
         "//docs:reference.md",
-        "//java/com/google/copybara:reference.md",
+        "//java/com/google/cooperbara:reference.md",
         "//third_party/bazel/bashunit",
     ],
     visibility = ["//visibility:public"],
@@ -29,7 +29,7 @@ sh_test(
     name = "tool_test",
     srcs = ["tool_test.sh"],
     data = [
-        "//java/com/google/copybara",
+        "//java/com/google/cooperbara",
         "//third_party/bazel/bashunit",
     ],
     shard_count = 30,
