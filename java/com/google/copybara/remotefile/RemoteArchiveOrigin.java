@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.google.copybara.remotefile;
+package com.google.cooperbara.remotefile;
 
-import static com.google.copybara.Origin.Reader.ChangesResponse.noChanges;
+import static com.google.cooperbara.Origin.Reader.ChangesResponse.noChanges;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
@@ -25,22 +25,22 @@ import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.io.MoreFiles;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Origin;
-import com.google.copybara.Origin.Reader.ChangesResponse.EmptyReason;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.remotefile.extractutil.ExtractUtil;
-import com.google.copybara.revision.Change;
-import com.google.copybara.templatetoken.LabelTemplate;
-import com.google.copybara.templatetoken.LabelTemplate.LabelNotFoundException;
-import com.google.copybara.util.Glob;
-import com.google.copybara.version.VersionList;
-import com.google.copybara.version.VersionResolver;
-import com.google.copybara.version.VersionSelector;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Origin;
+import com.google.cooperbara.Origin.Reader.ChangesResponse.EmptyReason;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.remotefile.extractutil.ExtractUtil;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.templatetoken.LabelTemplate;
+import com.google.cooperbara.templatetoken.LabelTemplate.LabelNotFoundException;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.version.VersionList;
+import com.google.cooperbara.version.VersionResolver;
+import com.google.cooperbara.version.VersionSelector;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;

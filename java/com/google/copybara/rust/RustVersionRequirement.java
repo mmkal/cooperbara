@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.copybara.rust;
+package com.google.cooperbara.rust;
 
 import static com.google.common.collect.Comparators.emptiesLast;
 import static java.lang.Math.min;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.primitives.Ints;
-import com.google.copybara.exception.ValidationException;
+import com.google.cooperbara.exception.ValidationException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;

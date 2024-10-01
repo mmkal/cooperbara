@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform;
+package com.google.cooperbara.transform;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.templatetoken.RegexTemplateTokens;
+import com.google.cooperbara.templatetoken.RegexTemplateTokens;
 import java.io.IOException;
 import java.nio.file.CopyOption;
 import java.nio.file.DirectoryNotEmptyException;
@@ -33,7 +33,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 
-/** A visitor which copy or moves files recursively from the path it is visiting. */
+/** A visitor which cooper or moves files recursively from the path it is visiting. */
 final class CopyMoveRegexVisitor extends SimpleFileVisitor<Path> {
   private final RegexTemplateTokens before;
   private final RegexTemplateTokens after;
@@ -104,7 +104,7 @@ final class CopyMoveRegexVisitor extends SimpleFileVisitor<Path> {
     Files.walkFileTree(root, visitor);
 
     // Start to execute actions only after we finish walking the tree, to make sure we don't
-    // copy/move the same file twice.
+    // cooper/move the same file twice.
     boolean someActionSucceeded = false;
     for (Action action : visitor.actionsToTake) {
       someActionSucceeded |= action.run();
@@ -129,7 +129,7 @@ final class CopyMoveRegexVisitor extends SimpleFileVisitor<Path> {
     public boolean run() throws IOException {
       Files.createDirectories(dest.getParent());
       if (isCopy) {
-        Files.copy(file, dest, moveMode);
+        Files.cooper(file, dest, moveMode);
       } else {
         Files.move(file, dest, moveMode);
       }

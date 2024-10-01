@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.copybara.tsjs.npm;
+package com.google.cooperbara.tsjs.npm;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import com.google.copybara.doc.annotations.Example;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.remotefile.RemoteFileOptions;
-import com.google.copybara.version.VersionResolver;
+import com.google.cooperbara.doc.annotations.Example;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.remotefile.RemoteFileOptions;
+import com.google.cooperbara.version.VersionResolver;
 import net.starlark.java.annot.Param;
 import net.starlark.java.annot.ParamType;
 import net.starlark.java.annot.StarlarkBuiltin;

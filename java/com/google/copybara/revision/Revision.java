@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.revision;
+package com.google.cooperbara.revision;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
-import com.google.copybara.exception.RepoException;
+import com.google.cooperbara.exception.RepoException;
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.util.Collection;
@@ -27,7 +27,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * A revision of {@code com.google.copybara.Origin}.
+ * A revision of {@code com.google.cooperbara.Origin}.
  *
  * <p>For example, in Git it would be a commit SHA-1.
  */
@@ -43,7 +43,7 @@ public interface Revision {
 
   /**
    * String representation of the revision that can be parsed by
-   * {@code com.google.copybara.Origin#resolve(String)}.
+   * {@code com.google.cooperbara.Origin#resolve(String)}.
    *
    * <p> Unlike {@link #toString()} method, this method is guaranteed to be stable.
    */

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform.patch;
+package com.google.cooperbara.transform.patch;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.config.ConfigFile;
-import com.google.copybara.config.LabelsAwareModule;
-import com.google.copybara.config.SkylarkUtil;
-import com.google.copybara.doc.annotations.Example;
-import com.google.copybara.doc.annotations.UsesFlags;
-import com.google.copybara.exception.CannotResolveLabel;
-import com.google.copybara.exception.ValidationException;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.config.ConfigFile;
+import com.google.cooperbara.config.LabelsAwareModule;
+import com.google.cooperbara.config.SkylarkUtil;
+import com.google.cooperbara.doc.annotations.Example;
+import com.google.cooperbara.doc.annotations.UsesFlags;
+import com.google.cooperbara.exception.CannotResolveLabel;
+import com.google.cooperbara.exception.ValidationException;
 import java.io.IOException;
 import java.util.Optional;
 import net.starlark.java.annot.Param;
@@ -156,7 +156,7 @@ public class PatchModule implements LabelsAwareModule, StarlarkValue {
     }
     return new PatchTransformation(
         builder.build(),
-        ImmutableList.copyOf(SkylarkUtil.convertStringList(excludedPaths, "excludedPaths")),
+        ImmutableList.cooperOf(SkylarkUtil.convertStringList(excludedPaths, "excludedPaths")),
         patchingOptions,
         /* reverse= */ false,
         strip,
@@ -197,13 +197,13 @@ public class PatchModule implements LabelsAwareModule, StarlarkValue {
           "Suppose the destination repository's directory structure looks like:\n"
               + "```\n"
               + "source_root/BUILD\n"
-              + "source_root/copy.bara.sky\n"
+              + "source_root/cooper.bara.sky\n"
               + "source_root/migrated_file1\n"
               + "source_root/migrated_file2\n"
               + "source_root/patches/series\n"
               + "source_root/patches/patch1.patch\n"
               + "```\n"
-              + "Then the transformations in `source_root/copy.bara.sky` should look like:",
+              + "Then the transformations in `source_root/cooper.bara.sky` should look like:",
       code =
           "[\n"
               + "    patch.quilt_apply(series = \"patches/series\"),\n"

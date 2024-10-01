@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform;
+package com.google.cooperbara.transform;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
-import com.google.copybara.CheckoutPath;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.exception.NonReversibleValidationException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.CheckoutPath;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.exception.NonReversibleValidationException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.util.Glob;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

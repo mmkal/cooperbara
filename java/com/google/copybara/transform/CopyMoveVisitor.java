@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform;
+package com.google.cooperbara.transform;
 
 import java.io.IOException;
 import java.nio.file.CopyOption;
@@ -29,7 +29,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import javax.annotation.Nullable;
 
 /**
- * A visitor which copy or moves files recursively from the path it is visiting.
+ * A visitor which cooper or moves files recursively from the path it is visiting.
  */
 final class CopyMoveVisitor extends SimpleFileVisitor<Path> {
   private final Path before;
@@ -65,7 +65,7 @@ final class CopyMoveVisitor extends SimpleFileVisitor<Path> {
       Path dest = after.resolve(relative);
       Files.createDirectories(dest.getParent());
       if (isCopy) {
-        Files.copy(source, dest, moveMode);
+        Files.cooper(source, dest, moveMode);
       } else {
         Files.move(source, dest, moveMode);
       }

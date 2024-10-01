@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform;
+package com.google.cooperbara.transform;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.google.common.base.MoreObjects;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
 import java.io.IOException;
 import net.starlark.java.syntax.Location;
 

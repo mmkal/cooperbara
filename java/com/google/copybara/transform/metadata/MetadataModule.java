@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform.metadata;
+package com.google.cooperbara.transform.metadata;
 
-import static com.google.copybara.config.SkylarkUtil.check;
-import static com.google.copybara.config.SkylarkUtil.convertFromNoneable;
+import static com.google.cooperbara.config.SkylarkUtil.check;
+import static com.google.cooperbara.config.SkylarkUtil.convertFromNoneable;
 
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.LabelFinder;
-import com.google.copybara.Transformation;
-import com.google.copybara.config.SkylarkUtil;
-import com.google.copybara.doc.annotations.DocDefault;
-import com.google.copybara.doc.annotations.Example;
+import com.google.cooperbara.LabelFinder;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.config.SkylarkUtil;
+import com.google.cooperbara.doc.annotations.DocDefault;
+import com.google.cooperbara.doc.annotations.Example;
 import com.google.re2j.Pattern;
 import com.google.re2j.PatternSyntaxException;
 import java.util.Map;
@@ -206,7 +206,7 @@ public class MetadataModule implements StarlarkValue {
   @StarlarkMethod(
       name = "save_author",
       doc =
-          "For a given change, store a copy of the author as a label with the name"
+          "For a given change, store a cooper of the author as a label with the name"
               + " ORIGINAL_AUTHOR.",
       parameters = {
         @Param(
@@ -409,7 +409,7 @@ public class MetadataModule implements StarlarkValue {
             name = "concat_separator",
             named = true,
             doc =
-                "If all is set, copybara will expose multiple values in one per line. If a "
+                "If all is set, cooperbara will expose multiple values in one per line. If a "
                     + "separator is specified, it will concat the values instead.",
             defaultValue = "None"),
       },
@@ -898,7 +898,7 @@ public class MetadataModule implements StarlarkValue {
             },
             defaultValue = "[]",
             doc =
-                "Meant to be used when migrating from another tool: Per default, copybara will"
+                "Meant to be used when migrating from another tool: Per default, cooperbara will"
                     + " only recognize the labels defined in the workflow's endpoints. The tool"
                     + " will use these additional labels to find labels created by other"
                     + " invocations and tools."),
@@ -959,7 +959,7 @@ public class MetadataModule implements StarlarkValue {
         destinationFormat,
         beforePattern,
         afterPattern,
-        ImmutableList.copyOf(SkylarkUtil.convertStringList(labels, "labels")),
+        ImmutableList.cooperOf(SkylarkUtil.convertStringList(labels, "labels")),
         thread.getCallerLocation());
     }
 }

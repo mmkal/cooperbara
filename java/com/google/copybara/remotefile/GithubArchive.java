@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.google.copybara.remotefile;
+package com.google.cooperbara.remotefile;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.google.common.io.ByteSink;
 import com.google.common.io.ByteStreams;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.profiler.Profiler;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.profiler.Profiler;
+import com.google.cooperbara.util.console.Console;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.net.MalformedURLException;

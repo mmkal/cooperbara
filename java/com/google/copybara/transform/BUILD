@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -23,18 +23,18 @@ java_library(
         "-Xlint:unchecked",
     ],
     deps = [
-        "//java/com/google/copybara:base",
-        "//java/com/google/copybara:labels",
-        "//java/com/google/copybara:local_parallelizer",
-        "//java/com/google/copybara/authoring",
-        "//java/com/google/copybara/config:base",
-        "//java/com/google/copybara/doc:annotations",
-        "//java/com/google/copybara/exception",
-        "//java/com/google/copybara/profiler",
-        "//java/com/google/copybara/revision",
-        "//java/com/google/copybara/templatetoken",
-        "//java/com/google/copybara/util",
-        "//java/com/google/copybara/util/console",
+        "//java/com/google/cooperbara:base",
+        "//java/com/google/cooperbara:labels",
+        "//java/com/google/cooperbara:local_parallelizer",
+        "//java/com/google/cooperbara/authoring",
+        "//java/com/google/cooperbara/config:base",
+        "//java/com/google/cooperbara/doc:annotations",
+        "//java/com/google/cooperbara/exception",
+        "//java/com/google/cooperbara/profiler",
+        "//java/com/google/cooperbara/revision",
+        "//java/com/google/cooperbara/templatetoken",
+        "//java/com/google/cooperbara/util",
+        "//java/com/google/cooperbara/util/console",
         "//third_party:flogger",
         "//third_party:guava",
         "//third_party:jsr305",

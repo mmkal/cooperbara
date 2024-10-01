@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -15,13 +15,13 @@
  */
 
 
-package com.google.copybara.toml;
+package com.google.cooperbara.toml;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.StarlarkDateTimeModule;
-import com.google.copybara.doc.annotations.Example;
-import com.google.copybara.exception.ValidationException;
+import com.google.cooperbara.StarlarkDateTimeModule;
+import com.google.cooperbara.doc.annotations.Example;
+import com.google.cooperbara.exception.ValidationException;
 import java.time.OffsetDateTime;
 import java.util.Map.Entry;
 import net.starlark.java.annot.Param;

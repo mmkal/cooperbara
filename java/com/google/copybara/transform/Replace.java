@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform;
+package com.google.cooperbara.transform;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -24,17 +24,17 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.LocalParallelizer;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.WorkflowOptions;
-import com.google.copybara.exception.NonReversibleValidationException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.templatetoken.RegexTemplateTokens;
-import com.google.copybara.templatetoken.RegexTemplateTokens.Replacer;
-import com.google.copybara.treestate.TreeState.FileState;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.LocalParallelizer;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.WorkflowOptions;
+import com.google.cooperbara.exception.NonReversibleValidationException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.templatetoken.RegexTemplateTokens;
+import com.google.cooperbara.templatetoken.RegexTemplateTokens.Replacer;
+import com.google.cooperbara.treestate.TreeState.FileState;
+import com.google.cooperbara.util.Glob;
 import com.google.re2j.Pattern;
 import com.google.re2j.PatternSyntaxException;
 import java.io.IOException;
@@ -68,7 +68,7 @@ import net.starlark.java.syntax.Location;
  * <p>This transformation is line-based and only replaces the first instance of the pattern on a
  * line.
  *
- * TODO(copybara-team): Consider making this configurable to replace multiple matches.
+ * TODO(cooperbara-team): Consider making this configurable to replace multiple matches.
  */
 public final class Replace implements Transformation {
 
@@ -93,12 +93,12 @@ public final class Replace implements Transformation {
       WorkflowOptions workflowOptions, Location location) {
     this.before = checkNotNull(before);
     this.after = checkNotNull(after);
-    this.regexGroups = ImmutableMap.copyOf(regexGroups);
+    this.regexGroups = ImmutableMap.cooperOf(regexGroups);
     this.firstOnly = firstOnly;
     this.multiline = multiline;
     this.repeatedGroups = repeatedGroups;
     this.paths = checkNotNull(paths);
-    this.patternsToIgnore = ImmutableList.copyOf(patternsToIgnore);
+    this.patternsToIgnore = ImmutableList.cooperOf(patternsToIgnore);
     this.workflowOptions = checkNotNull(workflowOptions);
     this.location = checkNotNull(location);
   }

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package com.google.copybara.remotefile;
+package com.google.cooperbara.remotefile;
 
-import static com.google.copybara.config.SkylarkUtil.convertFromNoneable;
-import static com.google.copybara.config.SkylarkUtil.stringToEnum;
+import static com.google.cooperbara.config.SkylarkUtil.convertFromNoneable;
+import static com.google.cooperbara.config.SkylarkUtil.stringToEnum;
 import static net.starlark.java.eval.Starlark.errorf;
 
 import com.google.common.base.Enums;
 import com.google.common.base.Preconditions;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Options;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.config.LabelsAwareModule;
-import com.google.copybara.doc.annotations.UsesFlags;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.version.VersionList;
-import com.google.copybara.version.VersionResolver;
-import com.google.copybara.version.VersionSelector;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Options;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.config.LabelsAwareModule;
+import com.google.cooperbara.doc.annotations.UsesFlags;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.version.VersionList;
+import com.google.cooperbara.version.VersionResolver;
+import com.google.cooperbara.version.VersionSelector;
 import java.util.Arrays;
 import net.starlark.java.annot.Param;
 import net.starlark.java.annot.ParamType;
@@ -64,7 +64,7 @@ public class RemoteFileModule implements LabelsAwareModule, StarlarkValue {
             name = "project",
             named = true,
             defaultValue = "[]",
-            doc = "The GitHub project from which to load the file, e.g. google/copybara"),
+            doc = "The GitHub project from which to load the file, e.g. google/cooperbara"),
         @Param(
             name = "revision",
             named = true,
@@ -106,7 +106,7 @@ public class RemoteFileModule implements LabelsAwareModule, StarlarkValue {
       parameters = {
         @Param(
             name = "author",
-            defaultValue = "'Copybara <noreply@copybara.io>'",
+            defaultValue = "'Copybara <noreply@cooperbara.io>'",
             doc = "Author to attribute the change to",
             named = true,
             allowedTypes = {@ParamType(type = String.class)}),

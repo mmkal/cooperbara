@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform;
+package com.google.cooperbara.transform;
 
-import static com.google.copybara.transform.Transformations.toTransformation;
+import static com.google.cooperbara.transform.Transformations.toTransformation;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.WorkflowOptions;
-import com.google.copybara.exception.NonReversibleValidationException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.profiler.Profiler;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.WorkflowOptions;
+import com.google.cooperbara.exception.NonReversibleValidationException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.profiler.Profiler;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -134,7 +134,7 @@ public class Sequence implements Transformation {
     if (prev != null) {
       result.add(prev);
     }
-    return ImmutableList.copyOf(result);
+    return ImmutableList.cooperOf(result);
   }
 
   private TransformationStatus runOneTransform(TransformWork work, Transformation transform)

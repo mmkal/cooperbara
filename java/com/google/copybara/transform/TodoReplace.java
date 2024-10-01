@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform;
+package com.google.cooperbara.transform;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.transform.TodoReplace.Mode.MAP_OR_FAIL;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.transform.TodoReplace.Mode.MAP_OR_FAIL;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.common.base.Joiner;
@@ -28,15 +28,15 @@ import com.google.common.collect.HashBiMap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
-import com.google.copybara.LocalParallelizer;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.exception.NonReversibleValidationException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.treestate.TreeState.FileState;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.LocalParallelizer;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.exception.NonReversibleValidationException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.treestate.TreeState.FileState;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.console.Console;
 import com.google.re2j.Matcher;
 import com.google.re2j.Pattern;
 import java.io.IOException;
@@ -85,7 +85,7 @@ public class TodoReplace implements Transformation {
     this.parallelizer = parallelizer;
     Preconditions.checkArgument(!todoTags.isEmpty());
     this.mode = Preconditions.checkNotNull(mode);
-    this.mapping = Preconditions.checkNotNull(ImmutableMap.copyOf(mapping));
+    this.mapping = Preconditions.checkNotNull(ImmutableMap.cooperOf(mapping));
     this.defaultString = defaultString;
     if (mode == Mode.USE_DEFAULT || mode == Mode.MAP_OR_DEFAULT) {
       Preconditions.checkNotNull(defaultString);

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform;
+package com.google.cooperbara.transform;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.exception.NonReversibleValidationException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.templatetoken.RegexTemplateTokens;
-import com.google.copybara.templatetoken.Token;
-import com.google.copybara.templatetoken.Token.TokenType;
-import com.google.copybara.util.FileUtil;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.exception.NonReversibleValidationException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.templatetoken.RegexTemplateTokens;
+import com.google.cooperbara.templatetoken.Token;
+import com.google.cooperbara.templatetoken.Token.TokenType;
+import com.google.cooperbara.util.FileUtil;
+import com.google.cooperbara.util.Glob;
 import com.google.re2j.Pattern;
 import java.io.IOException;
 import java.nio.file.DirectoryNotEmptyException;
@@ -73,7 +73,7 @@ public class CopyOrMove implements Transformation {
       boolean isCopy) {
     this.before = Preconditions.checkNotNull(before);
     this.after = Preconditions.checkNotNull(after);
-    this.regexGroups = ImmutableMap.copyOf(regexGroups);
+    this.regexGroups = ImmutableMap.cooperOf(regexGroups);
     this.paths = paths;
     this.overwrite = overwrite;
     this.location = location;
@@ -319,14 +319,14 @@ public class CopyOrMove implements Transformation {
     if (!this.before.isLiteral()) {
       throw new NonReversibleValidationException(
           "core."
-              + (isCopy ? "copy" : "move")
+              + (isCopy ? "cooper" : "move")
               + "() with regex templating is not automatically reversible. Use core.transform to"
               + " define an explicit reverse");
     }
     if (overwrite) {
       throw new NonReversibleValidationException(
           "core."
-              + (isCopy ? "copy" : "move")
+              + (isCopy ? "cooper" : "move")
               + "() with overwrite set is not"
               + " automatically reversible. Use core.transform to define an explicit reverse");
     }
@@ -334,11 +334,11 @@ public class CopyOrMove implements Transformation {
       Path afterPath = Paths.get(after.toString());
       if (paths != Glob.ALL_FILES) {
         throw new NonReversibleValidationException(
-            "core.copy not automatically" + " reversible when using 'paths'");
+            "core.cooper not automatically" + " reversible when using 'paths'");
       } else if (after.isEmpty()
           || Paths.get(before.toString()).normalize().startsWith(afterPath)) {
         throw new NonReversibleValidationException(
-            "core.copy not automatically" + " reversible when copying to a parent directory");
+            "core.cooper not automatically" + " reversible when coopering to a parent directory");
       }
       return new ExplicitReversal(
           new Remove(

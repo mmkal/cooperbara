@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,34 +14,34 @@
  * limitations under the License.
  */
 
-package com.google.copybara.rust;
+package com.google.cooperbara.rust;
 
 import static com.google.common.base.Strings.emptyToNull;
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.CheckoutPath;
-import com.google.copybara.DestinationInfo;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.TransformWork;
-import com.google.copybara.config.SkylarkUtil;
-import com.google.copybara.doc.annotations.Example;
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitDestinationReader;
-import com.google.copybara.git.GitOptions;
-import com.google.copybara.git.GitRepository;
-import com.google.copybara.git.GitRevision;
-import com.google.copybara.git.github.util.GitHubHost;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.remotefile.RemoteFileOptions;
-import com.google.copybara.toml.TomlContent;
-import com.google.copybara.toml.TomlModule;
-import com.google.copybara.util.FileUtil;
-import com.google.copybara.util.FileUtil.CopySymlinkStrategy;
-import com.google.copybara.util.Glob;
-import com.google.copybara.version.VersionResolver;
+import com.google.cooperbara.CheckoutPath;
+import com.google.cooperbara.DestinationInfo;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.config.SkylarkUtil;
+import com.google.cooperbara.doc.annotations.Example;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitDestinationReader;
+import com.google.cooperbara.git.GitOptions;
+import com.google.cooperbara.git.GitRepository;
+import com.google.cooperbara.git.GitRevision;
+import com.google.cooperbara.git.github.util.GitHubHost;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.remotefile.RemoteFileOptions;
+import com.google.cooperbara.toml.TomlContent;
+import com.google.cooperbara.toml.TomlModule;
+import com.google.cooperbara.util.FileUtil;
+import com.google.cooperbara.util.FileUtil.CopySymlinkStrategy;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.version.VersionResolver;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.io.IOException;
@@ -251,7 +251,7 @@ public class RustModule implements StarlarkValue {
       if (fuzzersDir.isEmpty()) {
         ctx.getConsole().info("Not downloading fuzzers. This crate doesn't have any fuzzers.");
       } else {
-        return copyFuzzersToWorkdir(
+        return cooperFuzzersToWorkdir(
             ctx,
             SkylarkUtil.convertFromNoneable(maybeFuzzExcludes, StarlarkList.empty()),
             cratePath,
@@ -315,7 +315,7 @@ public class RustModule implements StarlarkValue {
         .errorFmt("There was an error downloading Rust fuzzers. Error: %s", e.getMessage());
   }
 
-  private CheckoutPath copyFuzzersToWorkdir(
+  private CheckoutPath cooperFuzzersToWorkdir(
       TransformWork ctx,
       List<String> exclude,
       Path checkoutCratePath,
@@ -323,9 +323,9 @@ public class RustModule implements StarlarkValue {
       String relativePath,
       String fuzzersDir)
       throws IOException, RepoException, EvalException {
-    Path tmpDir = generalOptions.getDirFactory().newTempDir("fuzz_copy");
+    Path tmpDir = generalOptions.getDirFactory().newTempDir("fuzz_cooper");
     String fullGitFuzzersDir = Path.of(relativePath, fuzzersDir).toString();
-    destinationReader.copyDestinationFilesToDirectory(
+    destinationReader.cooperDestinationFilesToDirectory(
         Glob.createGlob(
             ImmutableList.of(String.format("%s/**", fullGitFuzzersDir)),
             exclude.stream()
@@ -337,11 +337,11 @@ public class RustModule implements StarlarkValue {
     // We resolve the path against the "path_in_vcs" value to get the crate root folder in the
     // upstream repo.
     // This is necessary as some repos contain more than one crate, so we need to find the crate
-    // root we are interested in to copy files to the checkout dir.
+    // root we are interested in to cooper files to the checkout dir.
     Path gitCratePath = tmpDir.resolve(relativePath);
     // This gives us the path to the fuzzers relative to the upstream crate root.
     String fuzzersDirectory = gitCratePath.relativize(tmpDir.resolve(fullGitFuzzersDir)).toString();
-    FileUtil.copyFilesRecursively(
+    FileUtil.cooperFilesRecursively(
         gitCratePath, checkoutCratePath, CopySymlinkStrategy.IGNORE_INVALID_SYMLINKS);
 
     // We return the location of the fuzzers
@@ -386,7 +386,7 @@ public class RustModule implements StarlarkValue {
     Glob cargoTomlGlob =
         Glob.createGlob(ImmutableList.of(Path.of(relativePath, "**/Cargo.toml").toString()));
     Path tmpCheckoutPath = generalOptions.getDirFactory().newTempDir("fuzz_checkout");
-    destinationReader.copyDestinationFilesToDirectory(cargoTomlGlob, tmpCheckoutPath);
+    destinationReader.cooperDestinationFilesToDirectory(cargoTomlGlob, tmpCheckoutPath);
     PathMatcher pathMatcher = cargoTomlGlob.relativeTo(tmpCheckoutPath);
     ImmutableList<Path> cargoTomlFiles;
     Optional<String> fuzzersDir = Optional.empty();

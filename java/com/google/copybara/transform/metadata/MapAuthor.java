@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,25 +14,25 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform.metadata;
+package com.google.cooperbara.transform.metadata;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableBiMap;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.authoring.AuthorParser;
-import com.google.copybara.authoring.InvalidAuthorException;
-import com.google.copybara.exception.NonReversibleValidationException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.revision.Change;
-import com.google.copybara.transform.ExplicitReversal;
-import com.google.copybara.transform.IntentionalNoop;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.authoring.AuthorParser;
+import com.google.cooperbara.authoring.InvalidAuthorException;
+import com.google.cooperbara.exception.NonReversibleValidationException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.transform.ExplicitReversal;
+import com.google.cooperbara.transform.IntentionalNoop;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Map.Entry;

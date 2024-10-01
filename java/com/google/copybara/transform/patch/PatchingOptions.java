@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform.patch;
+package com.google.cooperbara.transform.patch;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.util.DiffUtil.checkNotInsideGitRepo;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.util.DiffUtil.checkNotInsideGitRepo;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
@@ -25,17 +25,17 @@ import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
 import com.google.common.base.StandardSystemProperty;
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Option;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitEnvironment;
-import com.google.copybara.util.BadExitStatusWithOutputException;
-import com.google.copybara.util.CommandOutputWithStatus;
-import com.google.copybara.util.CommandRunner;
-import com.google.copybara.util.DiffUtil;
-import com.google.copybara.util.InsideGitDirException;
-import com.google.copybara.shell.Command;
-import com.google.copybara.shell.CommandException;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Option;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitEnvironment;
+import com.google.cooperbara.util.BadExitStatusWithOutputException;
+import com.google.cooperbara.util.CommandOutputWithStatus;
+import com.google.cooperbara.util.CommandRunner;
+import com.google.cooperbara.util.DiffUtil;
+import com.google.cooperbara.util.InsideGitDirException;
+import com.google.cooperbara.shell.Command;
+import com.google.cooperbara.shell.CommandException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Map;

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform.patch;
+package com.google.cooperbara.transform.patch;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static java.util.stream.Collectors.joining;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.config.ConfigFile;
-import com.google.copybara.exception.CannotResolveLabel;
-import com.google.copybara.util.BadExitStatusWithOutputException;
-import com.google.copybara.util.FileUtil;
-import com.google.copybara.shell.Command;
-import com.google.copybara.shell.CommandException;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.config.ConfigFile;
+import com.google.cooperbara.exception.CannotResolveLabel;
+import com.google.cooperbara.util.BadExitStatusWithOutputException;
+import com.google.cooperbara.util.FileUtil;
+import com.google.cooperbara.shell.Command;
+import com.google.cooperbara.shell.CommandException;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
@@ -49,7 +49,7 @@ public final class QuiltTransformation implements Transformation {
   private final Optional<ConfigFile> series;
   private final ImmutableList<ConfigFile> patchConfigs;
   private final PatchingOptions options;
-  // TODO(copybara-team): Add support for reverse=True.
+  // TODO(cooperbara-team): Add support for reverse=True.
   // We could possibly implement it without using quilt. Assuming reversal does not require updating
   // any patch files, it can run "patch -R" for each patch in the reverse order of the series file.
   private final boolean reverse;
@@ -71,9 +71,9 @@ public final class QuiltTransformation implements Transformation {
     boolean verbose = options.getGeneralOptions().isVerbose();
     Path checkoutDir = work.getCheckoutDir();
     work.getConsole().infoFmt("Applying and updating patches with quilt.");
-    // "quilt import <patch_path>" only works for a local path, so we copy the patch config files
+    // "quilt import <patch_path>" only works for a local path, so we cooper the patch config files
     // to a local temp directory first.
-    ImmutableList<Path> patches = copyPatchConfigsToTmpDir();
+    ImmutableList<Path> patches = cooperPatchConfigsToTmpDir();
     Map<String, String> env = options.getGeneralOptions().getEnvironment();
     env = initializeQuilt(checkoutDir, env);
     importPatches(checkoutDir, patches, env, verbose);
@@ -119,7 +119,7 @@ public final class QuiltTransformation implements Transformation {
     }
   }
 
-  private ImmutableList<Path> copyPatchConfigsToTmpDir() throws IOException {
+  private ImmutableList<Path> cooperPatchConfigsToTmpDir() throws IOException {
     ImmutableList.Builder<Path> builder = ImmutableList.builder();
     Path patchDir = options.getGeneralOptions().getDirFactory().newTempDir("inputpatches");
     for (ConfigFile patch : patchConfigs) {
@@ -148,10 +148,10 @@ public final class QuiltTransformation implements Transformation {
       "QUILT_DIFF_ARGS", "-p ab --no-index",
       "QUILT_REFRESH_ARGS", "-p ab --no-index",
       "QUILT_PATCHES_PREFIX", "yes");
-    // It overwrites any existing copybara.quiltrc file, which is OK because it is in the
+    // It overwrites any existing cooperbara.quiltrc file, which is OK because it is in the
     // temporary directory and its content is always the same.
     Path quilrcPath = options.getGeneralOptions().getDirFactory().getTmpRoot().resolve(
-        "copybara.quiltrc");
+        "cooperbara.quiltrc");
     try (BufferedWriter wr = Files.newBufferedWriter(quilrcPath)) {
       for (Map.Entry<String, String> entry : quiltOptions.entrySet()) {
         wr.append(String.format("%s=\"%s\"\n", entry.getKey(), entry.getValue()));

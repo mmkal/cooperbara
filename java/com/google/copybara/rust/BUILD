@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -22,22 +22,22 @@ java_library(
     name = "rust",
     srcs = glob(["**/*.java"]),
     deps = [
-        "//java/com/google/copybara:base",
-        "//java/com/google/copybara:general_options",
-        "//java/com/google/copybara/config:base",
-        "//java/com/google/copybara/doc:annotations",
-        "//java/com/google/copybara/exception",
-        "//java/com/google/copybara/git",
-        "//java/com/google/copybara/git:core",
-        "//java/com/google/copybara/git/github:util",
-        "//java/com/google/copybara/json",
-        "//java/com/google/copybara/profiler",
-        "//java/com/google/copybara/remotefile",
-        "//java/com/google/copybara/revision",
-        "//java/com/google/copybara/toml",
-        "//java/com/google/copybara/util",
-        "//java/com/google/copybara/util/console",
-        "//java/com/google/copybara/version",
+        "//java/com/google/cooperbara:base",
+        "//java/com/google/cooperbara:general_options",
+        "//java/com/google/cooperbara/config:base",
+        "//java/com/google/cooperbara/doc:annotations",
+        "//java/com/google/cooperbara/exception",
+        "//java/com/google/cooperbara/git",
+        "//java/com/google/cooperbara/git:core",
+        "//java/com/google/cooperbara/git/github:util",
+        "//java/com/google/cooperbara/json",
+        "//java/com/google/cooperbara/profiler",
+        "//java/com/google/cooperbara/remotefile",
+        "//java/com/google/cooperbara/revision",
+        "//java/com/google/cooperbara/toml",
+        "//java/com/google/cooperbara/util",
+        "//java/com/google/cooperbara/util/console",
+        "//java/com/google/cooperbara/version",
         "//third_party:autovalue",
         "//third_party:google_http_client",
         "//third_party:guava",

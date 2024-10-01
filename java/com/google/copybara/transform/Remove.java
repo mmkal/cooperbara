@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,26 +14,26 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform;
+package com.google.cooperbara.transform;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.base.Preconditions;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.exception.NonReversibleValidationException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.util.FileUtil;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.exception.NonReversibleValidationException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.util.FileUtil;
+import com.google.cooperbara.util.Glob;
 import java.io.IOException;
 import net.starlark.java.syntax.Location;
 
 /**
  * We might promote this to a Skylark transform. But because we already have origin_files,
  * that works better with reversible workflows, this is a bad idea except for explicit reversals
- * of core.copy.
+ * of core.cooper.
  */
 public class Remove implements Transformation {
   private static final FluentLogger logger = FluentLogger.forEnclosingClass();
@@ -52,7 +52,7 @@ public class Remove implements Transformation {
     // TODO(malcon): Fix ConfigValidator and move this logic there.
     checkCondition(work.isInsideExplicitTransform(),
         "core.remove() is only mean to be used inside core.transform for reversing"
-            + " transformations like core.copy(). Please use origin_files exclude for"
+            + " transformations like core.cooper(). Please use origin_files exclude for"
             + " filtering out files.");
 
     int numDeletes = FileUtil.deleteFilesRecursively(work.getCheckoutDir(),

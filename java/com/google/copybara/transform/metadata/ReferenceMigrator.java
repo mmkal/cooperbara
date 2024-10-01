@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,28 +14,28 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform.metadata;
+package com.google.cooperbara.transform.metadata;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.copybara.ChangeVisitable.VisitResult.CONTINUE;
-import static com.google.copybara.ChangeVisitable.VisitResult.TERMINATE;
-import static com.google.copybara.config.SkylarkUtil.check;
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.ChangeVisitable.VisitResult.CONTINUE;
+import static com.google.cooperbara.ChangeVisitable.VisitResult.TERMINATE;
+import static com.google.cooperbara.config.SkylarkUtil.check;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.ChangeVisitable;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.templatetoken.RegexTemplateTokens;
-import com.google.copybara.templatetoken.RegexTemplateTokens.Replacer;
-import com.google.copybara.transform.ExplicitReversal;
-import com.google.copybara.transform.IntentionalNoop;
+import com.google.cooperbara.ChangeVisitable;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.templatetoken.RegexTemplateTokens;
+import com.google.cooperbara.templatetoken.RegexTemplateTokens.Replacer;
+import com.google.cooperbara.transform.ExplicitReversal;
+import com.google.cooperbara.transform.IntentionalNoop;
 import com.google.re2j.Pattern;
 import java.util.HashMap;
 import java.util.Map;

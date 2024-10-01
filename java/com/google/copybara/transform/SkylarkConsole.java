@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.transform;
+package com.google.cooperbara.transform;
 
-import com.google.copybara.doc.annotations.DocSignaturePrefix;
-import com.google.copybara.util.console.AnsiColor;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.doc.annotations.DocSignaturePrefix;
+import com.google.cooperbara.util.console.AnsiColor;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.util.function.Predicate;
 import javax.annotation.Nullable;

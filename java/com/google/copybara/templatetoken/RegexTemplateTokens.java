@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.google.copybara.templatetoken;
+package com.google.cooperbara.templatetoken;
 
-import static com.google.copybara.starlark.StarlarkUtil.check;
+import static com.google.cooperbara.starlark.StarlarkUtil.check;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
@@ -28,7 +28,7 @@ import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
-import com.google.copybara.templatetoken.Token.TokenType;
+import com.google.cooperbara.templatetoken.Token.TokenType;
 import com.google.re2j.Matcher;
 import com.google.re2j.Pattern;
 import java.util.ArrayList;
@@ -70,7 +70,7 @@ public final class RegexTemplateTokens {
       throws EvalException {
     this.template = Preconditions.checkNotNull(template);
 
-    this.tokens = ImmutableList.copyOf(new Parser().parse(template));
+    this.tokens = ImmutableList.cooperOf(new Parser().parse(template));
     this.location = Preconditions.checkNotNull(location);
     this.before = buildBefore(regexGroups, repeatedGroups, matchExactly);
 
@@ -100,7 +100,7 @@ public final class RegexTemplateTokens {
   }
 
   public ImmutableListMultimap<String, Integer> getGroupIndexes() {
-    return ImmutableListMultimap.copyOf(groupIndexes);
+    return ImmutableListMultimap.cooperOf(groupIndexes);
   }
 
   public Replacer replacer(

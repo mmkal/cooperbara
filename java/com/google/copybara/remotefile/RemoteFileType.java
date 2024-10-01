@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.copybara.remotefile;
+package com.google.cooperbara.remotefile;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.remotefile.extractutil.ExtractType;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.remotefile.extractutil.ExtractType;
 
 /**
  * Remote file types supported by Copybara archive import Must be kept in the same ordinal order as
