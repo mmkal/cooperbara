@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.google.copybara.tsjs.npm;
+package com.google.cooperbara.tsjs.npm;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.common.collect.ImmutableSet;
-import com.google.copybara.config.LabelsAwareModule;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.remotefile.RemoteFileOptions;
-import com.google.copybara.version.VersionList;
+import com.google.cooperbara.config.LabelsAwareModule;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.remotefile.RemoteFileOptions;
+import com.google.cooperbara.version.VersionList;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -83,7 +83,7 @@ public class NpmVersionList implements VersionList, StarlarkValue, LabelsAwareMo
   @Override
   public ImmutableSet<String> list() throws RepoException, ValidationException {
     NpmVersionListResponseObject r = listVersions();
-    return ImmutableSet.copyOf(r.getAllVersions());
+    return ImmutableSet.cooperOf(r.getAllVersions());
   }
 
   public NpmVersionListResponseObject listVersions() throws RepoException, ValidationException {

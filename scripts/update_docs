@@ -1,7 +1,7 @@
 #!/bin/bash
-bazel build --java_language_version=11 --tool_java_language_version=11 --java_runtime_version=remotejdk_11  java/com/google/copybara:generate_reference
+bazel build --java_language_version=11 --tool_java_language_version=11 --java_runtime_version=remotejdk_11  java/com/google/cooperbara:generate_reference
 mkdir -p docs
-cp bazel-bin/java/com/google/copybara/reference.md docs/reference.md
+cp bazel-bin/java/com/google/cooperbara/reference.md docs/reference.md
 git add docs/reference.md
 # If -a we ammend the current head commit
 if [[  $1 == '-a' ]]; then

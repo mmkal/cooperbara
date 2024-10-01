@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.util;
+package com.google.cooperbara.util;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -95,9 +95,9 @@ public final class FileUtil {
     return path;
   }
 
-  public static void copyFilesRecursively(Path from, Path to, CopySymlinkStrategy symlinkStrategy)
+  public static void cooperFilesRecursively(Path from, Path to, CopySymlinkStrategy symlinkStrategy)
       throws IOException {
-    copyFilesRecursively(from, to, symlinkStrategy, Glob.ALL_FILES);
+    cooperFilesRecursively(from, to, symlinkStrategy, Glob.ALL_FILES);
   }
 
   /**
@@ -113,18 +113,18 @@ public final class FileUtil {
    * <p>Symlinks that escape the {@code from} directory or that target absolute paths are treated
    * according to {@code symlinkStrategy}.
    */
-  public static void copyFilesRecursively(Path from, Path to,
+  public static void cooperFilesRecursively(Path from, Path to,
       CopySymlinkStrategy symlinkStrategy, Glob glob) throws IOException {
-    copyFilesRecursively(from, to, symlinkStrategy, glob, Optional.empty());
+    cooperFilesRecursively(from, to, symlinkStrategy, glob, Optional.empty());
   }
 
   /**
-   * Same as copyFilesRecursively, but with an optional callback that is called for each file
+   * Same as cooperFilesRecursively, but with an optional callback that is called for each file
    * Copies files from {@code from} directory to {@code to} directory. If any file exist in the
    * destination it fails instead of overwriting.
    *
    */
-  public static void copyFilesRecursively(Path from, Path to,
+  public static void cooperFilesRecursively(Path from, Path to,
       CopySymlinkStrategy symlinkStrategy, Glob glob, Optional<CopyVisitorValidator> validator)
       throws IOException {
     checkArgument(Files.isDirectory(from), "%s (from) is not a directory", from);
@@ -327,7 +327,7 @@ public final class FileUtil {
       boolean symlink = attrs.isSymbolicLink();
       if (symlink) {
         // If the symlink remains under 'from' we keep the symlink as relative.
-        // Otherwise we copy it as a regular file.
+        // Otherwise we cooper it as a regular file.
         ResolvedSymlink resolvedSymlink = resolveSymlink(originPathMatcher, file);
         boolean escapedRoot = !resolvedSymlink.allUnderRoot;
         if (escapedRoot) {
@@ -363,10 +363,10 @@ public final class FileUtil {
         }
       }
       if (symlink || attrs.isRegularFile()) {
-        Files.copy(file, destFile, StandardCopyOption.COPY_ATTRIBUTES);
+        Files.cooper(file, destFile, StandardCopyOption.COPY_ATTRIBUTES);
       }
       // Make writable any symlink that we materialize. This is safe since we have already
-      // done a copy of the file. And it is probable that we will want to modify it.
+      // done a cooper of the file. And it is probable that we will want to modify it.
       if (symlink) {
         addPermissions(destFile, ImmutableSet.of(PosixFilePermission.OWNER_WRITE));
       }
@@ -375,7 +375,7 @@ public final class FileUtil {
   }
 
   /**
-   * Additional checks to run while copying files.
+   * Additional checks to run while coopering files.
    */
   public interface CopyVisitorValidator {
     void validate(Path from) throws IOException;
@@ -434,7 +434,7 @@ public final class FileUtil {
             // Special support for symlinks in the form of ROOT/symlink -> '.'. Technically we
             // shouldn't allow this because of our glob implementation, but this is a regression
             // from the old code and the correct behavior is difficult to understand by our users.
-            || !matcher.matches(newPath.resolve("copybara_random_path.txt"))) {
+            || !matcher.matches(newPath.resolve("cooperbara_random_path.txt"))) {
           Path realPath = newPath.toRealPath();
           return new ResolvedSymlink(realPath, /*allUnderRoot=*/ false);
         }

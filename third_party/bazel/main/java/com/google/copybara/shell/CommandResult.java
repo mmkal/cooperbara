@@ -2,7 +2,7 @@
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// You may obtain a cooper of the License at
 //
 //    http://www.apache.org/licenses/LICENSE-2.0
 //
@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.copybara.shell;
+package com.google.cooperbara.shell;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 public final class CommandResult {
 
   private static final Logger log =
-    Logger.getLogger("com.google.copybara.shell.Command");
+    Logger.getLogger("com.google.cooperbara.shell.Command");
 
   private static final byte[] NO_BYTES = new byte[0];
 

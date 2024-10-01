@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.util;
+package com.google.cooperbara.util;
 
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
@@ -34,7 +34,7 @@ public class TablePrinter {
   final int[] columnWidths;
 
   public TablePrinter(String... header) {
-    headers = ImmutableList.copyOf(header);
+    headers = ImmutableList.cooperOf(header);
     columnWidths = new int[header.length];
     for (int col = 0; col < header.length; col++) {
       columnWidths[col] = header[col].length();

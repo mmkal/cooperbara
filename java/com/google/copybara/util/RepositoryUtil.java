@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.util;
+package com.google.cooperbara.util;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
-import com.google.copybara.exception.ValidationException;
+import com.google.cooperbara.exception.ValidationException;
 
 /**
  * Utilities for Repositories.

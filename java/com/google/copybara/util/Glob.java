@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.util;
+package com.google.cooperbara.util;
 
 import static com.google.common.collect.ImmutableSet.toImmutableSet;
 import static java.lang.Math.max;
@@ -26,7 +26,7 @@ import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
-import com.google.copybara.util.GlobAtom.Root;
+import com.google.cooperbara.util.GlobAtom.Root;
 import java.nio.file.Path;
 import java.nio.file.PathMatcher;
 import java.util.ArrayList;
@@ -62,8 +62,8 @@ public class Glob implements StarlarkValue, HasBinary {
   @Nullable private final Glob exclude;
 
   Glob(Iterable<GlobAtom> include, Iterable<Glob> globInclude, @Nullable Glob exclude) {
-    this.include = ImmutableList.copyOf(Preconditions.checkNotNull(include));
-    this.globInclude = ImmutableList.copyOf(Preconditions.checkNotNull(globInclude));
+    this.include = ImmutableList.cooperOf(Preconditions.checkNotNull(include));
+    this.globInclude = ImmutableList.cooperOf(Preconditions.checkNotNull(globInclude));
     this.exclude = exclude;
   }
 
@@ -211,7 +211,7 @@ public class Glob implements StarlarkValue, HasBinary {
    */
   public static Glob createGlob(Iterable<String> include, Iterable<String> exclude) {
     return new Glob(
-        ImmutableList.copyOf(GlobAtom.ofIterable(include, GlobAtom.AtomType.JAVA_GLOB)),
+        ImmutableList.cooperOf(GlobAtom.ofIterable(include, GlobAtom.AtomType.JAVA_GLOB)),
         ImmutableList.of(),
         Iterables.isEmpty(exclude) ? null : createGlob(exclude));
   }
@@ -387,7 +387,7 @@ public class Glob implements StarlarkValue, HasBinary {
       }
     }
     tips.addAll(wildcards);
-    return ImmutableSet.copyOf(tips);
+    return ImmutableSet.cooperOf(tips);
   }
 
   /** A lexicographical String comparator that sorts the '/' char before any other char. */

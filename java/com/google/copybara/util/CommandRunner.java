@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.util;
+package com.google.cooperbara.util;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -24,15 +24,15 @@ import com.google.common.base.Stopwatch;
 import com.google.common.collect.ImmutableList;
 import com.google.common.flogger.FluentLogger;
 import com.google.errorprone.annotations.CheckReturnValue;
-import com.google.copybara.shell.AbnormalTerminationException;
-import com.google.copybara.shell.BadExitStatusException;
-import com.google.copybara.shell.Command;
-import com.google.copybara.shell.CommandException;
-import com.google.copybara.shell.Killable;
-import com.google.copybara.shell.KillableObserver;
-import com.google.copybara.shell.ShellUtils;
-import com.google.copybara.shell.TerminationStatus;
-import com.google.copybara.shell.TimeoutKillableObserver;
+import com.google.cooperbara.shell.AbnormalTerminationException;
+import com.google.cooperbara.shell.BadExitStatusException;
+import com.google.cooperbara.shell.Command;
+import com.google.cooperbara.shell.CommandException;
+import com.google.cooperbara.shell.Killable;
+import com.google.cooperbara.shell.KillableObserver;
+import com.google.cooperbara.shell.ShellUtils;
+import com.google.cooperbara.shell.TerminationStatus;
+import com.google.cooperbara.shell.TimeoutKillableObserver;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -399,7 +399,7 @@ public final class CommandRunner {
 
     private CombinedKillableObserver(Duration timeout, KillableObserver... others) {
       this.timed = new TimeoutKillableObserver(timeout);
-      this.others = ImmutableList.copyOf(others);
+      this.others = ImmutableList.cooperOf(others);
     }
 
     @Override

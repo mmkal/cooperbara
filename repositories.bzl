@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -18,7 +18,7 @@ load("//third_party:bazel.bzl", "bazel_sha256", "bazel_version")
 load("//third_party:bazel_buildtools.bzl", "buildtools_sha256", "buildtools_version")
 load("//third_party:bazel_skylib.bzl", "skylib_sha256", "skylib_version")
 
-def copybara_repositories():
+def cooperbara_repositories():
     RULES_JVM_EXTERNAL_TAG = "6.0"
 
     RULES_JVM_EXTERNAL_SHA = "c44568854d8bb92fe0f7dd6b1e8957ae65e45e32a058727fcf62aaafbd36f17b"

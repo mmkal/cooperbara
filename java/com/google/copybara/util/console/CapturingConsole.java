@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.util.console;
+package com.google.cooperbara.util.console;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import com.google.copybara.util.console.Message.MessageType;
+import com.google.cooperbara.util.console.Message.MessageType;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
@@ -34,7 +34,7 @@ import java.util.Set;
 public class CapturingConsole extends DelegateConsole {
 
   protected static final ImmutableSet<MessageType> ALL_TYPES =
-      ImmutableSet.copyOf(EnumSet.allOf(MessageType.class));
+      ImmutableSet.cooperOf(EnumSet.allOf(MessageType.class));
 
   private final ArrayList<Message> messages = new ArrayList<>();
   private final Set<MessageType> captureTypes;
@@ -64,7 +64,7 @@ public class CapturingConsole extends DelegateConsole {
   }
 
   public synchronized ImmutableList<Message> getMessages() {
-    return ImmutableList.copyOf(messages);
+    return ImmutableList.cooperOf(messages);
   }
 
   public synchronized void clearMessages() {

@@ -1,15 +1,15 @@
 licenses(["notice"])  # Apache 2.0
 
 package_group(
-    name = "copybara_pkgs",
+    name = "cooperbara_pkgs",
     packages = [
-        "//java/com/google/copybara/...",
-        "//javatests/com/google/copybara/...",
+        "//java/com/google/cooperbara/...",
+        "//javatests/com/google/cooperbara/...",
     ],
 )
 
 package(
-    default_visibility = [":copybara_pkgs"],
+    default_visibility = [":cooperbara_pkgs"],
 )
 
 java_library(
@@ -194,7 +194,7 @@ java_library(
     name = "hg_testing",
     testonly = 1,
     exports = [
-        "//java/com/google/copybara/hg/testing",
+        "//java/com/google/cooperbara/hg/testing",
     ],
 )
 

@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -25,7 +25,7 @@ java_library(
     srcs = CONSISTENCYFILE_SRCS,
     deps = [
         ":util",
-        "//java/com/google/copybara/exception",
+        "//java/com/google/cooperbara/exception",
         "//third_party:guava",
     ],
 )
@@ -40,11 +40,11 @@ java_library(
         "-Xlint:unchecked",
     ],
     deps = [
-        "//java/com/google/copybara:local_parallelizer",
-        "//java/com/google/copybara/doc:annotations",  # unuseddeps: keep
-        "//java/com/google/copybara/exception",
-        "//java/com/google/copybara/git:environment",
-        "//java/com/google/copybara/util/console",
+        "//java/com/google/cooperbara:local_parallelizer",
+        "//java/com/google/cooperbara/doc:annotations",  # unuseddeps: keep
+        "//java/com/google/cooperbara/exception",
+        "//java/com/google/cooperbara/git:environment",
+        "//java/com/google/cooperbara/util/console",
         "//third_party:autovalue",
         "//third_party:error_prone",
         "//third_party:flogger",
@@ -66,9 +66,9 @@ java_library(
     ],
     deps = [
         ":util",
-        "//java/com/google/copybara:general_options",
-        "//java/com/google/copybara/exception",
-        "//java/com/google/copybara/util/console",
+        "//java/com/google/cooperbara:general_options",
+        "//java/com/google/cooperbara/exception",
+        "//java/com/google/cooperbara/util/console",
         "//third_party:guava",
         "//third_party:shell",
     ],

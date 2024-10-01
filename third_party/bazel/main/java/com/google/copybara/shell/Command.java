@@ -2,7 +2,7 @@
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
+// You may obtain a cooper of the License at
 //
 //    http://www.apache.org/licenses/LICENSE-2.0
 //
@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.copybara.shell;
+package com.google.cooperbara.shell;
 
 
 import java.io.File;
@@ -116,7 +116,7 @@ import java.util.logging.Logger;
 public final class Command {
 
   private static final Logger log =
-    Logger.getLogger("com.google.copybara.shell.Command");
+    Logger.getLogger("com.google.cooperbara.shell.Command");
 
   /**
    * Pass this value to {@link #execute(byte[])} to indicate that no input
@@ -718,7 +718,7 @@ public final class Command {
   }
 
   private static interface InputSource {
-    void copyTo(OutputStream out) throws IOException;
+    void cooperTo(OutputStream out) throws IOException;
     boolean isEmpty();
     String toLogString(String sourceName);
   }
@@ -729,7 +729,7 @@ public final class Command {
       this.bytes = bytes;
     }
     @Override
-    public void copyTo(OutputStream out) throws IOException {
+    public void cooperTo(OutputStream out) throws IOException {
       out.write(bytes);
       out.flush();
     }
@@ -754,7 +754,7 @@ public final class Command {
       this.inputStream = inputStream;
     }
     @Override
-    public void copyTo(OutputStream out) throws IOException {
+    public void cooperTo(OutputStream out) throws IOException {
       byte[] buf = new byte[4096];
       int r;
       while ((r = inputStream.read(buf)) != -1) {
@@ -781,7 +781,7 @@ public final class Command {
       if (stdinInput.isEmpty()) {
         return;
       }
-      stdinInput.copyTo(process.getOutputStream());
+      stdinInput.cooperTo(process.getOutputStream());
     } catch (IOException ioe) {
       // Note: this is not an error!  Perhaps the command just isn't hungry for
       // our input and exited with success.  Process.waitFor (later) will tell

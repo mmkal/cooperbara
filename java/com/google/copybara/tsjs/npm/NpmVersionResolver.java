@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.google.copybara.tsjs.npm;
+package com.google.cooperbara.tsjs.npm;
 
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.remotefile.RemoteArchiveRevision;
-import com.google.copybara.remotefile.RemoteArchiveVersion;
-import com.google.copybara.remotefile.RemoteFileOptions;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.version.VersionResolver;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.remotefile.RemoteArchiveRevision;
+import com.google.cooperbara.remotefile.RemoteArchiveVersion;
+import com.google.cooperbara.remotefile.RemoteFileOptions;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.version.VersionResolver;
 import java.util.Optional;
 import java.util.function.Function;
 

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.util;
+package com.google.cooperbara.util;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.ImmutableList.toImmutableList;
@@ -30,13 +30,13 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.copybara.git.GitEnvironment;
-import com.google.copybara.util.DiffUtil.DiffFile.Operation;
-import com.google.copybara.util.console.AnsiColor;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.git.GitEnvironment;
+import com.google.cooperbara.util.DiffUtil.DiffFile.Operation;
+import com.google.cooperbara.util.console.AnsiColor;
+import com.google.cooperbara.util.console.Console;
 import com.google.errorprone.annotations.CheckReturnValue;
-import com.google.copybara.shell.Command;
-import com.google.copybara.shell.CommandException;
+import com.google.cooperbara.shell.Command;
+import com.google.cooperbara.shell.CommandException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Iterator;
@@ -98,8 +98,8 @@ public class DiffUtil {
       if (line.startsWith("diff ")) {
         List<String> diffHeader = Splitter.on(' ').splitToList(line);
         // Given a diff in the format of:
-        //     diff --git a/left/copybara/util/Test.java b/right/copybara/util/Test.java
-        // Returns "left/copybara/util/Test.java"
+        //     diff --git a/left/cooperbara/util/Test.java b/right/cooperbara/util/Test.java
+        // Returns "left/cooperbara/util/Test.java"
         String path = diffHeader.get(2).substring(2);
         include = pathFilter.test(path);
       }

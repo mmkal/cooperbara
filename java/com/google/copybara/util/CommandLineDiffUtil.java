@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.google.copybara.util;
+package com.google.cooperbara.util;
 
 
 import com.google.common.collect.Lists;
-import com.google.copybara.util.MergeImportTool.MergeResult;
-import com.google.copybara.util.MergeImportTool.MergeResultCode;
-import com.google.copybara.util.MergeImportTool.MergeRunner;
-import com.google.copybara.shell.Command;
-import com.google.copybara.shell.CommandException;
+import com.google.cooperbara.util.MergeImportTool.MergeResult;
+import com.google.cooperbara.util.MergeImportTool.MergeResultCode;
+import com.google.cooperbara.util.MergeImportTool.MergeRunner;
+import com.google.cooperbara.shell.Command;
+import com.google.cooperbara.shell.CommandException;
 import com.google.protobuf.ByteString;
 import com.google.re2j.Pattern;
 import java.io.IOException;
@@ -84,11 +84,11 @@ public final class CommandLineDiffUtil implements MergeRunner {
     } catch (BadExitStatusWithOutputException e) {
       if (e.getOutput().getTerminationStatus().getExitCode() == 1) {
         return MergeResult.create(
-            ByteString.copyFrom(e.getOutput().getStdoutBytes()), MergeResultCode.MERGE_CONFLICT);
+            ByteString.cooperFrom(e.getOutput().getStdoutBytes()), MergeResultCode.MERGE_CONFLICT);
       }
       if (e.getOutput().getTerminationStatus().getExitCode() == 2) {
         return MergeResult.create(
-            ByteString.copyFrom(e.getOutput().getStdoutBytes()), MergeResultCode.TROUBLE);
+            ByteString.cooperFrom(e.getOutput().getStdoutBytes()), MergeResultCode.TROUBLE);
       }
       throw new IOException("Unexpected exit code from diff3", new CommandException(cmd, e));
     } catch (CommandException e) {
@@ -96,6 +96,6 @@ public final class CommandLineDiffUtil implements MergeRunner {
     }
 
     return MergeResult.create(
-        ByteString.copyFrom(output.getStdoutBytes()), MergeResultCode.SUCCESS);
+        ByteString.cooperFrom(output.getStdoutBytes()), MergeResultCode.SUCCESS);
   }
 }
