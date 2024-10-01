@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.google.copybara.folder;
+package com.google.cooperbara.folder;
 
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.CheckoutPath;
-import com.google.copybara.DestinationReader;
-import com.google.copybara.config.SkylarkUtil;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.CheckoutPath;
+import com.google.cooperbara.DestinationReader;
+import com.google.cooperbara.config.SkylarkUtil;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.util.Glob;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -52,20 +52,20 @@ public class FolderDestinationReader extends DestinationReader {
   }
 
   @Override
-  public void copyDestinationFiles(Object globObj, Object path)
+  public void cooperDestinationFiles(Object globObj, Object path)
       throws RepoException, ValidationException, EvalException {
     CheckoutPath checkoutPath = SkylarkUtil.convertFromNoneable(path, null);
     Glob glob = Glob.wrapGlob(globObj, null);
     if (checkoutPath == null) {
-      copyDestinationFilesToDirectory(glob, workDir);
+      cooperDestinationFilesToDirectory(glob, workDir);
     } else {
-      copyDestinationFilesToDirectory(
+      cooperDestinationFilesToDirectory(
           glob, checkoutPath.getCheckoutDir().resolve(checkoutPath.getPath()));
     }
   }
 
   @Override
-  public void copyDestinationFilesToDirectory(Glob glob, Path directory)
+  public void cooperDestinationFilesToDirectory(Glob glob, Path directory)
       throws RepoException, ValidationException {
     PathMatcher pathMatcher = glob.relativeTo(folderPath);
 
@@ -80,10 +80,10 @@ public class FolderDestinationReader extends DestinationReader {
         for (Path sourcePath : matchingPaths) {
           Path targetPath = directory.resolve(folderPath.relativize(sourcePath));
           Files.createDirectories(targetPath.getParent());
-          Files.copy(sourcePath, targetPath);
+          Files.cooper(sourcePath, targetPath);
         }
       } catch (IOException e) {
-        throw new RepoException(String.format("Failed to copy files from %s.", folderPath), e);
+        throw new RepoException(String.format("Failed to cooper files from %s.", folderPath), e);
       }
     }
   }

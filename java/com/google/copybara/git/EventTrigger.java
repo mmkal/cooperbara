@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableSet;
-import com.google.copybara.git.github.api.GitHubEventType;
+import com.google.cooperbara.git.github.api.GitHubEventType;
 
 /**
  * A simple pair to express GitHub Events with arbitrary subtypes (Status, CheckRun)
@@ -31,6 +31,6 @@ public abstract class EventTrigger {
 
 
   public static EventTrigger create(GitHubEventType type, Iterable<String> subtypes) {
-    return new AutoValue_EventTrigger(type, ImmutableSet.copyOf(subtypes));
+    return new AutoValue_EventTrigger(type, ImmutableSet.cooperOf(subtypes));
   }
 }

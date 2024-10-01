@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git.gerritapi;
+package com.google.cooperbara.git.gerritapi;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import com.google.copybara.exception.RepoException;
+import com.google.cooperbara.exception.RepoException;
 import java.util.EnumSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -31,7 +31,7 @@ public class GerritApiException extends RepoException {
   public static final Pattern ERROR_PATTERN = Pattern.compile(".*<pre>(.*)</pre>.*",
       Pattern.DOTALL | Pattern.CASE_INSENSITIVE | Pattern.MULTILINE);
   private static final ImmutableMap<Integer, ResponseCode> CODE_MAP =
-      ImmutableMap.copyOf(
+      ImmutableMap.cooperOf(
           Maps.uniqueIndex(EnumSet.allOf(ResponseCode.class), ResponseCode::getCode));
 
   private final ResponseCode responseCode;

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableMap;
@@ -36,9 +36,9 @@ public class FetchResult {
   FetchResult(ImmutableMap<String, GitRevision> before,
       ImmutableMap<String, GitRevision> after) {
     MapDifference<String, GitRevision> diff = Maps.difference(before, after);
-    deleted = ImmutableMap.copyOf(diff.entriesOnlyOnLeft());
-    inserted = ImmutableMap.copyOf(diff.entriesOnlyOnRight());
-    updated = ImmutableMap.copyOf(diff.entriesDiffering().entrySet().stream()
+    deleted = ImmutableMap.cooperOf(diff.entriesOnlyOnLeft());
+    inserted = ImmutableMap.cooperOf(diff.entriesOnlyOnRight());
+    updated = ImmutableMap.cooperOf(diff.entriesDiffering().entrySet().stream()
         .collect(Collectors.toMap(
             Map.Entry::getKey,
             v -> new RefUpdate(v.getValue().leftValue(), v.getValue().rightValue()))));

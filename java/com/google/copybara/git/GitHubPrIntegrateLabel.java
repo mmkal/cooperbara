@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.LabelFinder;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.LabelFinder;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
 import com.google.re2j.Matcher;
 import com.google.re2j.Pattern;
 import java.util.Optional;
@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
 /**
  * Integrate label for GitHub PR
  *
- * <p>Format like: "https://github.com/google/copybara/pull/12345 from mikelalcon:master SHA-1"
+ * <p>Format like: "https://github.com/google/cooperbara/pull/12345 from mikelalcon:master SHA-1"
  *
  * <p>Where SHA-1 is optional: If present it means to integrate the specific SHA-1. Otherwise the
  * head of the PR is used.

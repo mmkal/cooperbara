@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
-import static com.google.copybara.config.SkylarkUtil.convertFromNoneable;
-import static com.google.copybara.config.SkylarkUtil.stringToEnum;
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.config.SkylarkUtil.convertFromNoneable;
+import static com.google.cooperbara.config.SkylarkUtil.stringToEnum;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
@@ -27,38 +27,38 @@ import com.google.common.base.Throwables;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.Endpoint;
-import com.google.copybara.LazyResourceLoader;
-import com.google.copybara.config.SkylarkUtil;
-import com.google.copybara.doc.annotations.Example;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.github.api.CheckRun;
-import com.google.copybara.git.github.api.CombinedStatus;
-import com.google.copybara.git.github.api.CreateReleaseRequest;
-import com.google.copybara.git.github.api.CreateStatusRequest;
-import com.google.copybara.git.github.api.GitHubApi;
-import com.google.copybara.git.github.api.GitHubApi.PullRequestListParams;
-import com.google.copybara.git.github.api.GitHubApi.PullRequestListParams.DirectionFilter;
-import com.google.copybara.git.github.api.GitHubApi.PullRequestListParams.SortFilter;
-import com.google.copybara.git.github.api.GitHubApi.PullRequestListParams.StateFilter;
-import com.google.copybara.git.github.api.GitHubApiException;
-import com.google.copybara.git.github.api.GitHubApiException.ResponseCode;
-import com.google.copybara.git.github.api.GitHubCommit;
-import com.google.copybara.git.github.api.Issue;
-import com.google.copybara.git.github.api.Issue.CreateIssueRequest;
-import com.google.copybara.git.github.api.IssueComment;
-import com.google.copybara.git.github.api.PullRequest;
-import com.google.copybara.git.github.api.PullRequestComment;
-import com.google.copybara.git.github.api.Ref;
-import com.google.copybara.git.github.api.Release;
-import com.google.copybara.git.github.api.Status;
-import com.google.copybara.git.github.api.Status.State;
-import com.google.copybara.git.github.api.UpdatePullRequest;
-import com.google.copybara.git.github.api.UpdateReferenceRequest;
-import com.google.copybara.git.github.api.User;
-import com.google.copybara.git.github.util.GitHubHost;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.Endpoint;
+import com.google.cooperbara.LazyResourceLoader;
+import com.google.cooperbara.config.SkylarkUtil;
+import com.google.cooperbara.doc.annotations.Example;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.github.api.CheckRun;
+import com.google.cooperbara.git.github.api.CombinedStatus;
+import com.google.cooperbara.git.github.api.CreateReleaseRequest;
+import com.google.cooperbara.git.github.api.CreateStatusRequest;
+import com.google.cooperbara.git.github.api.GitHubApi;
+import com.google.cooperbara.git.github.api.GitHubApi.PullRequestListParams;
+import com.google.cooperbara.git.github.api.GitHubApi.PullRequestListParams.DirectionFilter;
+import com.google.cooperbara.git.github.api.GitHubApi.PullRequestListParams.SortFilter;
+import com.google.cooperbara.git.github.api.GitHubApi.PullRequestListParams.StateFilter;
+import com.google.cooperbara.git.github.api.GitHubApiException;
+import com.google.cooperbara.git.github.api.GitHubApiException.ResponseCode;
+import com.google.cooperbara.git.github.api.GitHubCommit;
+import com.google.cooperbara.git.github.api.Issue;
+import com.google.cooperbara.git.github.api.Issue.CreateIssueRequest;
+import com.google.cooperbara.git.github.api.IssueComment;
+import com.google.cooperbara.git.github.api.PullRequest;
+import com.google.cooperbara.git.github.api.PullRequestComment;
+import com.google.cooperbara.git.github.api.Ref;
+import com.google.cooperbara.git.github.api.Release;
+import com.google.cooperbara.git.github.api.Status;
+import com.google.cooperbara.git.github.api.Status.State;
+import com.google.cooperbara.git.github.api.UpdatePullRequest;
+import com.google.cooperbara.git.github.api.UpdateReferenceRequest;
+import com.google.cooperbara.git.github.api.User;
+import com.google.cooperbara.git.github.util.GitHubHost;
+import com.google.cooperbara.util.console.Console;
 import com.google.re2j.Pattern;
 import javax.annotation.Nullable;
 import net.starlark.java.annot.Param;
@@ -117,7 +117,7 @@ public class GitHubEndPoint implements Endpoint, StarlarkValue {
         @Param(
             name = "context",
             doc =
-                "The context for the commit status. Use a value like 'copybara/import_successful'"
+                "The context for the commit status. Use a value like 'cooperbara/import_successful'"
                     + " or similar",
             named = true),
         @Param(name = "description", named = true, doc = "Description about what happened"),

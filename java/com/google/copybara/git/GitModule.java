@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,29 +14,29 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import static com.google.common.collect.ImmutableList.toImmutableList;
-import static com.google.copybara.config.SkylarkUtil.check;
-import static com.google.copybara.config.SkylarkUtil.checkNotEmpty;
-import static com.google.copybara.config.SkylarkUtil.convertFromNoneable;
-import static com.google.copybara.config.SkylarkUtil.stringToEnum;
-import static com.google.copybara.git.GitHubPrOrigin.GITHUB_BASE_BRANCH;
-import static com.google.copybara.git.GitHubPrOrigin.GITHUB_BASE_BRANCH_SHA1;
-import static com.google.copybara.git.GitHubPrOrigin.GITHUB_PR_ASSIGNEE;
-import static com.google.copybara.git.GitHubPrOrigin.GITHUB_PR_BODY;
-import static com.google.copybara.git.GitHubPrOrigin.GITHUB_PR_HEAD_SHA;
-import static com.google.copybara.git.GitHubPrOrigin.GITHUB_PR_REVIEWER_APPROVER;
-import static com.google.copybara.git.GitHubPrOrigin.GITHUB_PR_REVIEWER_OTHER;
-import static com.google.copybara.git.GitHubPrOrigin.GITHUB_PR_TITLE;
-import static com.google.copybara.git.GitHubPrOrigin.GITHUB_PR_URL;
-import static com.google.copybara.git.GitHubPrOrigin.GITHUB_PR_USER;
-import static com.google.copybara.git.GitHubPrOrigin.GITHUB_PR_USE_MERGE;
-import static com.google.copybara.git.GitOptions.USE_CREDENTIALS_FROM_CONFIG;
-import static com.google.copybara.git.github.api.GitHubEventType.WATCHABLE_EVENTS;
-import static com.google.copybara.git.github.util.GitHubHost.GITHUB_COM;
-import static com.google.copybara.version.LatestVersionSelector.VersionElementType.ALPHABETIC;
-import static com.google.copybara.version.LatestVersionSelector.VersionElementType.NUMERIC;
+import static com.google.cooperbara.config.SkylarkUtil.check;
+import static com.google.cooperbara.config.SkylarkUtil.checkNotEmpty;
+import static com.google.cooperbara.config.SkylarkUtil.convertFromNoneable;
+import static com.google.cooperbara.config.SkylarkUtil.stringToEnum;
+import static com.google.cooperbara.git.GitHubPrOrigin.GITHUB_BASE_BRANCH;
+import static com.google.cooperbara.git.GitHubPrOrigin.GITHUB_BASE_BRANCH_SHA1;
+import static com.google.cooperbara.git.GitHubPrOrigin.GITHUB_PR_ASSIGNEE;
+import static com.google.cooperbara.git.GitHubPrOrigin.GITHUB_PR_BODY;
+import static com.google.cooperbara.git.GitHubPrOrigin.GITHUB_PR_HEAD_SHA;
+import static com.google.cooperbara.git.GitHubPrOrigin.GITHUB_PR_REVIEWER_APPROVER;
+import static com.google.cooperbara.git.GitHubPrOrigin.GITHUB_PR_REVIEWER_OTHER;
+import static com.google.cooperbara.git.GitHubPrOrigin.GITHUB_PR_TITLE;
+import static com.google.cooperbara.git.GitHubPrOrigin.GITHUB_PR_URL;
+import static com.google.cooperbara.git.GitHubPrOrigin.GITHUB_PR_USER;
+import static com.google.cooperbara.git.GitHubPrOrigin.GITHUB_PR_USE_MERGE;
+import static com.google.cooperbara.git.GitOptions.USE_CREDENTIALS_FROM_CONFIG;
+import static com.google.cooperbara.git.github.api.GitHubEventType.WATCHABLE_EVENTS;
+import static com.google.cooperbara.git.github.util.GitHubHost.GITHUB_COM;
+import static com.google.cooperbara.version.LatestVersionSelector.VersionElementType.ALPHABETIC;
+import static com.google.cooperbara.version.LatestVersionSelector.VersionElementType.NUMERIC;
 import static java.util.Arrays.stream;
 
 import com.google.common.base.Preconditions;
@@ -47,50 +47,50 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.ImmutableSetMultimap.Builder;
-import com.google.copybara.EndpointProvider;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.LazyResourceLoader;
-import com.google.copybara.Options;
-import com.google.copybara.Origin;
-import com.google.copybara.Transformation;
-import com.google.copybara.WorkflowOptions;
-import com.google.copybara.action.Action;
-import com.google.copybara.action.StarlarkAction;
-import com.google.copybara.approval.ApprovalsProvider;
-import com.google.copybara.checks.Checker;
-import com.google.copybara.config.ConfigFile;
-import com.google.copybara.config.GlobalMigrations;
-import com.google.copybara.config.LabelsAwareModule;
-import com.google.copybara.config.SkylarkUtil;
-import com.google.copybara.credentials.CredentialModule.UsernamePasswordIssuer;
-import com.google.copybara.doc.annotations.DocDefault;
-import com.google.copybara.doc.annotations.Example;
-import com.google.copybara.doc.annotations.UsesFlags;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GerritDestination.ChangeIdPolicy;
-import com.google.copybara.git.GerritDestination.NotifyOption;
-import com.google.copybara.git.GitDestination.WriterImpl.DefaultWriteHook;
-import com.google.copybara.git.GitHubPrOrigin.ReviewState;
-import com.google.copybara.git.GitHubPrOrigin.StateFilter;
-import com.google.copybara.git.GitIntegrateChanges.Strategy;
-import com.google.copybara.git.GitOrigin.SubmoduleStrategy;
-import com.google.copybara.git.gerritapi.GerritEventType;
-import com.google.copybara.git.gerritapi.SetReviewInput;
-import com.google.copybara.git.github.api.AuthorAssociation;
-import com.google.copybara.git.github.api.CheckRun.Conclusion;
-import com.google.copybara.git.github.api.GitHubEventType;
-import com.google.copybara.git.github.api.GitHubGraphQLApi.GetCommitHistoryParams;
-import com.google.copybara.git.github.util.GitHubUtil;
-import com.google.copybara.transform.Replace;
-import com.google.copybara.transform.patch.PatchTransformation;
-import com.google.copybara.util.RepositoryUtil;
-import com.google.copybara.util.console.Console;
-import com.google.copybara.version.LatestVersionSelector;
-import com.google.copybara.version.LatestVersionSelector.VersionElementType;
-import com.google.copybara.version.OrderedVersionSelector;
-import com.google.copybara.version.RequestedVersionSelector;
-import com.google.copybara.version.VersionSelector;
-import com.google.copybara.version.VersionSelector.SearchPattern;
+import com.google.cooperbara.EndpointProvider;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.LazyResourceLoader;
+import com.google.cooperbara.Options;
+import com.google.cooperbara.Origin;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.WorkflowOptions;
+import com.google.cooperbara.action.Action;
+import com.google.cooperbara.action.StarlarkAction;
+import com.google.cooperbara.approval.ApprovalsProvider;
+import com.google.cooperbara.checks.Checker;
+import com.google.cooperbara.config.ConfigFile;
+import com.google.cooperbara.config.GlobalMigrations;
+import com.google.cooperbara.config.LabelsAwareModule;
+import com.google.cooperbara.config.SkylarkUtil;
+import com.google.cooperbara.credentials.CredentialModule.UsernamePasswordIssuer;
+import com.google.cooperbara.doc.annotations.DocDefault;
+import com.google.cooperbara.doc.annotations.Example;
+import com.google.cooperbara.doc.annotations.UsesFlags;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GerritDestination.ChangeIdPolicy;
+import com.google.cooperbara.git.GerritDestination.NotifyOption;
+import com.google.cooperbara.git.GitDestination.WriterImpl.DefaultWriteHook;
+import com.google.cooperbara.git.GitHubPrOrigin.ReviewState;
+import com.google.cooperbara.git.GitHubPrOrigin.StateFilter;
+import com.google.cooperbara.git.GitIntegrateChanges.Strategy;
+import com.google.cooperbara.git.GitOrigin.SubmoduleStrategy;
+import com.google.cooperbara.git.gerritapi.GerritEventType;
+import com.google.cooperbara.git.gerritapi.SetReviewInput;
+import com.google.cooperbara.git.github.api.AuthorAssociation;
+import com.google.cooperbara.git.github.api.CheckRun.Conclusion;
+import com.google.cooperbara.git.github.api.GitHubEventType;
+import com.google.cooperbara.git.github.api.GitHubGraphQLApi.GetCommitHistoryParams;
+import com.google.cooperbara.git.github.util.GitHubUtil;
+import com.google.cooperbara.transform.Replace;
+import com.google.cooperbara.transform.patch.PatchTransformation;
+import com.google.cooperbara.util.RepositoryUtil;
+import com.google.cooperbara.util.console.Console;
+import com.google.cooperbara.version.LatestVersionSelector;
+import com.google.cooperbara.version.LatestVersionSelector.VersionElementType;
+import com.google.cooperbara.version.OrderedVersionSelector;
+import com.google.cooperbara.version.RequestedVersionSelector;
+import com.google.cooperbara.version.VersionSelector;
+import com.google.cooperbara.version.VersionSelector.SearchPattern;
 import com.google.errorprone.annotations.CheckReturnValue;
 import com.google.re2j.Matcher;
 import com.google.re2j.Pattern;
@@ -185,15 +185,15 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
       doc =
           "Defines a standard Git origin. For Git specific origins use: `github_origin` or "
               + "`gerrit_origin`.<br><br>All the origins in this module accept several string"
-              + " formats as reference (When copybara is called in the form of `copybara config"
+              + " formats as reference (When cooperbara is called in the form of `cooperbara config"
               + " workflow reference`):<br><ul><li>**Branch name:** For example"
               + " `master`</li><li>**An arbitrary reference:**"
               + " `refs/changes/20/50820/1`</li><li>**A SHA-1:** Note that it has to be reachable"
               + " from the default refspec</li><li>**A Git repository URL and reference:**"
               + " `http://github.com/foo master`</li><li>**A GitHub pull request URL:**"
               + " `https://github.com/some_project/pull/1784`</li></ul><br>So for example,"
-              + " Copybara can be invoked for a `git.origin` in the CLI as:<br>`copybara"
-              + " copy.bara.sky my_workflow https://github.com/some_project/pull/1784`<br>This"
+              + " Copybara can be invoked for a `git.origin` in the CLI as:<br>`cooperbara"
+              + " cooper.bara.sky my_workflow https://github.com/some_project/pull/1784`<br>This"
               + " will use the pull request as the origin URL and reference.",
       parameters = {
         @Param(name = "url", named = true, doc = "Indicates the URL of the git repository"),
@@ -292,7 +292,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             named = true,
             positional = false,
             doc =
-                "When enabled, copybara will ignore the 'ref' param if it is 'master' or 'main' and"
+                "When enabled, cooperbara will ignore the 'ref' param if it is 'master' or 'main' and"
                     + " instead try to establish the default git branch. If this fails, it will"
                     + " fall back to the 'ref' param.\n"
                     + "This is intended to help migrating to the new standard of using 'main'"
@@ -779,7 +779,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             named = true,
             positional = false,
             doc =
-                "When enabled, copybara will ignore the 'ref' param if it is 'master' or 'main' and"
+                "When enabled, cooperbara will ignore the 'ref' param if it is 'master' or 'main' and"
                     + " instead try to establish the default git branch. If this fails, it will"
                     + " fall back to the 'ref' param.\n"
                     + "This is intended to help migrating to the new standard of using 'main'"
@@ -1159,7 +1159,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
         boolean added = approvers.add(stringToEnum("review_approvers", r, AuthorAssociation.class));
         check(added, "Repeated element %s", r);
       }
-      reviewApprovers = ImmutableSet.copyOf(approvers);
+      reviewApprovers = ImmutableSet.cooperOf(approvers);
     }
     String fixedUrl = fixHttp(url, thread.getCallerLocation());
     GitHubPrOriginOptions prOpts = options.get(GitHubPrOriginOptions.class);
@@ -1199,16 +1199,16 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
         options.get(GitOriginOptions.class),
         options.get(GitHubOptions.class),
         prOpts,
-        ImmutableSet.copyOf(
+        ImmutableSet.cooperOf(
             Sequence.cast(requiredLabels, String.class, GitHubUtil.REQUIRED_LABELS)),
-        ImmutableSet.copyOf(
+        ImmutableSet.cooperOf(
             Sequence.cast(
                 requiredStatusContextNames,
                 String.class,
                 GitHubUtil.REQUIRED_STATUS_CONTEXT_NAMES)),
-        ImmutableSet.copyOf(
+        ImmutableSet.cooperOf(
             Sequence.cast(requiredCheckRuns, String.class, GitHubUtil.REQUIRED_CHECK_RUNS)),
-        ImmutableSet.copyOf(
+        ImmutableSet.cooperOf(
             Sequence.cast(retryableLabels, String.class, GitHubUtil.RETRYABLE_LABELS)),
         stringToEnum("submodules", submodules, SubmoduleStrategy.class),
         excludedSubmoduleList,
@@ -1322,7 +1322,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             named = true,
             positional = false,
             doc =
-                "When enabled, copybara will ignore the 'ref' param if it is 'master' or 'main' and"
+                "When enabled, cooperbara will ignore the 'ref' param if it is 'master' or 'main' and"
                     + " instead try to establish the default git branch. If this fails, it will"
                     + " fall back to the 'ref' param.\n"
                     + "This is intended to help migrating to the new standard of using 'main'"
@@ -1377,7 +1377,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
     PatchTransformation patchTransformation = maybeGetPatchTransformation(patch);
 
     CredentialFileHandler credentialHandler = getCredentialHandler(fixedUrl, credentials);
-    // TODO(copybara-team): See if we want to support includeBranchCommitLogs for GitHub repos.
+    // TODO(cooperbara-team): See if we want to support includeBranchCommitLogs for GitHub repos.
     return GitOrigin.newGitOrigin(
         options,
         fixedUrl,
@@ -1495,7 +1495,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             named = true,
             positional = false,
             doc =
-                "When enabled, copybara will ignore the 'push' and 'fetch' params if either is"
+                "When enabled, cooperbara will ignore the 'push' and 'fetch' params if either is"
                     + " 'master' or 'main' and instead try to establish the default git branch. If"
                     + " this fails, it will fall back to the param's declared value.\n"
                     + "This is intended to help migrating to the new standard of using 'main'"
@@ -1670,7 +1670,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             named = true,
             positional = false,
             doc =
-                "When enabled, copybara will ignore the 'push' and 'fetch' params if either is"
+                "When enabled, cooperbara will ignore the 'push' and 'fetch' params if either is"
                     + " 'master' or 'main' and instead try to establish the default git branch. If"
                     + " this fails, it will fall back to the param's declared value.\n"
                     + "This is intended to help migrating to the new standard of using 'main'"
@@ -1685,7 +1685,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             positional = false,
             doc =
                 "A template string that specifies to a tag name. If the tag already exists, "
-                    + "copybara will only overwrite it if the --git-tag-overwrite flag is set."
+                    + "cooperbara will only overwrite it if the --git-tag-overwrite flag is set."
                     + "\nNote that tag creation is "
                     + "best-effort and the migration will succeed even if the tag cannot be "
                     + "created. "
@@ -1702,7 +1702,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             named = true,
             positional = false,
             doc =
-                "A template string that refers to the commit msg for a tag. If set, copybara will"
+                "A template string that refers to the commit msg for a tag. If set, cooperbara will"
                     + "create an annotated tag with this custom message\n"
                     + "Usage: Labels in the string will be resolved. E.g. .${label}_message."
                     + "By default, the tag will be created with the labeled commit's message.",
@@ -1829,7 +1829,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             named = true,
             doc =
                 "Url of the GitHub project. For example"
-                    + " \"https://github.com/google/copybara'\""),
+                    + " \"https://github.com/google/cooperbara'\""),
         @Param(
             name = "destination_ref",
             named = true,
@@ -1860,8 +1860,8 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             named = true,
             positional = false,
             doc =
-                "By default, copybara migrates changes without checking existing PRs. "
-                    + "If set, copybara will skip pushing a change to an existing PR "
+                "By default, cooperbara migrates changes without checking existing PRs. "
+                    + "If set, cooperbara will skip pushing a change to an existing PR "
                     + "only if the git three of the pending migrating change is the same "
                     + "as the existing PR."),
         @Param(
@@ -1978,7 +1978,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             named = true,
             positional = false,
             doc =
-                "When enabled, copybara will ignore the 'desination_ref' param if it is 'master' or"
+                "When enabled, cooperbara will ignore the 'desination_ref' param if it is 'master' or"
                     + " 'main' and instead try to establish the default git branch. If this fails,"
                     + " it will fall back to the param's declared value.\n"
                     + "This is intended to help migrating to the new standard of using 'main'"
@@ -2017,10 +2017,10 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
   @UsesFlags({GitDestinationOptions.class, GitHubDestinationOptions.class, GitHubOptions.class})
   @Example(
       title = "Common usage",
-      before = "Create a branch by using copybara's computerIdentity algorithm:",
+      before = "Create a branch by using cooperbara's computerIdentity algorithm:",
       code =
           "git.github_pr_destination(\n"
-              + "        url = \"https://github.com/google/copybara\",\n"
+              + "        url = \"https://github.com/google/cooperbara\",\n"
               + "        destination_ref = \"master\",\n"
               + "    )")
   @Example(
@@ -2028,7 +2028,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
       before = "Customize pr_branch with context reference:",
       code =
           "git.github_pr_destination(\n"
-              + "        url = \"https://github.com/google/copybara\",\n"
+              + "        url = \"https://github.com/google/cooperbara\",\n"
               + "         destination_ref = \"master\",\n"
               + "         pr_branch = 'test_${CONTEXT_REFERENCE}',\n"
               + "    )")
@@ -2037,7 +2037,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
       before = "Customize pr_branch with a constant string:",
       code =
           "git.github_pr_destination(\n"
-              + "        url = \"https://github.com/google/copybara\",\n"
+              + "        url = \"https://github.com/google/cooperbara\",\n"
               + "        destination_ref = \"master\",\n"
               + "        pr_branch = 'test_my_branch',\n"
               + "    )")
@@ -2097,7 +2097,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             destinationPrBranch,
             partialFetch,
             allowEmptyDiff,
-            ImmutableSet.copyOf(
+            ImmutableSet.cooperOf(
                 SkylarkUtil.convertStringList(allowEmptyDiffMergeStatuses,
                     "empty_diff_merge_statuses")),
             convertSlugToConclusion(allowEmptyDiffCheckSuitesToConclusion),
@@ -2109,7 +2109,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             : Sequence.cast(integrates, GitIntegrateChanges.class, "integrates"),
         convertFromNoneable(title, null),
         convertFromNoneable(body, null),
-        ImmutableList.copyOf(assignees),
+        ImmutableList.cooperOf(assignees),
         mainConfigFile,
         apiCheckerObj != null ? apiCheckerObj : checkerObj,
         updateDescription,
@@ -2310,7 +2310,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
             named = true,
             positional = false,
             doc =
-                "When enabled, copybara will ignore the 'push_to_refs_for' and 'fetch' params if"
+                "When enabled, cooperbara will ignore the 'push_to_refs_for' and 'fetch' params if"
                     + " either is 'master' or 'main' and instead try to establish the default git"
                     + " branch. If this fails, it will fall back to the param's declared value.\n"
                     + "This is intended to help migrating to the new standard of using 'main'"
@@ -2587,11 +2587,11 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
         eventBuilder.add(
             GerritEventTrigger.create(
                 eventType,
-                ImmutableSet.copyOf(event.getValue())));
+                ImmutableSet.cooperOf(event.getValue())));
       }
     }
 
-    return ImmutableSet.copyOf(eventBuilder);
+    return ImmutableSet.cooperOf(eventBuilder);
   }
 
   @SuppressWarnings("unused")
@@ -2690,7 +2690,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
         eventBuilder.add(
             EventTrigger.create(
                 stringToEnum("events", trigger.getKey(), GitHubEventType.class),
-                ImmutableSet.copyOf(trigger.getValue())));
+                ImmutableSet.cooperOf(trigger.getValue())));
       }
     }
     for (EventTrigger trigger : eventBuilder) {
@@ -2701,7 +2701,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
           WATCHABLE_EVENTS);
     }
     check(!eventBuilder.isEmpty(), "events cannot be empty");
-    return ImmutableSet.copyOf(eventBuilder);
+    return ImmutableSet.cooperOf(eventBuilder);
   }
 
   @SuppressWarnings("unused")
@@ -2725,7 +2725,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
               @ParamType(type = String.class),
               @ParamType(type = NoneType.class),
             },
-            doc = "Tag to be applied to the review, for instance 'autogenerated:copybara'.",
+            doc = "Tag to be applied to the review, for instance 'autogenerated:cooperbara'.",
             named = true,
             defaultValue = "None")
       })
@@ -2736,11 +2736,11 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
       Object tag)
       throws EvalException {
     // Convert values from StarlarkInt to Integer (in anticipation of Gson).
-    ImmutableMap.Builder<String, Integer> copy = ImmutableMap.builder();
+    ImmutableMap.Builder<String, Integer> cooper = ImmutableMap.builder();
     for (Map.Entry<String, StarlarkInt> e :
         Dict.noneableCast(labels, String.class, StarlarkInt.class, "Gerrit review labels")
             .entrySet()) {
-      copy.put(e.getKey(), e.getValue().toInt("element of Gerrit review labels"));
+      cooper.put(e.getKey(), e.getValue().toInt("element of Gerrit review labels"));
     }
     return SetReviewInput.create(
         convertFromNoneable(message, null),
@@ -2757,7 +2757,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
         //   -> JsonFactory.toByteArray
         //
         // where the Iterability of the labels map causes it to be treated like a list of keys.
-        copy.buildOrThrow(),
+        cooper.buildOrThrow(),
         convertFromNoneable(tag, null));
   }
 
@@ -2882,7 +2882,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
         GITHUB_COM,
         new GitHubSecuritySettingsValidator(
             githubOptions.newGitHubApiSupplier(url, null, creds, GITHUB_COM),
-            ImmutableList.copyOf(githubOptions.allStarAppIds),
+            ImmutableList.cooperOf(githubOptions.allStarAppIds),
             generalOptions.console()),
         new GitHubUserApprovalsValidator(
             githubOptions.newGitHubApiSupplier(url, null, creds, GITHUB_COM),
@@ -2905,7 +2905,7 @@ public class GitModule implements LabelsAwareModule, StarlarkValue {
         branch,
         new GitHubSecuritySettingsValidator(
             githubOptions.newGitHubApiSupplier(url, null, creds, GITHUB_COM),
-            ImmutableList.copyOf(githubOptions.allStarAppIds),
+            ImmutableList.cooperOf(githubOptions.allStarAppIds),
             generalOptions.console()),
         new GitHubUserApprovalsValidator(
             githubOptions.newGitHubApiSupplier(url, null, creds, GITHUB_COM),

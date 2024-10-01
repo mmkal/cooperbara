@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
-import static com.google.copybara.git.GitModule.DEFAULT_INTEGRATE_LABEL;
+import static com.google.cooperbara.git.GitModule.DEFAULT_INTEGRATE_LABEL;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.CharMatcher;
@@ -28,12 +28,12 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.primitives.Ints;
-import com.google.copybara.ChangeMessage;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.LabelFinder;
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
+import com.google.cooperbara.ChangeMessage;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.LabelFinder;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
 import com.google.re2j.Matcher;
 import com.google.re2j.Pattern;
 import java.util.List;

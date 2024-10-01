@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Option;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.exception.RepoException;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Option;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.exception.RepoException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -192,7 +192,7 @@ public final class GitDestinationOptions implements Option {
         ? resolvedPush // This is nicer for the user
         : customLocalBranch != null
             ? customLocalBranch
-            : "copybara/resolvedPush-" + UUID.randomUUID() + (dryRun ? "-dryrun" : "");
+            : "cooperbara/resolvedPush-" + UUID.randomUUID() + (dryRun ? "-dryrun" : "");
   }
 
 }

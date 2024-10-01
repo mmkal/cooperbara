@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
@@ -22,22 +22,22 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.exception.RedundantChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitDestination.MessageInfo;
-import com.google.copybara.git.GitDestination.WriterImpl.DefaultWriteHook;
-import com.google.copybara.git.github.api.CheckRun.Conclusion;
-import com.google.copybara.git.github.api.CheckSuite;
-import com.google.copybara.git.github.api.GitHubApi;
-import com.google.copybara.git.github.api.GitHubApi.PullRequestListParams;
-import com.google.copybara.git.github.api.GitHubApiException;
-import com.google.copybara.git.github.api.GitHubApiException.ResponseCode;
-import com.google.copybara.git.github.api.PullRequest;
-import com.google.copybara.git.github.util.GitHubHost;
-import com.google.copybara.revision.Change;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.exception.RedundantChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitDestination.MessageInfo;
+import com.google.cooperbara.git.GitDestination.WriterImpl.DefaultWriteHook;
+import com.google.cooperbara.git.github.api.CheckRun.Conclusion;
+import com.google.cooperbara.git.github.api.CheckSuite;
+import com.google.cooperbara.git.github.api.GitHubApi;
+import com.google.cooperbara.git.github.api.GitHubApi.PullRequestListParams;
+import com.google.cooperbara.git.github.api.GitHubApiException;
+import com.google.cooperbara.git.github.api.GitHubApiException.ResponseCode;
+import com.google.cooperbara.git.github.api.PullRequest;
+import com.google.cooperbara.git.github.util.GitHubHost;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.util.console.Console;
 import java.util.List;
 import javax.annotation.Nullable;
 
@@ -167,7 +167,7 @@ public class GitHubPrWriteHook extends DefaultWriteHook {
     }
     if (!slugFound) {
       console.warnFmt("Skipping upload: Couldn't find any slug name that matched the configured"
-              + " slugs in the config file. copy.bara.sky suits slug names are: %s but present"
+              + " slugs in the config file. cooper.bara.sky suits slug names are: %s but present"
               + " suits for commit %s are: %s",
           allowEmptyDiffCheckSuitesConclusion.keys(),
           sha,

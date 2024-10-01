@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,47 +14,47 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
-import static com.google.copybara.LazyResourceLoader.memoized;
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.git.GitModule.PRIMARY_BRANCHES;
-import static com.google.copybara.git.github.api.UpdatePullRequest.State.OPEN;
+import static com.google.cooperbara.LazyResourceLoader.memoized;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.git.GitModule.PRIMARY_BRANCHES;
+import static com.google.cooperbara.git.github.api.UpdatePullRequest.State.OPEN;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSetMultimap;
-import com.google.copybara.ChangeMessage;
-import com.google.copybara.Destination;
-import com.google.copybara.Endpoint;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.LabelFinder;
-import com.google.copybara.LazyResourceLoader;
-import com.google.copybara.TransformResult;
-import com.google.copybara.WriterContext;
-import com.google.copybara.checks.Checker;
-import com.google.copybara.config.ConfigFile;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitDestination.WriterImpl;
-import com.google.copybara.git.GitDestination.WriterState;
-import com.google.copybara.git.github.api.AddAssignees;
-import com.google.copybara.git.github.api.CreatePullRequest;
-import com.google.copybara.git.github.api.GitHubApi;
-import com.google.copybara.git.github.api.GitHubApi.PullRequestListParams;
-import com.google.copybara.git.github.api.PullRequest;
-import com.google.copybara.git.github.api.UpdatePullRequest;
-import com.google.copybara.git.github.util.GitHubHost;
-import com.google.copybara.git.github.util.GitHubUtil;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.templatetoken.LabelTemplate;
-import com.google.copybara.templatetoken.LabelTemplate.LabelNotFoundException;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.Identity;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.ChangeMessage;
+import com.google.cooperbara.Destination;
+import com.google.cooperbara.Endpoint;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.LabelFinder;
+import com.google.cooperbara.LazyResourceLoader;
+import com.google.cooperbara.TransformResult;
+import com.google.cooperbara.WriterContext;
+import com.google.cooperbara.checks.Checker;
+import com.google.cooperbara.config.ConfigFile;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitDestination.WriterImpl;
+import com.google.cooperbara.git.GitDestination.WriterState;
+import com.google.cooperbara.git.github.api.AddAssignees;
+import com.google.cooperbara.git.github.api.CreatePullRequest;
+import com.google.cooperbara.git.github.api.GitHubApi;
+import com.google.cooperbara.git.github.api.GitHubApi.PullRequestListParams;
+import com.google.cooperbara.git.github.api.PullRequest;
+import com.google.cooperbara.git.github.api.UpdatePullRequest;
+import com.google.cooperbara.git.github.util.GitHubHost;
+import com.google.cooperbara.git.github.util.GitHubUtil;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.templatetoken.LabelTemplate;
+import com.google.cooperbara.templatetoken.LabelTemplate.LabelNotFoundException;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.Identity;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
@@ -185,7 +185,7 @@ public class GitHubPrDestination implements Destination<GitRevision> {
         localRepo,
         destinationOptions.localRepoPath != null
             ? prBranch
-            : "copybara/push-"
+            : "cooperbara/push-"
                 + UUID.randomUUID()
                 + (writerContext.isDryRun() ? "-dryrun" : ""));
 

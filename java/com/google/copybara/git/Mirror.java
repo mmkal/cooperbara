@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
-import static com.google.copybara.git.github.util.GitHubHost.GITHUB_COM;
+import static com.google.cooperbara.git.github.util.GitHubHost.GITHUB_COM;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
@@ -24,23 +24,23 @@ import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.EndpointProvider;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.LazyResourceLoader;
-import com.google.copybara.action.Action;
-import com.google.copybara.action.ActionResult;
-import com.google.copybara.action.ActionResult.Result;
-import com.google.copybara.config.ConfigFile;
-import com.google.copybara.config.Migration;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.effect.DestinationEffect.DestinationRef;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
-import com.google.copybara.profiler.Profiler;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.transform.SkylarkConsole;
+import com.google.cooperbara.EndpointProvider;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.LazyResourceLoader;
+import com.google.cooperbara.action.Action;
+import com.google.cooperbara.action.ActionResult;
+import com.google.cooperbara.action.ActionResult.Result;
+import com.google.cooperbara.config.ConfigFile;
+import com.google.cooperbara.config.Migration;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.effect.DestinationEffect.DestinationRef;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.monitor.EventMonitor.ChangeMigrationFinishedEvent;
+import com.google.cooperbara.profiler.Profiler;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.transform.SkylarkConsole;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
@@ -225,7 +225,7 @@ public class Mirror implements Migration {
         repo.push()
             .prune(prune)
             .withRefspecs(destination, pushRefspecs)
-            .withPushOptions(ImmutableList.copyOf(gitOptions.gitPushOptions))
+            .withPushOptions(ImmutableList.cooperOf(gitOptions.gitPushOptions))
             .run();
       } catch (NonFastForwardRepositoryException e) {
         // Normally we want non-fast-forward to retry, but for git.mirror, given that it handles
@@ -246,7 +246,7 @@ public class Mirror implements Migration {
   }
 
   private static String getOriginDestinationRef(String url) throws ValidationException {
-    // TODO(copybara-team): This is used just for normalization. We should be able to do it without
+    // TODO(cooperbara-team): This is used just for normalization. We should be able to do it without
     // knowing the host.
     return GITHUB_COM.isGitHubUrl(url) ? GITHUB_COM.normalizeUrl(url) : url;
   }

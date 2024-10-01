@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -13,34 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.Endpoint;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.checks.Checker;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.effect.DestinationEffect.DestinationRef;
-import com.google.copybara.effect.DestinationEffect.Type;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitDestination.MessageInfo;
-import com.google.copybara.git.GitDestination.WriterImpl.DefaultWriteHook;
-import com.google.copybara.git.github.api.GitHubApi;
-import com.google.copybara.git.github.api.GitHubApiException;
-import com.google.copybara.git.github.api.GitHubApiException.ResponseCode;
-import com.google.copybara.git.github.util.GitHubHost;
-import com.google.copybara.git.github.util.GitHubUtil;
-import com.google.copybara.revision.Change;
-import com.google.copybara.templatetoken.LabelTemplate;
-import com.google.copybara.templatetoken.LabelTemplate.LabelNotFoundException;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.Endpoint;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.checks.Checker;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.effect.DestinationEffect.DestinationRef;
+import com.google.cooperbara.effect.DestinationEffect.Type;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitDestination.MessageInfo;
+import com.google.cooperbara.git.GitDestination.WriterImpl.DefaultWriteHook;
+import com.google.cooperbara.git.github.api.GitHubApi;
+import com.google.cooperbara.git.github.api.GitHubApiException;
+import com.google.cooperbara.git.github.api.GitHubApiException.ResponseCode;
+import com.google.cooperbara.git.github.util.GitHubHost;
+import com.google.cooperbara.git.github.util.GitHubUtil;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.templatetoken.LabelTemplate;
+import com.google.cooperbara.templatetoken.LabelTemplate.LabelNotFoundException;
+import com.google.cooperbara.util.console.Console;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;

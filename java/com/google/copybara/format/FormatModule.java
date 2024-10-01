@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package com.google.copybara.format;
+package com.google.cooperbara.format;
 
-import static com.google.copybara.config.SkylarkUtil.check;
-import static com.google.copybara.config.SkylarkUtil.convertFromNoneable;
-import static com.google.copybara.config.SkylarkUtil.stringToEnum;
+import static com.google.cooperbara.config.SkylarkUtil.check;
+import static com.google.cooperbara.config.SkylarkUtil.convertFromNoneable;
+import static com.google.cooperbara.config.SkylarkUtil.stringToEnum;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Transformation;
-import com.google.copybara.WorkflowOptions;
-import com.google.copybara.doc.annotations.DocDefault;
-import com.google.copybara.doc.annotations.Example;
-import com.google.copybara.doc.annotations.UsesFlags;
-import com.google.copybara.format.BuildifierFormat.LintMode;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.WorkflowOptions;
+import com.google.cooperbara.doc.annotations.DocDefault;
+import com.google.cooperbara.doc.annotations.Example;
+import com.google.cooperbara.doc.annotations.UsesFlags;
+import com.google.cooperbara.format.BuildifierFormat.LintMode;
+import com.google.cooperbara.util.Glob;
 import net.starlark.java.annot.Param;
 import net.starlark.java.annot.ParamType;
 import net.starlark.java.annot.StarlarkBuiltin;
@@ -155,7 +155,7 @@ public class FormatModule implements StarlarkValue {
         generalOptions,
         Glob.wrapGlob(paths, DEFAULT_BUILDIFIER_PATHS),
         lintMode,
-        ImmutableList.copyOf(Sequence.cast(warnings, String.class, "lint_warnings")),
+        ImmutableList.cooperOf(Sequence.cast(warnings, String.class, "lint_warnings")),
         typeStr);
   }
 }

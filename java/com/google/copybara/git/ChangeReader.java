@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -23,16 +23,16 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
-import com.google.copybara.ChangeMessage;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitRepository.GitLogEntry;
-import com.google.copybara.git.GitRepository.LogCmd;
-import com.google.copybara.revision.Change;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.ChangeMessage;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitRepository.GitLogEntry;
+import com.google.cooperbara.git.GitRepository.LogCmd;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.console.Console;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
@@ -62,7 +62,7 @@ class ChangeReader {
     this.authoring = authoring;
     this.repository = checkNotNull(repository, "repository");
     this.limit = limit;
-    this.roots = ImmutableList.copyOf(roots);
+    this.roots = ImmutableList.cooperOf(roots);
     this.includeBranchCommitLogs = includeBranchCommitLogs;
     this.url = url;
     this.firstParent = firstParent;
@@ -269,7 +269,7 @@ class ChangeReader {
      * Only return commits that match the given paths in the Git log command.
      */
     Builder setRoots(Iterable<String> roots) {
-      this.roots = ImmutableList.copyOf(roots);
+      this.roots = ImmutableList.cooperOf(roots);
       return this;
     }
 

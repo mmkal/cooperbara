@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Strings.nullToEmpty;
-import static com.google.copybara.Origin.Reader.ChangesResponse.noChanges;
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.git.GitModule.PRIMARY_BRANCHES;
-import static com.google.copybara.util.Glob.affectsRoots;
+import static com.google.cooperbara.Origin.Reader.ChangesResponse.noChanges;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.git.GitModule.PRIMARY_BRANCHES;
+import static com.google.cooperbara.util.Glob.affectsRoots;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.MoreObjects;
@@ -33,28 +33,28 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Iterables;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Options;
-import com.google.copybara.Origin;
-import com.google.copybara.Origin.Reader.ChangesResponse.EmptyReason;
-import com.google.copybara.approval.ApprovalsProvider;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitRepository.GitLogEntry;
-import com.google.copybara.git.GitRepository.Submodule;
-import com.google.copybara.git.GitRepository.TreeElement;
-import com.google.copybara.git.version.RefspecVersionList;
-import com.google.copybara.revision.Change;
-import com.google.copybara.templatetoken.Token;
-import com.google.copybara.templatetoken.Token.TokenType;
-import com.google.copybara.transform.patch.PatchTransformation;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.InsideGitDirException;
-import com.google.copybara.util.console.Console;
-import com.google.copybara.version.VersionSelector;
-import com.google.copybara.version.VersionSelector.SearchPattern;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Options;
+import com.google.cooperbara.Origin;
+import com.google.cooperbara.Origin.Reader.ChangesResponse.EmptyReason;
+import com.google.cooperbara.approval.ApprovalsProvider;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitRepository.GitLogEntry;
+import com.google.cooperbara.git.GitRepository.Submodule;
+import com.google.cooperbara.git.GitRepository.TreeElement;
+import com.google.cooperbara.git.version.RefspecVersionList;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.templatetoken.Token;
+import com.google.cooperbara.templatetoken.Token.TokenType;
+import com.google.cooperbara.transform.patch.PatchTransformation;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.InsideGitDirException;
+import com.google.cooperbara.util.console.Console;
+import com.google.cooperbara.version.VersionSelector;
+import com.google.cooperbara.version.VersionSelector.SearchPattern;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -70,7 +70,7 @@ public class GitOrigin implements Origin<GitRevision> {
   /**
    * A temporary ref used locally, for Git commands that need one (like rebase).
    */
-  private static final String COPYBARA_TMP_REF = "refs/heads/copybara_dont_use_internal";
+  private static final String COPYBARA_TMP_REF = "refs/heads/cooperbara_dont_use_internal";
 
   private static final ImmutableSet<String> REF_PREFIXES =
       ImmutableSet.of("refs/heads/", "refs/tags/");
@@ -527,7 +527,7 @@ public class GitOrigin implements Origin<GitRevision> {
       ChangeReader changeReader = changeReaderBuilder(repoUrl)
           .setFirstParent(firstParent)
           .build();
-      // toRef might already have labels that we want to maintain in the toRef copy when we return
+      // toRef might already have labels that we want to maintain in the toRef cooper when we return
       // (fromRef, toRef] (that includes toRef).
       ImmutableMap<String, ImmutableListMultimap<String, String>> labelsToPropagate =
           ImmutableMap.of(toRef.getSha1(), toRef.associatedLabels());

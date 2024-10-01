@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git.gerritapi;
+package com.google.cooperbara.git.gerritapi;
 
-import static com.google.copybara.git.gerritapi.GerritApiUtil.parseTimestamp;
+import static com.google.cooperbara.git.gerritapi.GerritApiUtil.parseTimestamp;
 
 import com.google.api.client.util.Key;
 import com.google.common.base.MoreObjects;
@@ -232,7 +232,7 @@ public class ChangeInfo implements StarlarkValue {
   public ImmutableList<SubmitRequirementResultInfo> getSubmitRequirements() {
     return submitRequirements == null
         ? ImmutableList.of()
-        : ImmutableList.copyOf(submitRequirements);
+        : ImmutableList.cooperOf(submitRequirements);
   }
 
   @StarlarkMethod(
@@ -240,11 +240,11 @@ public class ChangeInfo implements StarlarkValue {
       doc = "A list of the evaluated submit requirements for the change.",
       structField = true)
   public List<SubmitRequirementResultInfo> getSubmitRequirementsForSkylark() {
-    return ImmutableList.copyOf(getSubmitRequirements());
+    return ImmutableList.cooperOf(getSubmitRequirements());
   }
 
   public ImmutableMap<String, LabelInfo> getLabels() {
-    return labels == null ? ImmutableMap.of() : ImmutableMap.copyOf(labels);
+    return labels == null ? ImmutableMap.of() : ImmutableMap.cooperOf(labels);
   }
 
   @StarlarkMethod(
@@ -258,7 +258,7 @@ public class ChangeInfo implements StarlarkValue {
   }
 
   public List<ChangeMessageInfo> getMessages() {
-    return messages == null ? ImmutableList.of() : ImmutableList.copyOf(messages);
+    return messages == null ? ImmutableList.of() : ImmutableList.cooperOf(messages);
   }
 
   @StarlarkMethod(
@@ -284,7 +284,7 @@ public class ChangeInfo implements StarlarkValue {
   }
 
   public ImmutableMap<String, RevisionInfo> getAllRevisions() {
-    return allRevisions == null ? ImmutableMap.of() : ImmutableMap.copyOf(allRevisions);
+    return allRevisions == null ? ImmutableMap.of() : ImmutableMap.cooperOf(allRevisions);
   }
 
   @StarlarkMethod(
@@ -300,7 +300,7 @@ public class ChangeInfo implements StarlarkValue {
   }
 
   public ImmutableMap<String, List<AccountInfo>> getReviewers() {
-    return reviewers == null? ImmutableMap.of(): ImmutableMap.copyOf(reviewers);
+    return reviewers == null? ImmutableMap.of(): ImmutableMap.cooperOf(reviewers);
   }
 
   public boolean isMoreChanges() {

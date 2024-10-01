@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.ImmutableList.toImmutableList;
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.git.github.util.GitHubUtil.asHeadRef;
-import static com.google.copybara.git.github.util.GitHubUtil.asMergeRef;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.git.github.util.GitHubUtil.asHeadRef;
+import static com.google.cooperbara.git.github.util.GitHubUtil.asMergeRef;
 import static java.util.stream.Collectors.joining;
 
 import com.google.auto.value.AutoValue;
@@ -37,41 +37,41 @@ import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Sets;
 import com.google.common.util.concurrent.Uninterruptibles;
-import com.google.copybara.BaselinesWithoutLabelVisitor;
-import com.google.copybara.Endpoint;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Origin;
-import com.google.copybara.approval.ApprovalsProvider;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.checks.Checker;
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitOrigin.ReaderImpl;
-import com.google.copybara.git.GitOrigin.SubmoduleStrategy;
-import com.google.copybara.git.GitRepository.GitLogEntry;
-import com.google.copybara.git.github.api.AuthorAssociation;
-import com.google.copybara.git.github.api.CheckRun;
-import com.google.copybara.git.github.api.CombinedStatus;
-import com.google.copybara.git.github.api.GitHubApi;
-import com.google.copybara.git.github.api.GitHubApi.IssuesAndPullRequestsSearchRequestParams;
-import com.google.copybara.git.github.api.Issue;
-import com.google.copybara.git.github.api.IssuesAndPullRequestsSearchResults;
-import com.google.copybara.git.github.api.Label;
-import com.google.copybara.git.github.api.PullRequest;
-import com.google.copybara.git.github.api.Review;
-import com.google.copybara.git.github.api.Status;
-import com.google.copybara.git.github.api.Status.State;
-import com.google.copybara.git.github.api.User;
-import com.google.copybara.git.github.util.GitHubHost;
-import com.google.copybara.git.github.util.GitHubHost.GitHubPrUrl;
-import com.google.copybara.git.github.util.GitHubUtil;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.revision.Change;
-import com.google.copybara.transform.patch.PatchTransformation;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.BaselinesWithoutLabelVisitor;
+import com.google.cooperbara.Endpoint;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Origin;
+import com.google.cooperbara.approval.ApprovalsProvider;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.checks.Checker;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitOrigin.ReaderImpl;
+import com.google.cooperbara.git.GitOrigin.SubmoduleStrategy;
+import com.google.cooperbara.git.GitRepository.GitLogEntry;
+import com.google.cooperbara.git.github.api.AuthorAssociation;
+import com.google.cooperbara.git.github.api.CheckRun;
+import com.google.cooperbara.git.github.api.CombinedStatus;
+import com.google.cooperbara.git.github.api.GitHubApi;
+import com.google.cooperbara.git.github.api.GitHubApi.IssuesAndPullRequestsSearchRequestParams;
+import com.google.cooperbara.git.github.api.Issue;
+import com.google.cooperbara.git.github.api.IssuesAndPullRequestsSearchResults;
+import com.google.cooperbara.git.github.api.Label;
+import com.google.cooperbara.git.github.api.PullRequest;
+import com.google.cooperbara.git.github.api.Review;
+import com.google.cooperbara.git.github.api.Status;
+import com.google.cooperbara.git.github.api.Status.State;
+import com.google.cooperbara.git.github.api.User;
+import com.google.cooperbara.git.github.util.GitHubHost;
+import com.google.cooperbara.git.github.util.GitHubHost.GitHubPrUrl;
+import com.google.cooperbara.git.github.util.GitHubUtil;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.transform.patch.PatchTransformation;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Collections;
@@ -198,8 +198,8 @@ public class GitHubPrOrigin implements Origin<GitRevision> {
   public GitRevision resolve(String reference) throws RepoException, ValidationException {
     checkCondition(reference != null, ""
         + "A pull request reference is expected as argument in the command line."
-        + " Invoke copybara as:\n"
-        + "    copybara copy.bara.sky workflow_name 12345");
+        + " Invoke cooperbara as:\n"
+        + "    cooperbara cooper.bara.sky workflow_name 12345");
     console.progress("GitHub PR Origin: Resolving reference " + reference);
     String configProjectName = ghHost.getProjectNameFromUrl(url);
 

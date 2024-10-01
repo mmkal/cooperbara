@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,31 +14,31 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
-import com.google.copybara.Endpoint;
-import com.google.copybara.LazyResourceLoader;
-import com.google.copybara.config.SkylarkUtil;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.gerritapi.AbandonInput;
-import com.google.copybara.git.gerritapi.ActionInfo;
-import com.google.copybara.git.gerritapi.ChangeInfo;
-import com.google.copybara.git.gerritapi.ChangesQuery;
-import com.google.copybara.git.gerritapi.DeleteVoteInput;
-import com.google.copybara.git.gerritapi.GerritApi;
-import com.google.copybara.git.gerritapi.GerritApiException;
-import com.google.copybara.git.gerritapi.GetChangeInput;
-import com.google.copybara.git.gerritapi.IncludeResult;
-import com.google.copybara.git.gerritapi.NotifyType;
-import com.google.copybara.git.gerritapi.ReviewResult;
-import com.google.copybara.git.gerritapi.SetReviewInput;
-import com.google.copybara.git.gerritapi.SubmitInput;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.Endpoint;
+import com.google.cooperbara.LazyResourceLoader;
+import com.google.cooperbara.config.SkylarkUtil;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.gerritapi.AbandonInput;
+import com.google.cooperbara.git.gerritapi.ActionInfo;
+import com.google.cooperbara.git.gerritapi.ChangeInfo;
+import com.google.cooperbara.git.gerritapi.ChangesQuery;
+import com.google.cooperbara.git.gerritapi.DeleteVoteInput;
+import com.google.cooperbara.git.gerritapi.GerritApi;
+import com.google.cooperbara.git.gerritapi.GerritApiException;
+import com.google.cooperbara.git.gerritapi.GetChangeInput;
+import com.google.cooperbara.git.gerritapi.IncludeResult;
+import com.google.cooperbara.git.gerritapi.NotifyType;
+import com.google.cooperbara.git.gerritapi.ReviewResult;
+import com.google.cooperbara.git.gerritapi.SetReviewInput;
+import com.google.cooperbara.git.gerritapi.SubmitInput;
+import com.google.cooperbara.util.console.Console;
 import java.util.Map;
 import net.starlark.java.annot.Param;
 import net.starlark.java.annot.ParamType;

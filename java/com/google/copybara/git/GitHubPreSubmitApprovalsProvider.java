@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.approval.ApprovalsProvider;
-import com.google.copybara.approval.ChangeWithApprovals;
-import com.google.copybara.approval.StatementPredicate;
-import com.google.copybara.approval.UserPredicate;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.github.api.Review;
-import com.google.copybara.git.github.util.GitHubHost;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.approval.ApprovalsProvider;
+import com.google.cooperbara.approval.ChangeWithApprovals;
+import com.google.cooperbara.approval.StatementPredicate;
+import com.google.cooperbara.approval.UserPredicate;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.github.api.Review;
+import com.google.cooperbara.git.github.util.GitHubHost;
+import com.google.cooperbara.util.console.Console;
 import java.util.Collection;
 import java.util.function.Function;
 import javax.annotation.Nullable;
@@ -185,7 +185,7 @@ public class GitHubPreSubmitApprovalsProvider implements ApprovalsProvider {
    *
    * @param presubmitChanges the presubmit changes to do user validation on. If this function fails,
    *     the return value will default to this.
-   * @param projectId the org/repo identifier that hosts the pull request e.g. "google/copybara"
+   * @param projectId the org/repo identifier that hosts the pull request e.g. "google/cooperbara"
    * @param prNumber the pull request number
    * @param prHeadSha the 40 character git commit sha of the pull request HEAD commit
    * @param author the author of pull request #{@code prNumber}
@@ -264,7 +264,7 @@ public class GitHubPreSubmitApprovalsProvider implements ApprovalsProvider {
 
     // look among the public and hidden transform labels
     if (labelFinder != null && !labelFinder.apply(key).isEmpty()) {
-      return ImmutableList.copyOf(labelFinder.apply(key));
+      return ImmutableList.cooperOf(labelFinder.apply(key));
     }
     throw new RepoException(String.format("Could not find the value for label '%s'", key));
   }

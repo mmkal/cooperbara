@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.approval.ApprovalsProvider;
-import com.google.copybara.approval.ChangeWithApprovals;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.github.util.GitHubHost;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.approval.ApprovalsProvider;
+import com.google.cooperbara.approval.ChangeWithApprovals;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.github.util.GitHubHost;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.console.Console;
 import java.util.Collection;
 import java.util.function.Function;
 

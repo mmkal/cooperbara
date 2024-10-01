@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,39 +14,39 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.git.gerritapi.IncludeResult.DETAILED_ACCOUNTS;
-import static com.google.copybara.git.gerritapi.IncludeResult.DETAILED_LABELS;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.git.gerritapi.IncludeResult.DETAILED_ACCOUNTS;
+import static com.google.cooperbara.git.gerritapi.IncludeResult.DETAILED_LABELS;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.BaselinesWithoutLabelVisitor;
-import com.google.copybara.Endpoint;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Options;
-import com.google.copybara.Origin;
-import com.google.copybara.Origin.Reader.ChangesResponse.EmptyReason;
-import com.google.copybara.approval.ApprovalsProvider;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.checks.Checker;
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.gerritapi.AccountInfo;
-import com.google.copybara.git.gerritapi.ChangeInfo;
-import com.google.copybara.git.gerritapi.GerritApi;
-import com.google.copybara.git.gerritapi.GetChangeInput;
-import com.google.copybara.revision.Change;
-import com.google.copybara.transform.patch.PatchTransformation;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.BaselinesWithoutLabelVisitor;
+import com.google.cooperbara.Endpoint;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Options;
+import com.google.cooperbara.Origin;
+import com.google.cooperbara.Origin.Reader.ChangesResponse.EmptyReason;
+import com.google.cooperbara.approval.ApprovalsProvider;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.checks.Checker;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.gerritapi.AccountInfo;
+import com.google.cooperbara.git.gerritapi.ChangeInfo;
+import com.google.cooperbara.git.gerritapi.GerritApi;
+import com.google.cooperbara.git.gerritapi.GetChangeInput;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.transform.patch.PatchTransformation;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.console.Console;
 import java.nio.file.PathMatcher;
 import java.nio.file.Paths;
 import java.util.List;

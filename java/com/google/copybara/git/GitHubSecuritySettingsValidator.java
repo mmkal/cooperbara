@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
-import com.google.copybara.LazyResourceLoader;
-import com.google.copybara.approval.ChangeWithApprovals;
-import com.google.copybara.approval.StatementPredicate;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.github.api.GitHubApi;
-import com.google.copybara.git.github.api.GitHubApiException;
-import com.google.copybara.git.github.api.GitHubApiException.ResponseCode;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.LazyResourceLoader;
+import com.google.cooperbara.approval.ChangeWithApprovals;
+import com.google.cooperbara.approval.StatementPredicate;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.github.api.GitHubApi;
+import com.google.cooperbara.git.github.api.GitHubApiException;
+import com.google.cooperbara.git.github.api.GitHubApiException.ResponseCode;
+import com.google.cooperbara.util.console.Console;
 
 /** Provides Statement Predicates for GitHub Security related predicates */
 public class GitHubSecuritySettingsValidator {
@@ -119,7 +119,7 @@ public class GitHubSecuritySettingsValidator {
       throw handleGitHubException(
           e,
           "Confirming AllStar app installation",
-          "Please review your copybara app permissions, this request requires admin:read"
+          "Please review your cooperbara app permissions, this request requires admin:read"
               + " permissions.");
     }
   }

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 import static java.lang.String.format;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.regex.Pattern.compile;
@@ -26,15 +26,15 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
-import com.google.copybara.credentials.ConstantCredentialIssuer;
-import com.google.copybara.credentials.CredentialModule.UsernamePasswordIssuer;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.shell.BadExitStatusException;
-import com.google.copybara.shell.Command;
-import com.google.copybara.shell.CommandException;
-import com.google.copybara.shell.CommandResult;
-import com.google.copybara.shell.TimeoutKillableObserver;
+import com.google.cooperbara.credentials.ConstantCredentialIssuer;
+import com.google.cooperbara.credentials.CredentialModule.UsernamePasswordIssuer;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.shell.BadExitStatusException;
+import com.google.cooperbara.shell.Command;
+import com.google.cooperbara.shell.CommandException;
+import com.google.cooperbara.shell.CommandResult;
+import com.google.cooperbara.shell.TimeoutKillableObserver;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.net.URI;

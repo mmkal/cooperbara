@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -15,10 +15,10 @@
  */
 
 
-package com.google.copybara.format;
+package com.google.cooperbara.format;
 
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
@@ -26,20 +26,20 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import com.google.common.collect.Iterables;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.TransformWork;
-import com.google.copybara.Transformation;
-import com.google.copybara.TransformationStatus;
-import com.google.copybara.exception.NonReversibleValidationException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.util.BadExitStatusWithOutputException;
-import com.google.copybara.util.CommandOutput;
-import com.google.copybara.util.CommandOutputWithStatus;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.console.Console;
-import com.google.copybara.util.console.Consoles;
-import com.google.copybara.shell.Command;
-import com.google.copybara.shell.CommandException;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.TransformWork;
+import com.google.cooperbara.Transformation;
+import com.google.cooperbara.TransformationStatus;
+import com.google.cooperbara.exception.NonReversibleValidationException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.util.BadExitStatusWithOutputException;
+import com.google.cooperbara.util.CommandOutput;
+import com.google.cooperbara.util.CommandOutputWithStatus;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.console.Console;
+import com.google.cooperbara.util.console.Consoles;
+import com.google.cooperbara.shell.Command;
+import com.google.cooperbara.shell.CommandException;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;

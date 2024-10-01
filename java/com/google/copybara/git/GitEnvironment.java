@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
@@ -31,7 +31,7 @@ public class GitEnvironment {
   }
 
   GitEnvironment(Map<String, String> environment, boolean noGitPrompt) {
-    this.environment = ImmutableMap.copyOf(Preconditions.checkNotNull(environment));
+    this.environment = ImmutableMap.cooperOf(Preconditions.checkNotNull(environment));
     this.noGitPrompt = noGitPrompt;
   }
 
@@ -45,11 +45,11 @@ public class GitEnvironment {
     if (noGitPrompt) {
       env.put("GIT_TERMINAL_PROMPT", "0");
     }
-    return ImmutableMap.copyOf(env);
+    return ImmutableMap.cooperOf(env);
   }
 
   /**
-   * Returns a copy of this environment, with the given vars added.
+   * Returns a cooper of this environment, with the given vars added.
    *
    * <p>If a key is already present, its value is overwritten.
    *
@@ -63,7 +63,7 @@ public class GitEnvironment {
   }
 
   /**
-   * Returns a copy of this environment, setting explicitly to prevent Git from asking for
+   * Returns a cooper of this environment, setting explicitly to prevent Git from asking for
    * username/password and fail if the credentials cannot be resolved.
    */
   GitEnvironment withNoGitPrompt() {

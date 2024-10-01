@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.folder;
+package com.google.cooperbara.folder;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
-import com.google.copybara.Option;
+import com.google.cooperbara.Option;
 
 /**
  * Arguments for FolderDestination
@@ -29,7 +29,7 @@ public final class FolderOriginOptions implements Option {
   @Parameter(names = "--folder-origin-author",
       description = "Deprecated. Please use '--force-author'."
           + " Author of the change being migrated from folder.origin()")
-  public String author = "Copybara <noreply@copybara.io>";
+  public String author = "Copybara <noreply@cooperbara.io>";
 
   @Parameter(names = "--folder-origin-message",
       description = "Deprecated. Please use '--force-message'. Message of the change being migrated"

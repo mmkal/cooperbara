@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
@@ -24,20 +24,20 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.ChangeMessage;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.LabelFinder;
-import com.google.copybara.TransformResult;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitDestination.MessageInfo;
-import com.google.copybara.git.GitRepository.GitLogEntry;
-import com.google.copybara.git.GitRepository.StatusCode;
-import com.google.copybara.git.GitRepository.StatusFile;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.util.DiffUtil;
-import com.google.copybara.util.DirFactory;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.ChangeMessage;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.LabelFinder;
+import com.google.cooperbara.TransformResult;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitDestination.MessageInfo;
+import com.google.cooperbara.git.GitRepository.GitLogEntry;
+import com.google.cooperbara.git.GitRepository.StatusCode;
+import com.google.cooperbara.git.GitRepository.StatusFile;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.util.DiffUtil;
+import com.google.cooperbara.util.DirFactory;
+import com.google.cooperbara.util.console.Console;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;

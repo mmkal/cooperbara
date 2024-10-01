@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,26 +14,26 @@
  * limitations under the License.
  */
 
-package com.google.copybara.folder;
+package com.google.cooperbara.folder;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSetMultimap;
-import com.google.copybara.Destination;
-import com.google.copybara.DestinationReader;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Origin;
-import com.google.copybara.TransformResult;
-import com.google.copybara.WriterContext;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.FileUtil;
-import com.google.copybara.util.FileUtil.CopySymlinkStrategy;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.Destination;
+import com.google.cooperbara.DestinationReader;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Origin;
+import com.google.cooperbara.TransformResult;
+import com.google.cooperbara.WriterContext;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.FileUtil;
+import com.google.cooperbara.util.FileUtil.CopySymlinkStrategy;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.nio.file.FileAlreadyExistsException;
@@ -151,7 +151,7 @@ public class FolderDestination implements Destination<Revision> {
             numDeletedFiles, localFolder));
 
     console.progress("FolderDestination: Copying contents of the workdir to " + localFolder);
-    FileUtil.copyFilesRecursively(
+    FileUtil.cooperFilesRecursively(
         transformResult.getPath(), localFolder, CopySymlinkStrategy.FAIL_OUTSIDE_SYMLINKS);
     return ImmutableList.of(
         new DestinationEffect(

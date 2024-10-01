@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
-import static com.google.copybara.util.FileUtil.resolveDirInCache;
+import static com.google.cooperbara.util.FileUtil.resolveDirInCache;
 
 import com.beust.jcommander.DynamicParameter;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Option;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.jcommander.GreaterThanZeroValidator;
-import com.google.copybara.jcommander.SemicolonSeparatedListSplitter;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Option;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.jcommander.GreaterThanZeroValidator;
+import com.google.cooperbara.jcommander.SemicolonSeparatedListSplitter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -56,9 +56,9 @@ public class GitOptions implements Option {
       names = "--git-cmd-config",
       description =
           "This is a repeatable flag used to set command level configurations, currently only"
-              + " applies to git merge operations. E.g. copybara copy.bara.sky --git-cmd-config"
+              + " applies to git merge operations. E.g. cooperbara cooper.bara.sky --git-cmd-config"
               + " google.foo=bar --git-cmd-config google.baz=qux would make git operations done by"
-              + " copybara under the hood use the -c flags: git -c google.foo=bar -c google.baz=qux"
+              + " cooperbara under the hood use the -c flags: git -c google.foo=bar -c google.baz=qux"
               + " ...")
   Map<String, String> gitOptionsParams = new HashMap<>();
 
@@ -66,8 +66,8 @@ public class GitOptions implements Option {
       names = "--git-push-option",
       description =
           "This is a repeatable flag used to set git push level flags to send to git servers. E.g."
-              + " copybara copy.bara.sky --git-push-option foo --git-push-option bar would make git"
-              + " operations done by copybara under the hood use the --push-option flags: git push"
+              + " cooperbara cooper.bara.sky --git-push-option foo --git-push-option bar would make git"
+              + " operations done by cooperbara under the hood use the --push-option flags: git push"
               + " -push-option=foo -push-option=bar ...")
   List<String> gitPushOptions = new ArrayList<>();
 
@@ -75,8 +75,8 @@ public class GitOptions implements Option {
       names = "--allowed-git-push-options",
       splitter = SemicolonSeparatedListSplitter.class,
       description =
-          "This is a flag used to allowlist push options sent to git servers. E.g. copybara"
-              + " copy.bara.sky --git-push-option=\"foo,bar\" would make copybara validate push so"
+          "This is a flag used to allowlist push options sent to git servers. E.g. cooperbara"
+              + " cooper.bara.sky --git-push-option=\"foo,bar\" would make cooperbara validate push so"
               + " that the only push options (if there are any) used are 'foo' and 'bar'. If this"
               + " flag is unset, it will skip push options validation. Set to \"\" to allow no push"
               + " options.")
@@ -107,11 +107,11 @@ public class GitOptions implements Option {
   int visitChangePageSize = 200;
 
   @Parameter(names = "--git-tag-overwrite",
-      description = "If set, copybara will force update existing git tag")
+      description = "If set, cooperbara will force update existing git tag")
   boolean gitTagOverwrite = false;
 
   @Parameter(names = "--experiment-checkout-affected-files",
-      description = "If set, copybara will only checkout affected files at git origin. "
+      description = "If set, cooperbara will only checkout affected files at git origin. "
           + "Note that this is experimental.")
   boolean experimentCheckoutAffectedFiles = false;
 
@@ -234,6 +234,6 @@ public class GitOptions implements Option {
       return new GitRepository.PushOptionsValidator(Optional.empty());
     }
     return new GitRepository.PushOptionsValidator(
-        Optional.of(ImmutableList.copyOf(allowedGitPushOptions)));
+        Optional.of(ImmutableList.cooperOf(allowedGitPushOptions)));
   }
 }

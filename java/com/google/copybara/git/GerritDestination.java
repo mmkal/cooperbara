@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
-import static com.google.copybara.git.GitModule.PRIMARY_BRANCHES;
+import static com.google.cooperbara.git.GitModule.PRIMARY_BRANCHES;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.common.annotations.VisibleForTesting;
@@ -34,33 +34,33 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.flogger.FluentLogger;
 import com.google.common.hash.Hashing;
-import com.google.copybara.ChangeMessage;
-import com.google.copybara.Destination;
-import com.google.copybara.Endpoint;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.LabelFinder;
-import com.google.copybara.Options;
-import com.google.copybara.TransformResult;
-import com.google.copybara.WriterContext;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.checks.Checker;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.exception.RedundantChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitDestination.MessageInfo;
-import com.google.copybara.git.GitDestination.WriterImpl.WriteHook;
-import com.google.copybara.git.gerritapi.ChangeInfo;
-import com.google.copybara.git.gerritapi.ChangesQuery;
-import com.google.copybara.git.gerritapi.GerritApi;
-import com.google.copybara.git.gerritapi.IncludeResult;
-import com.google.copybara.git.gerritapi.SetReviewInput;
-import com.google.copybara.git.gerritapi.SubmitInput;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.revision.Change;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.ChangeMessage;
+import com.google.cooperbara.Destination;
+import com.google.cooperbara.Endpoint;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.LabelFinder;
+import com.google.cooperbara.Options;
+import com.google.cooperbara.TransformResult;
+import com.google.cooperbara.WriterContext;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.checks.Checker;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.exception.RedundantChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitDestination.MessageInfo;
+import com.google.cooperbara.git.GitDestination.WriterImpl.WriteHook;
+import com.google.cooperbara.git.gerritapi.ChangeInfo;
+import com.google.cooperbara.git.gerritapi.ChangesQuery;
+import com.google.cooperbara.git.gerritapi.GerritApi;
+import com.google.cooperbara.git.gerritapi.IncludeResult;
+import com.google.cooperbara.git.gerritapi.SetReviewInput;
+import com.google.cooperbara.git.gerritapi.SubmitInput;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.console.Console;
 import com.google.re2j.Matcher;
 import com.google.re2j.Pattern;
 import java.util.Comparator;
@@ -169,7 +169,7 @@ public final class GerritDestination implements Destination<GitRevision> {
      * Where the hash is generated from the data in the current tree and other data, including the
      * values of the git variables {@code GIT_AUTHOR_IDENT} and {@code GIT_COMMITTER_IDENT}. Checks
      * if the change exists or not by querying Gerrit. It needs to return if the change exists or
-     * not because copybara prints a different output based on if the change already exists in
+     * not because cooperbara prints a different output based on if the change already exists in
      * Gerrit or not.
      */
     @Override
@@ -198,7 +198,7 @@ public final class GerritDestination implements Destination<GitRevision> {
     }
 
     private String computeInternalHashTag(TransformResult result) {
-      return "copybara_id_" + result.getChangeIdentity()
+      return "cooperbara_id_" + result.getChangeIdentity()
           + "_" + committer.getEmail().replaceAll("[ ,]", "_");
     }
 
@@ -224,7 +224,7 @@ public final class GerritDestination implements Destination<GitRevision> {
       Optional<ChangeInfo> maxChangeNumber = changes.stream()
           .max(Comparator.comparingLong(ChangeInfo::getNumber));
       if (changes.size() > 1) {
-        console.warnFmt("Multiple changes found for the same internal copybara tag: %s. Reusing"
+        console.warnFmt("Multiple changes found for the same internal cooperbara tag: %s. Reusing"
                 + " %s",
             changes.stream().map(ChangeInfo::getNumber).collect(Collectors.toList()),
             maxChangeNumber.get().getNumber());

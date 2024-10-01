@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.beust.jcommander.IParameterValidator;
 import com.beust.jcommander.Parameter;
@@ -26,17 +26,17 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Strings;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.LazyResourceLoader;
-import com.google.copybara.Option;
-import com.google.copybara.checks.ApiChecker;
-import com.google.copybara.checks.Checker;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.gerritapi.GerritApi;
-import com.google.copybara.git.gerritapi.GerritApiTransport;
-import com.google.copybara.git.gerritapi.GerritApiTransportImpl;
-import com.google.copybara.git.gerritapi.GerritApiTransportWithChecker;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.LazyResourceLoader;
+import com.google.cooperbara.Option;
+import com.google.cooperbara.checks.ApiChecker;
+import com.google.cooperbara.checks.Checker;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.gerritapi.GerritApi;
+import com.google.cooperbara.git.gerritapi.GerritApiTransport;
+import com.google.cooperbara.git.gerritapi.GerritApiTransportImpl;
+import com.google.cooperbara.git.gerritapi.GerritApiTransportWithChecker;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.regex.Pattern;

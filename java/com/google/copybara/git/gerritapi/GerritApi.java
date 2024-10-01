@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git.gerritapi;
+package com.google.cooperbara.git.gerritapi;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.reflect.TypeToken;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.gerritapi.GerritApiException.ResponseCode;
-import com.google.copybara.profiler.Profiler;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.gerritapi.GerritApiException.ResponseCode;
+import com.google.cooperbara.profiler.Profiler;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -48,7 +48,7 @@ public class GerritApi {
     try (ProfilerTask ignore = profiler.start("gerrit_get_changes")) {
       List<ChangeInfo> result = transport.get("/changes/?" + query.asUrlParams(),
                                               new TypeToken<List<ChangeInfo>>() {}.getType());
-      return ImmutableList.copyOf(result);
+      return ImmutableList.cooperOf(result);
     }
   }
 

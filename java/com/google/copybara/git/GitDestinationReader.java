@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.copybara.config.SkylarkUtil.convertFromNoneable;
+import static com.google.cooperbara.config.SkylarkUtil.convertFromNoneable;
 
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.CheckoutPath;
-import com.google.copybara.DestinationReader;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.git.GitRepository.TreeElement;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.CheckoutPath;
+import com.google.cooperbara.DestinationReader;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.git.GitRepository.TreeElement;
+import com.google.cooperbara.util.Glob;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -57,20 +57,20 @@ public class GitDestinationReader extends DestinationReader {
   }
 
   @Override
-  public void copyDestinationFiles(Object globObj, Object path) throws RepoException,
+  public void cooperDestinationFiles(Object globObj, Object path) throws RepoException,
       EvalException {
     CheckoutPath checkoutPath = convertFromNoneable(path, null);
     Glob glob = Glob.wrapGlob(globObj, null);
     if (checkoutPath == null) {
-      copyDestinationFilesToDirectory(glob, workDir);
+      cooperDestinationFilesToDirectory(glob, workDir);
     } else {
-      copyDestinationFilesToDirectory(
+      cooperDestinationFilesToDirectory(
           glob, checkoutPath.getCheckoutDir().resolve(checkoutPath.getPath()));
     }
   }
 
   @Override
-  public void copyDestinationFilesToDirectory(Glob glob, Path directory) throws RepoException {
+  public void cooperDestinationFilesToDirectory(Glob glob, Path directory) throws RepoException {
     ImmutableList<TreeElement> treeElements = repository.lsTree(baseline, null, true, true);
     PathMatcher pathMatcher = glob.relativeTo(directory);
     for (TreeElement file : treeElements) {

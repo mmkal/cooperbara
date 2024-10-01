@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.MoreObjects;
@@ -26,10 +26,10 @@ import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.ListMultimap;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.git.GitRepository.GitLogEntry;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.CommandOutput;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.git.GitRepository.GitLogEntry;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.CommandOutput;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.Optional;
@@ -196,7 +196,7 @@ public final class GitRevision implements Revision {
 
   @Override
   public ImmutableListMultimap<String, String> associatedLabels() {
-    return ImmutableListMultimap.copyOf(associatedLabels);
+    return ImmutableListMultimap.cooperOf(associatedLabels);
   }
 
   @Override
@@ -214,7 +214,7 @@ public final class GitRevision implements Revision {
     if (label.equals(GitRepository.GIT_TAG_POINTS_AT)) {
       return populateTagPointsAt();
     }
-    return ImmutableList.copyOf(associatedLabels.get(label));
+    return ImmutableList.cooperOf(associatedLabels.get(label));
   }
 
   /**
@@ -241,7 +241,7 @@ public final class GitRevision implements Revision {
 
   private synchronized ImmutableList<String> populateTagPointsAt() {
     if (associatedLabels.containsKey(GitRepository.GIT_TAG_POINTS_AT)) {
-      return ImmutableList.copyOf(associatedLabels.get(GitRepository.GIT_TAG_POINTS_AT));
+      return ImmutableList.cooperOf(associatedLabels.get(GitRepository.GIT_TAG_POINTS_AT));
     }
 
     try {
@@ -257,7 +257,7 @@ public final class GitRevision implements Revision {
 
   private synchronized ImmutableList<String> populateDescribeAbbrev() {
     if (associatedLabels.containsKey(GitRepository.GIT_DESCRIBE_ABBREV)) {
-      return ImmutableList.copyOf(associatedLabels.get(GitRepository.GIT_DESCRIBE_ABBREV));
+      return ImmutableList.cooperOf(associatedLabels.get(GitRepository.GIT_DESCRIBE_ABBREV));
     }
 
     if (describeAbbrev == null) {
@@ -291,7 +291,7 @@ public final class GitRevision implements Revision {
 
   GitRevision withUrl(String url) {
     return new GitRevision(repository, sha1, reviewReference, reference,
-        ImmutableListMultimap.copyOf(associatedLabels), url);
+        ImmutableListMultimap.cooperOf(associatedLabels), url);
   }
 
   GitRevision withTagReference(String tag) {
@@ -300,12 +300,12 @@ public final class GitRevision implements Revision {
         sha1,
         reviewReference,
         tag,
-        ImmutableListMultimap.copyOf(associatedLabels),
+        ImmutableListMultimap.cooperOf(associatedLabels),
         url);
   }
 
   GitRevision withLabels(ImmutableListMultimap<String, String> labels) {
     return new GitRevision(repository, sha1, reviewReference, reference,
-        Revision.addNewLabels(ImmutableListMultimap.copyOf(associatedLabels), labels), url);
+        Revision.addNewLabels(ImmutableListMultimap.cooperOf(associatedLabels), labels), url);
   }
 }

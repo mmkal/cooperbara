@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git.gerritapi;
+package com.google.cooperbara.git.gerritapi;
 
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpHeaders;
@@ -28,11 +28,11 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.JsonObjectParser;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.common.base.Preconditions;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitCredential.UserPassword;
-import com.google.copybara.git.GitRepository;
-import com.google.copybara.json.GsonParserUtil;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitCredential.UserPassword;
+import com.google.cooperbara.git.GitRepository;
+import com.google.cooperbara.json.GsonParserUtil;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.URI;

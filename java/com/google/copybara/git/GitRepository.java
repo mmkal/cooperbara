@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.util.CommandRunner.DEFAULT_TIMEOUT;
-import static com.google.copybara.util.CommandRunner.NO_INPUT;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.util.CommandRunner.DEFAULT_TIMEOUT;
+import static com.google.cooperbara.util.CommandRunner.NO_INPUT;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Joiner;
@@ -41,26 +41,26 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Range;
 import com.google.common.collect.Sets;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.authoring.AuthorParser;
-import com.google.copybara.authoring.InvalidAuthorException;
-import com.google.copybara.exception.AccessValidationException;
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitCredential.UserPassword;
-import com.google.copybara.util.BadExitStatusWithOutputException;
-import com.google.copybara.util.CommandOutput;
-import com.google.copybara.util.CommandOutputWithStatus;
-import com.google.copybara.util.CommandRunner;
-import com.google.copybara.util.FileUtil;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.RepositoryUtil;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.authoring.AuthorParser;
+import com.google.cooperbara.authoring.InvalidAuthorException;
+import com.google.cooperbara.exception.AccessValidationException;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitCredential.UserPassword;
+import com.google.cooperbara.util.BadExitStatusWithOutputException;
+import com.google.cooperbara.util.CommandOutput;
+import com.google.cooperbara.util.CommandOutputWithStatus;
+import com.google.cooperbara.util.CommandRunner;
+import com.google.cooperbara.util.FileUtil;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.RepositoryUtil;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.errorprone.annotations.CheckReturnValue;
-import com.google.copybara.shell.Command;
-import com.google.copybara.shell.CommandException;
+import com.google.cooperbara.shell.Command;
+import com.google.cooperbara.shell.CommandException;
 import com.google.re2j.Matcher;
 import com.google.re2j.Pattern;
 import java.io.IOException;
@@ -411,21 +411,21 @@ public class GitRepository {
           url,
           /* prune= */ false,
           /* force= */ true,
-          ImmutableList.of(ref + ":refs/copybara_fetch/" + ref, "refs/tags/*:refs/tags/*"),
+          ImmutableList.of(ref + ":refs/cooperbara_fetch/" + ref, "refs/tags/*:refs/tags/*"),
           partialFetch,
           depth,
           false);
-      return resolveReferenceWithContext("refs/copybara_fetch/" + ref, /*contextRef=*/ref, url);
+      return resolveReferenceWithContext("refs/cooperbara_fetch/" + ref, /*contextRef=*/ref, url);
     } else {
       fetch(
           url,
           /* prune= */ false,
           /* force= */ true,
-          ImmutableList.of(ref + ":refs/copybara_fetch/" + ref),
+          ImmutableList.of(ref + ":refs/cooperbara_fetch/" + ref),
           partialFetch,
           depth,
           false);
-      return resolveReferenceWithContext("refs/copybara_fetch/" + ref, /*contextRef=*/ref, url);
+      return resolveReferenceWithContext("refs/cooperbara_fetch/" + ref, /*contextRef=*/ref, url);
     }
   }
 
@@ -468,7 +468,7 @@ public class GitRepository {
   }
 
   public ImmutableList<String> tagPointsAt(GitRevision rev) throws RepoException {
-    return ImmutableList.copyOf(
+    return ImmutableList.cooperOf(
         simpleCommand("tag", "--points-at", rev.getSha1()).getStdout().trim().split("\n"));
   }
 
@@ -991,7 +991,7 @@ public class GitRepository {
 
   @CheckReturnValue
   public CherryPickCmd cherryPick(Iterable<String> commits) {
-    return new CherryPickCmd(ImmutableList.copyOf(commits), null, false, false, false);
+    return new CherryPickCmd(ImmutableList.cooperOf(commits), null, false, false, false);
   }
 
   public void abortCherryPick() throws RepoException {
@@ -1051,7 +1051,7 @@ public class GitRepository {
     /** Configure the files to add to the index */
     @CheckReturnValue
     public AddCmd files(String... files) {
-      return files(ImmutableList.copyOf(files));
+      return files(ImmutableList.cooperOf(files));
     }
 
     /** Run the git command */
@@ -1125,7 +1125,7 @@ public class GitRepository {
         modules.add(line.substring("submodule.".length(),
             line.lastIndexOf('.') > 0 ? line.lastIndexOf('.') : line.length()));
       }
-      return ImmutableSet.copyOf(modules);
+      return ImmutableSet.cooperOf(modules);
     } else if (out.getTerminationStatus().getExitCode() == 1 && out.getStderr().isEmpty()) {
       return ImmutableSet.of();
     }
@@ -2191,7 +2191,7 @@ public class GitRepository {
       return new PushCmd(
           repo,
           checkNotNull(url),
-          ImmutableList.copyOf(refspecs),
+          ImmutableList.cooperOf(refspecs),
           prune,
           pushOptions,
           pushOptionsValidator);
@@ -2326,7 +2326,7 @@ public class GitRepository {
     private static final String TAG_FIELD = "tag";
     private static final String BEGIN_BODY = "begin_body";
     private static final String END_BODY = "end_body";
-    private static final String COMMIT_SEPARATOR = "\u0001copybara\u0001";
+    private static final String COMMIT_SEPARATOR = "\u0001cooperbara\u0001";
     private static final Pattern UNINDENT = Pattern.compile("\n    ");
     private static final String GROUP = "--\n";
     private final int limit;
@@ -2745,7 +2745,7 @@ public class GitRepository {
           if (fileString.startsWith("\0\n")) {
             fileString = fileString.substring(2);
           }
-          files = ImmutableSet.copyOf(Splitter.on("\0").omitEmptyStrings().split(fileString));
+          files = ImmutableSet.cooperOf(Splitter.on("\0").omitEmptyStrings().split(fileString));
         }
         ImmutableList.Builder<GitRevision> parents = ImmutableList.builder();
         for (String parent : Splitter.on(" ").omitEmptyStrings()

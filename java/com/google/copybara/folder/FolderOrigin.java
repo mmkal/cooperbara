@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,25 +14,25 @@
  * limitations under the License.
  */
 
-package com.google.copybara.folder;
+package com.google.cooperbara.folder;
 
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
-import com.google.copybara.Origin;
-import com.google.copybara.authoring.Author;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.revision.Change;
-import com.google.copybara.util.AbsoluteSymlinksNotAllowed;
-import com.google.copybara.util.FileUtil;
-import com.google.copybara.util.FileUtil.CopySymlinkStrategy;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.Origin;
+import com.google.cooperbara.authoring.Author;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.util.AbsoluteSymlinksNotAllowed;
+import com.google.cooperbara.util.FileUtil;
+import com.google.cooperbara.util.FileUtil.CopySymlinkStrategy;
+import com.google.cooperbara.util.Glob;
 import java.io.IOException;
 import java.nio.file.FileSystem;
 import java.nio.file.Files;
@@ -55,7 +55,7 @@ public class FolderOrigin implements Origin<FolderRevision> {
   private final Author author;
   private final String message;
   private final Path cwd;
-  private final CopySymlinkStrategy copySymlinkStrategy;
+  private final CopySymlinkStrategy cooperSymlinkStrategy;
 
   FolderOrigin(FileSystem fs, Author author, String message, Path cwd,
       boolean materializeOutsideSymlinks, boolean ignoreInvalidSymlinks) {
@@ -63,7 +63,7 @@ public class FolderOrigin implements Origin<FolderRevision> {
     this.author = author;
     this.message = message;
     this.cwd = Preconditions.checkNotNull(cwd);
-    this.copySymlinkStrategy = ignoreInvalidSymlinks
+    this.cooperSymlinkStrategy = ignoreInvalidSymlinks
             ? CopySymlinkStrategy.IGNORE_INVALID_SYMLINKS
             : materializeOutsideSymlinks
                 ? CopySymlinkStrategy.MATERIALIZE_OUTSIDE_SYMLINKS
@@ -73,8 +73,8 @@ public class FolderOrigin implements Origin<FolderRevision> {
   @Override
   public FolderRevision resolve(@Nullable String reference) throws ValidationException {
     checkCondition(reference != null, ""
-        + "A path is expected as reference in the command line. Invoke copybara as:\n"
-        + "    copybara copy.bara.sky workflow_name ORIGIN_FOLDER");
+        + "A path is expected as reference in the command line. Invoke cooperbara as:\n"
+        + "    cooperbara cooper.bara.sky workflow_name ORIGIN_FOLDER");
     Path path = fs.getPath(reference);
     if (!path.isAbsolute()) {
       path = cwd.resolve(path);
@@ -94,18 +94,18 @@ public class FolderOrigin implements Origin<FolderRevision> {
       public void checkout(FolderRevision ref, Path workdir)
           throws RepoException, ValidationException {
         try {
-          FileUtil.copyFilesRecursively(ref.path, workdir, copySymlinkStrategy, originFiles);
+          FileUtil.cooperFilesRecursively(ref.path, workdir, cooperSymlinkStrategy, originFiles);
           FileUtil.addPermissionsAllRecursively(workdir, FILE_PERMISSIONS);
         } catch (AbsoluteSymlinksNotAllowed e) {
           throw new ValidationException(
-              String.format("Cannot copy files into the workdir: Some"
+              String.format("Cannot cooper files into the workdir: Some"
                         + " symlinks refer to locations outside of the folder and"
                         + " 'materialize_outside_symlinks' config option was not used:\n"
                         + "  %s -> %s\n", e.getSymlink(), e.getDestinationFile()));
         } catch (IOException e) {
           throw new RepoException(
               String.format(
-                  "Cannot copy files into the workdir:\n"
+                  "Cannot cooper files into the workdir:\n"
                       + "  origin folder: %s\n"
                       + "  workdir: %s",
                   ref.path, workdir),

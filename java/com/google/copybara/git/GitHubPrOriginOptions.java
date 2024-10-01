@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 import com.google.common.collect.ImmutableSet;
-import com.google.copybara.Option;
+import com.google.cooperbara.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -96,9 +96,9 @@ public class GitHubPrOriginOptions implements Option {
     if (skipRequiredLabels) {
       return ImmutableSet.of();
     } else if (requiredLabels.isEmpty()) {
-      return ImmutableSet.copyOf(configLabels);
+      return ImmutableSet.cooperOf(configLabels);
     }
-    return ImmutableSet.copyOf(requiredLabels);
+    return ImmutableSet.cooperOf(requiredLabels);
   }
 
   /**
@@ -111,9 +111,9 @@ public class GitHubPrOriginOptions implements Option {
     if (skipRequiredStatusContextNames) {
       return ImmutableSet.of();
     } else if (requiredStatusContextNames.isEmpty()) {
-      return ImmutableSet.copyOf(configStatusContextNames);
+      return ImmutableSet.cooperOf(configStatusContextNames);
     }
-    return ImmutableSet.copyOf(requiredStatusContextNames);
+    return ImmutableSet.cooperOf(requiredStatusContextNames);
   }
 
   /**
@@ -126,9 +126,9 @@ public class GitHubPrOriginOptions implements Option {
     if (skipRequiredCheckRuns) {
       return ImmutableSet.of();
     } else if (requiredCheckRuns.isEmpty()) {
-      return ImmutableSet.copyOf(configCheckRuns);
+      return ImmutableSet.cooperOf(configCheckRuns);
     }
-    return ImmutableSet.copyOf(requiredCheckRuns);
+    return ImmutableSet.cooperOf(requiredCheckRuns);
   }
 
   /**
@@ -140,9 +140,9 @@ public class GitHubPrOriginOptions implements Option {
     if (skipRequiredLabels) {
       return ImmutableSet.of();
     } else if (retryableLabels.isEmpty()) {
-      return ImmutableSet.copyOf(configLabels);
+      return ImmutableSet.cooperOf(configLabels);
     }
-    return ImmutableSet.copyOf(retryableLabels);
+    return ImmutableSet.cooperOf(retryableLabels);
   }
 
 }

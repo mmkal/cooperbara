@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,35 +14,35 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.ImmutableList.toImmutableList;
-import static com.google.copybara.config.SkylarkUtil.convertFromNoneable;
-import static com.google.copybara.config.SkylarkUtil.convertStringList;
-import static com.google.copybara.config.SkylarkUtil.stringToEnum;
-import static com.google.copybara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.config.SkylarkUtil.convertFromNoneable;
+import static com.google.cooperbara.config.SkylarkUtil.convertStringList;
+import static com.google.cooperbara.config.SkylarkUtil.stringToEnum;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.Endpoint;
-import com.google.copybara.EndpointProvider;
-import com.google.copybara.LazyResourceLoader;
-import com.google.copybara.action.Action;
-import com.google.copybara.action.ActionContext;
-import com.google.copybara.config.SkylarkUtil;
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitRepository.BranchCmd;
-import com.google.copybara.git.GitRepository.CherryPickCmd;
-import com.google.copybara.git.GitRepository.RebaseCmd;
-import com.google.copybara.profiler.Profiler;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.transform.SkylarkConsole;
-import com.google.copybara.util.DirFactory;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.Endpoint;
+import com.google.cooperbara.EndpointProvider;
+import com.google.cooperbara.LazyResourceLoader;
+import com.google.cooperbara.action.Action;
+import com.google.cooperbara.action.ActionContext;
+import com.google.cooperbara.config.SkylarkUtil;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitRepository.BranchCmd;
+import com.google.cooperbara.git.GitRepository.CherryPickCmd;
+import com.google.cooperbara.git.GitRepository.RebaseCmd;
+import com.google.cooperbara.profiler.Profiler;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.transform.SkylarkConsole;
+import com.google.cooperbara.util.DirFactory;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;

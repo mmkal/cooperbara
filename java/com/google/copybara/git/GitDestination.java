@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git;
+package com.google.cooperbara.git;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.copybara.DestinationReader.NOOP_DESTINATION_READER;
-import static com.google.copybara.GeneralOptions.FORCE;
-import static com.google.copybara.LazyResourceLoader.memoized;
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.git.GitModule.PRIMARY_BRANCHES;
-import static com.google.copybara.util.FileUtil.copyFilesRecursively;
-import static com.google.copybara.util.FileUtil.deleteRecursively;
+import static com.google.cooperbara.DestinationReader.NOOP_DESTINATION_READER;
+import static com.google.cooperbara.GeneralOptions.FORCE;
+import static com.google.cooperbara.LazyResourceLoader.memoized;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.git.GitModule.PRIMARY_BRANCHES;
+import static com.google.cooperbara.util.FileUtil.cooperFilesRecursively;
+import static com.google.cooperbara.util.FileUtil.deleteRecursively;
 import static java.lang.String.format;
 
 import com.google.common.annotations.VisibleForTesting;
@@ -36,35 +36,35 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Iterables;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.ChangeMessage;
-import com.google.copybara.Destination;
-import com.google.copybara.DestinationReader;
-import com.google.copybara.DestinationStatusVisitor;
-import com.google.copybara.Endpoint;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.LabelFinder;
-import com.google.copybara.LazyResourceLoader;
-import com.google.copybara.Origin;
-import com.google.copybara.TransformResult;
-import com.google.copybara.WriterContext;
-import com.google.copybara.checks.Checker;
-import com.google.copybara.checks.DescriptionChecker;
-import com.google.copybara.effect.DestinationEffect;
-import com.google.copybara.exception.AccessValidationException;
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.ChangeRejectedException;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitDestination.WriterImpl.WriteHook;
-import com.google.copybara.git.GitRepository.GitLogEntry;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.revision.Change;
-import com.google.copybara.revision.Revision;
-import com.google.copybara.util.DiffUtil;
-import com.google.copybara.util.FileUtil.CopySymlinkStrategy;
-import com.google.copybara.util.Glob;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.ChangeMessage;
+import com.google.cooperbara.Destination;
+import com.google.cooperbara.DestinationReader;
+import com.google.cooperbara.DestinationStatusVisitor;
+import com.google.cooperbara.Endpoint;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.LabelFinder;
+import com.google.cooperbara.LazyResourceLoader;
+import com.google.cooperbara.Origin;
+import com.google.cooperbara.TransformResult;
+import com.google.cooperbara.WriterContext;
+import com.google.cooperbara.checks.Checker;
+import com.google.cooperbara.checks.DescriptionChecker;
+import com.google.cooperbara.effect.DestinationEffect;
+import com.google.cooperbara.exception.AccessValidationException;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.ChangeRejectedException;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitDestination.WriterImpl.WriteHook;
+import com.google.cooperbara.git.GitRepository.GitLogEntry;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.revision.Revision;
+import com.google.cooperbara.util.DiffUtil;
+import com.google.cooperbara.util.FileUtil.CopySymlinkStrategy;
+import com.google.cooperbara.util.Glob;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -630,7 +630,7 @@ public class GitDestination implements Destination<GitRevision> {
       String localBranchName = "";
       if (localRepoPath != null) {
         if (afterRebaseRev != null) {
-          localBranchName = "copybara/local";
+          localBranchName = "cooperbara/local";
           alternate.simpleCommand("checkout", "-B", localBranchName, afterRebaseRev.getSha1());
         }
         scratchClone.simpleCommand("checkout", state.localBranch);
@@ -692,7 +692,7 @@ public class GitDestination implements Destination<GitRevision> {
                               : ImmutableList.of(
                                   scratchClone.createRefSpec(
                                       (nonFastForwardPush ? "+" : "") + "HEAD:" + push)))
-                      .withPushOptions(ImmutableList.copyOf(gitOptions.gitPushOptions))
+                      .withPushOptions(ImmutableList.cooperOf(gitOptions.gitPushOptions))
                       .run());
       return writeHook.afterPush(serverResponse, messageInfo, head, originChanges);
     }
@@ -721,18 +721,18 @@ public class GitDestination implements Destination<GitRevision> {
       GitLogEntry commit = Iterables.getOnlyElement(head);
       ImmutableSet<String> files = commit.getFiles();
       Path target = alternate.getWorkTree();
-      // If only a few files, create a copy of those modified files so that the checker doesn't
+      // If only a few files, create a cooper of those modified files so that the checker doesn't
       // have to check all the existing tree.
       if (files != null && files.size() < SMALL_NUM_FILES_CHECKER_THRESHOLD) {
         Path dest = generalOptions.getDirFactory().newTempDir("git_dest_checker");
         try {
-          copyFilesRecursively(
+          cooperFilesRecursively(
               alternate.getWorkTree(),
               dest,
               CopySymlinkStrategy.IGNORE_INVALID_SYMLINKS,
               Glob.wrapGlob(StarlarkList.immutableCopyOf(files), null));
         } catch (EvalException e) {
-          throw new ValidationException("Could not copy files.", e);
+          throw new ValidationException("Could not cooper files.", e);
         }
         target = dest;
       }
@@ -839,11 +839,11 @@ public class GitDestination implements Destination<GitRevision> {
 
       if (localRepoPath != null) {
         // Configure the local repo to allow pushing to the ref manually outside of Copybara
-        repo.simpleCommand("config", "remote.copybara_remote.url", repoUrl);
-        repo.simpleCommand("config", "remote.copybara_remote.push",
+        repo.simpleCommand("config", "remote.cooperbara_remote.url", repoUrl);
+        repo.simpleCommand("config", "remote.cooperbara_remote.push",
             state.localBranch + ":" + push);
         repo.simpleCommand("config", "branch." + state.localBranch
-            + ".remote", "copybara_remote");
+            + ".remote", "cooperbara_remote");
       }
       if (!Strings.isNullOrEmpty(committerName)) {
         repo.simpleCommand("config", "user.name", committerName);
