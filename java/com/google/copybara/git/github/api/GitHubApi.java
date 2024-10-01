@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git.github.api;
+package com.google.cooperbara.git.github.api;
 
 import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.copybara.exception.ValidationException.checkCondition;
-import static com.google.copybara.git.github.api.GitHubApiException.ResponseCode.CONFLICT;
+import static com.google.cooperbara.exception.ValidationException.checkCondition;
+import static com.google.cooperbara.git.github.api.GitHubApiException.ResponseCode.CONFLICT;
 import static java.util.stream.Collectors.joining;
 
 import com.google.common.base.Ascii;
@@ -27,12 +27,12 @@ import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.reflect.TypeToken;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.github.api.GitHubApiException.ResponseCode;
-import com.google.copybara.git.github.api.Issue.CreateIssueRequest;
-import com.google.copybara.profiler.Profiler;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.github.api.GitHubApiException.ResponseCode;
+import com.google.cooperbara.git.github.api.Issue.CreateIssueRequest;
+import com.google.cooperbara.profiler.Profiler;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.errorprone.annotations.FormatMethod;
 import com.google.errorprone.annotations.FormatString;
@@ -60,7 +60,7 @@ public class GitHubApi {
 
   /**
    * Get all the pull requests for a project
-   * @param projectId a project in the form of "google/copybara"
+   * @param projectId a project in the form of "google/cooperbara"
    */
   public ImmutableList<PullRequest> getPullRequests(
       String projectId, PullRequestListParams params)
@@ -110,7 +110,7 @@ public class GitHubApi {
     /**
      * Creates filter params for searching issues and pull requests.
      *
-     * @param repo - project name in the example form of google/copybara
+     * @param repo - project name in the example form of google/cooperbara
      * @param commit - filter issues and pull requests by involved commit sha.
      * @param type - Filter for issues pull requests.
      * @param state - Filter for closed or open pull requests and issues.
@@ -220,7 +220,7 @@ public class GitHubApi {
   /**
    * Get a specific pull request for a project
    *
-   * @param projectId a project in the form of "google/copybara"
+   * @param projectId a project in the form of "google/cooperbara"
    * @param number the PR number
    */
   public PullRequest getPullRequest(String projectId, long number)
@@ -235,7 +235,7 @@ public class GitHubApi {
   /**
    * Get comments for a specific pull request
    *
-   * @param projectId a project in the form of "google/copybara"
+   * @param projectId a project in the form of "google/cooperbara"
    * @param commentId The comment id
    */
   public PullRequestComment getPullRequestComment(String projectId, long commentId)
@@ -251,7 +251,7 @@ public class GitHubApi {
   /**
    * Get comments for a specific pull request
    *
-   * @param projectId a project in the form of "google/copybara"
+   * @param projectId a project in the form of "google/cooperbara"
    * @param prNumber the PR prNumber
    */
   public ImmutableList<PullRequestComment> getPullRequestComments(String projectId, long prNumber)
@@ -267,7 +267,7 @@ public class GitHubApi {
   /**
    * Get reviews for a pull request
    *
-   * @param projectId a project in the form of "google/copybara"
+   * @param projectId a project in the form of "google/cooperbara"
    * @param number the pull request number
    */
   public ImmutableList<Review> getReviews(String projectId, long number)
@@ -376,7 +376,7 @@ public class GitHubApi {
    * Get a specific issue for a project.
    *
    * <p>Use this method to get the Pull Request labels.
-   * @param projectId a project in the form of "google/copybara"
+   * @param projectId a project in the form of "google/cooperbara"
    * @param number the issue number
    */
   public Issue getIssue(String projectId, long number)
@@ -400,7 +400,7 @@ public class GitHubApi {
 
   /**
    * Get all the refs for a repo (git ls-remote)
-   * @param projectId a project in the form of "google/copybara"
+   * @param projectId a project in the form of "google/cooperbara"
    */
   public ImmutableList<Ref> getLsRemote(String projectId)
       throws RepoException, ValidationException {
@@ -409,7 +409,7 @@ public class GitHubApi {
           transport.get(new TypeToken<List<Ref>>() {}.getType(),
               "repos/%s/git/refs?per_page=%d", projectId, MAX_PER_PAGE);
 
-      return ImmutableList.copyOf(result);
+      return ImmutableList.cooperOf(result);
     } catch (GitHubApiException e) {
       // Per https://developer.github.com/v3/git/, GH returns 409 - conflict if the repo is empty
       // or in the process of being created
@@ -496,7 +496,7 @@ public class GitHubApi {
   public CombinedStatus getCombinedStatus(String projectId, String ref)
       throws RepoException, ValidationException {
     try (ProfilerTask ignore = profiler.start("github_api_get_combined_status")) {
-      // TODO(copybara-team): We might consider add paginatedGet to get all the statuses of a ref
+      // TODO(cooperbara-team): We might consider add paginatedGet to get all the statuses of a ref
       //  in future. At the moment, the latest 100 statues are enough as the older statues are
       //  useless.
       return transport.get(CombinedStatus.class,
@@ -543,7 +543,7 @@ public class GitHubApi {
   public ImmutableList<Label> addLabels(String project, long prNumber, List<String> labels)
       throws RepoException, ValidationException {
     try (ProfilerTask ignore = profiler.start("github_api_add_labels")) {
-      return ImmutableList.copyOf(transport.<List<Label>>post(
+      return ImmutableList.cooperOf(transport.<List<Label>>post(
           new AddLabels(labels),
           new TypeToken<List<Label>>() {
           }.getType(), "repos/%s/issues/%s/labels", project, prNumber));

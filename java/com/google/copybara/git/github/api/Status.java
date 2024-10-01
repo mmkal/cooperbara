@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git.github.api;
+package com.google.cooperbara.git.github.api;
 
 import static com.google.common.collect.Iterables.transform;
 
@@ -23,7 +23,7 @@ import com.google.api.client.util.Value;
 import com.google.common.base.Ascii;
 import com.google.common.base.Enums;
 import com.google.common.collect.ImmutableSet;
-import com.google.copybara.exception.RepoException;
+import com.google.cooperbara.exception.RepoException;
 import java.time.ZonedDateTime;
 import java.util.EnumSet;
 import javax.annotation.Nullable;
@@ -138,6 +138,6 @@ public class Status implements StarlarkValue {
     @Value("success") SUCCESS;
 
     public static final ImmutableSet<String> VALID_VALUES =
-        ImmutableSet.copyOf(transform(EnumSet.allOf(State.class), e -> e.toString().toLowerCase()));
+        ImmutableSet.cooperOf(transform(EnumSet.allOf(State.class), e -> e.toString().toLowerCase()));
   }
 }

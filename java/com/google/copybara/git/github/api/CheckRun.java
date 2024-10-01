@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git.github.api;
+package com.google.cooperbara.git.github.api;
 
 import com.google.api.client.util.Key;
 import com.google.api.client.util.NullValue;
@@ -141,7 +141,7 @@ public class CheckRun implements StarlarkValue {
     if (pullRequests == null) {
       return ImmutableList.of();
     }
-    return ImmutableList.copyOf(pullRequests);
+    return ImmutableList.cooperOf(pullRequests);
   }
 
   /**

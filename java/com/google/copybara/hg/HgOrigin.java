@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.hg;
+package com.google.cooperbara.hg;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.copybara.Origin.Reader.ChangesResponse.noChanges;
-import static com.google.copybara.util.Glob.affectsRoots;
+import static com.google.cooperbara.Origin.Reader.ChangesResponse.noChanges;
+import static com.google.cooperbara.util.Glob.affectsRoots;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.CharMatcher;
@@ -27,19 +27,19 @@ import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.Options;
-import com.google.copybara.Origin;
-import com.google.copybara.Origin.Reader.ChangesResponse.EmptyReason;
-import com.google.copybara.authoring.Authoring;
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.EmptyChangeException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.hg.HgRepository.HgLogEntry;
-import com.google.copybara.revision.Change;
-import com.google.copybara.util.FileUtil;
-import com.google.copybara.util.Glob;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.Options;
+import com.google.cooperbara.Origin;
+import com.google.cooperbara.Origin.Reader.ChangesResponse.EmptyReason;
+import com.google.cooperbara.authoring.Authoring;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.EmptyChangeException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.hg.HgRepository.HgLogEntry;
+import com.google.cooperbara.revision.Change;
+import com.google.cooperbara.util.FileUtil;
+import com.google.cooperbara.util.Glob;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.regex.Pattern;

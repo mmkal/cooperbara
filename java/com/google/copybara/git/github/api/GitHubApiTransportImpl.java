@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git.github.api;
+package com.google.cooperbara.git.github.api;
 
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpHeaders;
@@ -31,12 +31,12 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.Iterables;
 import com.google.common.flogger.FluentLogger;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.git.GitCredential.UserPassword;
-import com.google.copybara.git.GitRepository;
-import com.google.copybara.json.GsonParserUtil;
-import com.google.copybara.util.console.Console;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.git.GitCredential.UserPassword;
+import com.google.cooperbara.git.GitRepository;
+import com.google.cooperbara.json.GsonParserUtil;
+import com.google.cooperbara.util.console.Console;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.URI;

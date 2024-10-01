@@ -2,7 +2,7 @@
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# You may obtain a cooper of the License at
 #
 #      http://www.apache.org/licenses/LICENSE-2.0
 #
@@ -22,8 +22,8 @@ java_library(
     name = "html",
     srcs = glob(["**/*.java"]),
     deps = [
-        "//java/com/google/copybara/doc:annotations",
-        "//java/com/google/copybara/exception",
+        "//java/com/google/cooperbara/doc:annotations",
+        "//java/com/google/cooperbara/exception",
         "//third_party:guava",
         "//third_party:jsoup",
         "//third_party:starlark",

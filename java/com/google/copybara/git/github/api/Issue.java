@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git.github.api;
+package com.google.cooperbara.git.github.api;
 
 import com.google.api.client.util.Key;
 import com.google.common.collect.ImmutableList;
@@ -51,7 +51,7 @@ public class Issue extends PullRequestOrIssue implements StarlarkValue {
     public CreateIssueRequest(String title, String body, List<String> assignees) {
       this.title = title;
       this.body = body;
-      this.assignees = ImmutableList.copyOf(assignees);
+      this.assignees = ImmutableList.cooperOf(assignees);
     }
 
     public String getTitle() {
@@ -63,7 +63,7 @@ public class Issue extends PullRequestOrIssue implements StarlarkValue {
     }
 
     public ImmutableList<String> getAssignees() {
-      return ImmutableList.copyOf(assignees);
+      return ImmutableList.cooperOf(assignees);
     }
   }
 

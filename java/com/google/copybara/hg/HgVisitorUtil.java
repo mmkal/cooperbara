@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.google.copybara.hg;
+package com.google.cooperbara.hg;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.copybara.ChangeVisitable.ChangesVisitor;
-import com.google.copybara.ChangeVisitable.VisitResult;
-import com.google.copybara.GeneralOptions;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.profiler.Profiler.ProfilerTask;
-import com.google.copybara.revision.Change;
+import com.google.cooperbara.ChangeVisitable.ChangesVisitor;
+import com.google.cooperbara.ChangeVisitable.VisitResult;
+import com.google.cooperbara.GeneralOptions;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.profiler.Profiler.ProfilerTask;
+import com.google.cooperbara.revision.Change;
 
 /**
  * Utility methods for visiting Mercurial (Hg) repositories.

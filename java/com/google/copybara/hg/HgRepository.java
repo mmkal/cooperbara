@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.hg;
+package com.google.cooperbara.hg;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.copybara.util.CommandRunner.DEFAULT_TIMEOUT;
-import static com.google.copybara.util.RepositoryUtil.validateNotHttp;
+import static com.google.cooperbara.util.CommandRunner.DEFAULT_TIMEOUT;
+import static com.google.cooperbara.util.RepositoryUtil.validateNotHttp;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
@@ -26,18 +26,18 @@ import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.reflect.TypeToken;
-import com.google.copybara.exception.CannotResolveRevisionException;
-import com.google.copybara.exception.RepoException;
-import com.google.copybara.exception.ValidationException;
-import com.google.copybara.util.BadExitStatusWithOutputException;
-import com.google.copybara.util.CommandOutput;
-import com.google.copybara.util.CommandOutputWithStatus;
-import com.google.copybara.util.CommandRunner;
+import com.google.cooperbara.exception.CannotResolveRevisionException;
+import com.google.cooperbara.exception.RepoException;
+import com.google.cooperbara.exception.ValidationException;
+import com.google.cooperbara.util.BadExitStatusWithOutputException;
+import com.google.cooperbara.util.CommandOutput;
+import com.google.cooperbara.util.CommandOutputWithStatus;
+import com.google.cooperbara.util.CommandRunner;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 import com.google.gson.annotations.SerializedName;
-import com.google.copybara.shell.Command;
-import com.google.copybara.shell.CommandException;
+import com.google.cooperbara.shell.Command;
+import com.google.cooperbara.shell.CommandException;
 import com.google.re2j.Pattern;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -104,7 +104,7 @@ public class HgRepository {
    * Finds all changes from a repository at {@code url} and adds to the current repository.
    * Defaults to forced pull.
    *
-   * <p>This does not update the copy of the project in the working directory.
+   * <p>This does not update the cooper of the project in the working directory.
    *
    * @param url remote hg repository url
    */
@@ -116,7 +116,7 @@ public class HgRepository {
    * Finds a single reference from a repository at {@code url} and adds to the current repository.
    * Defaults to forced pull.
    *
-   * <p>This does not update the copy of the project in the working directory.
+   * <p>This does not update the cooper of the project in the working directory.
    *
    * @param url remote hg repository url
    * @param ref the remote revision to add
@@ -375,7 +375,7 @@ public class HgRepository {
 
       try {
         List<HgLogEntry> logEntries = gson.fromJson(log.trim(), logListType);
-        return ImmutableList.copyOf(logEntries);
+        return ImmutableList.cooperOf(logEntries);
       } catch (JsonParseException e) {
         throw new RepoException(String.format("Cannot parse log output: %s", e.getMessage()));
       }
@@ -398,12 +398,12 @@ public class HgRepository {
         List<String> commitDate, String branch,
         String desc, List<String> files) {
       this.globalId = checkNotNull(node);
-      this.parents = ImmutableList.copyOf(parents);
+      this.parents = ImmutableList.cooperOf(parents);
       this.user = user;
       this.commitDate = commitDate;
       this.branch = branch;
       this.description = desc;
-      this.files = ImmutableList.copyOf(files);
+      this.files = ImmutableList.cooperOf(files);
     }
 
     public List<String> getParents() {

@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.copybara.hg;
+package com.google.cooperbara.hg;
 
-import static com.google.copybara.config.SkylarkUtil.checkNotEmpty;
+import static com.google.cooperbara.config.SkylarkUtil.checkNotEmpty;
 
 import com.google.common.base.Preconditions;
-import com.google.copybara.Options;
-import com.google.copybara.config.LabelsAwareModule;
-import com.google.copybara.doc.annotations.UsesFlags;
+import com.google.cooperbara.Options;
+import com.google.cooperbara.config.LabelsAwareModule;
+import com.google.cooperbara.doc.annotations.UsesFlags;
 import net.starlark.java.annot.Param;
 import net.starlark.java.annot.StarlarkBuiltin;
 import net.starlark.java.annot.StarlarkMethod;

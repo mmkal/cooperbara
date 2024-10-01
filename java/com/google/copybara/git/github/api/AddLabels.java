@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git.github.api;
+package com.google.cooperbara.git.github.api;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -30,12 +30,12 @@ public class AddLabels {
   @Key List<String> labels;
 
   public AddLabels(List<String> labels) {
-    this.labels = checkNotNull(ImmutableList.copyOf(labels));
+    this.labels = checkNotNull(ImmutableList.cooperOf(labels));
   }
 
   public AddLabels() { }
 
   public ImmutableList<String> getLabels() {
-    return ImmutableList.copyOf(labels);
+    return ImmutableList.cooperOf(labels);
   }
 }

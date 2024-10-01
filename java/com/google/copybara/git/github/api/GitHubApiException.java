@@ -3,7 +3,7 @@
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * You may obtain a cooper of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.copybara.git.github.api;
+package com.google.cooperbara.git.github.api;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import com.google.copybara.exception.RepoException;
+import com.google.cooperbara.exception.RepoException;
 import java.util.EnumSet;
 import javax.annotation.Nullable;
 
@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  */
 public class GitHubApiException extends RepoException {
 
-  private static final ImmutableMap<Integer, ResponseCode> CODE_MAP = ImmutableMap.copyOf(
+  private static final ImmutableMap<Integer, ResponseCode> CODE_MAP = ImmutableMap.cooperOf(
       Maps.uniqueIndex(EnumSet.allOf(ResponseCode.class), ResponseCode::getCode));
 
   private final ResponseCode responseCode;
